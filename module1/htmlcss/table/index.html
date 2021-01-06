@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableaux en HTML</title>
+    <meta name="description" content="Présenter des données  tabulaires">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="banner">
+        <a class="site-logo" href="./">A table</a>
+        <p class="site-description">Présenter des factures</p>
+        <nav class="banner-nav">
+            <a href="index.html" class="is-current">Liste des factures</a>
+            <a href="facture.html">Une facture</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Liste des factures</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Numéro</th>
+                    <th>Date de facture</th>
+                    <th>Nom du client</th>
+                    <th>Totale HT</th>
+                    <th>Montant TVA</th>
+                    <th>Total TTC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>01/12/2020</td>
+                    <td>Tante Huguette</td>
+                    <td>400.00</td>
+                    <td>80.00</td>
+                    <td>480.00</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>05/12/2020</td>
+                    <td>Toto</td>
+                    <td>100.00</td>
+                    <td>20.00</td>
+                    <td>120.00</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="3" scope="row">Total</th>
+                    <td>500.00</td>
+                    <td>100.00</td>
+                    <td>600.00</td>
+                </tr>
+            </tfoot>
+        </table>
+    </main>
+    <footer class="footer">
+        <p><a href="https://www.gretanet.com/action.php?idAction=3443&refererPage=listing" title="En savoir plus sur la formation">Formation Développeur Développeur WEB - GRETA</a></p>
+        <p>&copy; Elève : Quentin POGGI - Module HTML /CSS</p>
+        <p>Photos empruntées à <a href="https://www.google.com/imghp%22%3E"> Google images</a></p>
+        <a id="goTop" href="#" title="Haut de page">&UpArrow;</a>
+    </footer>
+</body>
+</html>

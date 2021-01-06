@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">    <!--commentaire HTML : ltr de gauche à droite -->
+  <head>
+    <meta charset="utf-8">
+    <title>Environnement WEB</title>
+    <meta name="description" content="Introduction à l'environnement WEB : ses objectifs, le mode d'accès et les technologies concernées">
+    <link href="./styles.css" rel="stylesheet">
+</head>
+  <body>
+    <h1>L'environnement WEB</h1>
+
+    <nav>
+      <a href="#s1">Qu'es-ce que le WEB ?</a>
+      <a href="#s2">Standards du Web</a>
+      <a href="#s3">WebDesign</a>
+      <a href="#s4">Accès aux pages Web</a>
+      <a href="#s5">Les langages du WEB</a>
+    </nav>
+
+    <div id="s1" class="section">
+      <h2>Qu'es-ce que le WEB ?</h2>
+
+      <p>Le Web fait référence au système hypertexte fonctionnant sur le réseau informatique mondial Internet.</p>
+      <p>Le WEB fut créé au tournant des années 1990 par <strong>Timothy John Berners-Lee</strong>, informaticien britannique.</p>
+
+      <h3>hypertexte</h3>
+
+      <p>Un système hypertexte est un système contenant des "unités minimales d'information" liées entre elles par des hyperliens.<br>
+      Les liens permettent d'accéder à l'information d'une manière associative (par association d'idées) au gré de l'utilisateur.</p>
+
+      <h3>Web sémentique</h3>
+
+      <p>Le Web sémantique vise à automatiser l’extraction et l’exploitation de toutes les données présentes sur la toile.<br>
+        Le Web a vocation à devenir une base documentaire, à la fois culturelle mais aussi commerciale.</p>
+    </div>
+
+    <hr>    <!--commentaire HTML : <hr> pour insérer une ligne visible -->
+
+    <div id="s2" class="section" >
+      <h2>Standards du Web</h2>
+
+      <p>Les langages du web reposent sur des normes et des standards. Les organisations de normalisation, comme le <strong>W3C (World Wide Web Consortium)</strong>, créent un consensus à travers ces groupes et ces experts pour maintenir et développer des principes architecturaux cohérents.</p>
+
+      <h3>Accessibilité</h3>
+
+      <p>L'accessibilité consiste à mettre le Web et ses services à la disposition de tous les individus, quelque soit leur matériel ou logiciel, leur infrastructure réseau, leur langue maternelle, leur culture, leur localisation géographique, ou leurs aptitudes physiques ou mentales <br>
+      <br>
+
+      Elle est définie par des normes techniques établies par la WAI</p>
+    </div>
+
+    <hr>
+
+    <div id="s3" class="section">
+      <h2>WebDesign</h2>
+
+      <h3>Ergonomie</h3>
+
+      <p>L'ergonomie est l'étude de la relation entre l'homme et ses moyens, méthodes et milieux de travail dans le but de concevoir des outils pouvant être utilisés avec le maximum de confort, de sécurité et d'efficacité <br>
+        <br>
+
+        L'ergonomie d'un site web est une démarche transversale qui s'applique dès la conception et qui consiste à concevoir une interface d'utilisation la mieux adaptée aux utilisateurs visés, de manière à faciliter sa consultation et son utilisation.</p>
+
+        <h3>UX et UI DESIGN</h3>
+
+        <h4>UI : interface utilisateur</h4>
+
+        <p>L’interface utilisateur (User Interface) correspond au design et à la facilité offerte à l’utilisateur pour accèder aux différentes informations présentes sur ce site (choix des polices, des icônes, agencement des éléments graphiques)</p>
+
+        <h4>UX : expérience utilisateur</h4>
+
+        <p>L’expérience utilisateur (User eXperience) intègre l’interface utilisateur (UI) mais prend également en compte les besoins de l’internaute pour qu’il atteigne son but lors de sa navigation (achat, recherche d’une information, contact, etc.). Le but étant de proposer la meilleure expérience pour lui.</p>
+        <br>
+        <p>Pour en savoir plus : <a href="http://www.withdesigners.com/blog/conseils/ux-ui-design-differences">UX et UI DESIGN : quelles différences ?</a><br></p>
+
+    </div>
+
+    <hr>
+
+    <div id="s4" class="section">
+
+      <h2>Accès aux pages Web</h2>
+
+      <p>Les pages web sont des fichiers accessibles via une adresse unique, appelée URL permettant à un navigateur (logiciel permettant la lecture des pages web) d'y accéder.</p>
+      <p>Cet envoi de fichier est le résultat d'un dialogue entre l'ordinateur de l'utilisateur, appelé <strong>système Client</strong> et un ordinateur distant <strong>appelé Serveur Web</strong> </p>
+
+      <h3>Le protocole HTTP</h3>
+
+      <p>Ce dialogue s'effectue au travers un programme appelé <strong>protocole de communication HTTP</strong></p>
+      <img src="./img/http.png" alt="Illustration du protocole HTTP dans la barre d'adresse d'un navigateur/" width="400" height="322">
+
+      <!-- pour l'image mettre un point pour l'url relative et l'url commence depuis le domaine qui ici se nome quentin.greta-->
+
+    </div>
+
+    <hr>
+
+    <div id="s5" class="section">
+      <h2>Les langages du WEB</h2>
+
+      <h3>Les langages interprétés par un navigateur</h3>
+
+                    <!--commentaire HTML : ol li pour liste numéroté -->
+
+      <ol>
+        <li><strong>HTML</strong> : Hypertexte Markup Language</li>
+        <li><strong>XML</strong> : eXtended Markup Language</li>
+        <li><strong>CSS</strong> : Cascading Style Sheets</li>
+        <li><strong>javaScript</strong> : compatible sur tous les navigateurs, il se base sur le langage normalisé <a href="https://fr.wikipedia.org/wiki/ECMAScript">ECMAScript</a></li>
+      </ol>
+
+      <h3>Langages de programmation</h3>
+
+                    <!--commentaire HTML ul li pour liste à puce -->
+
+      <ul>
+        <li><strong>JAVA</strong> :JAVA est un langage de programmation développé par Sun Microsystems (aujourd'hui racheté par Oracle), à ne pas confondre avec JavaScript. JAVA est largement utilisé pour le développement d'applications d'entreprises et mobiles; une de ses plus grandes forces est son excellente portabilité</li>
+        <li><strong>PHP</strong> : est un langage de programmation libre, principalement utilisé pour produire des pages Web dynamiques via un serveur HTTP.</li>
+        <li><strong>Python</strong> </li>
+        <li><strong>Ruby</strong> </li>
+        <li><strong>ASP</strong> </li>
+        <li>etc. </li>
+      </ul>
+
+      <h3>Stockage et gestion des informations</h3>
+
+                    <!--commentaire HTML : <dl> <dt>titre de la definition</dt> <dd>le définition elle même</dd></dl> -->
+
+      <dl>
+        <dt>Bases de données</dt>
+        <dd> Une base de données informatique est un ensemble de données stockées de manière structurée et organisée, afin d'être facilement consultées et modifiées.</dd>
+      </dl>
+
+      <p>Un Système de Gestion de Base de Données (SGBD) est un logiciel (ou un ensemble de logiciels) permettant de manipuler les données d'une base de données; parmi les plus connus :</p>
+
+      <ul>
+        <li>MySQL</li>
+        <li>MariaDB</li>
+        <li>Oracle</li>
+        <li>Microsoft SQL Server</li>
+        <li>etc</li>
+      </ul>
+    </div>
+  </body>
+</html>

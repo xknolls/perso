@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Formulaire</title>
+    <meta name="description" content="Préenter une interface de saisie de formulaire">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="banner">
+        <a href="site-logo" href="./">Formulaires</a>
+        <p class="site-description">Les différents champs de saisie</p>
+        <nav class="banner-nav">
+            <a href="">Un lien</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Formulaires</h1>
+        <section>
+            <h2>Méthide de soumission :  post</h2>
+            <form method="POST" action="post.php" enctype="multipart/form-data" novalidate>
+                <fieldset>
+                    <p class="form-help">Les champs précédés d'un (*) sont obligatoires.</p>
+                    <legend>Saisies de texte</legend>
+                    <div class="form-group">
+                        <label for=text>Ligne de texte obligatoire*</label>
+                        <input type="text" name="text" id="text" required minlength="2" maxlength="8" aria-describedby="help-text">
+                        <p id="help-text" class="form-help">Le champ est obligatoire, doit contenir au minimum 2 carcatères et 5 au maximun</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="text">Email</label>
+                        <input type="email" name="email" id="email" placeholder="email@exemple.com" size="40">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Bloc de texte</label>
+                        <textarea name="messgae" id="message" cols="80" rows="8" spellcheck="true"></textarea>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Prposer des valeurs : listes de choix</legend>
+                    <fieldset>
+                        <legend>Choix mulptiples</legend>
+                        <div class="form-check">
+                            <label for="choice1">
+                                <input type="checkbox" id="choice1" name="checkbox[]" value="1" checked>
+                                Choix 1
+                            </label>
+                            <label for="choice2">
+                                <input type="checkbox" id="choice2" name="checkbox[]" value="2">
+                                Choix 2
+                            </label>
+                            <label for="choice3">
+                                <input type="checkbox" id="choice3" name="checkbox[]" value="3">
+                                Choix 3
+                            </label>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Choix unique</legend>
+                        <div class="form-check">
+                            <label for="on">
+                                <input type="radio" id="on" name="choice">
+                                Oui
+                            </label>
+                            <label for="off">
+                                <input type="radio" id="off" name="choice">
+                                Non
+                            </label>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Liste de choix</legend>
+                        <div>
+                            <select name="contry" id="contry" aria-label="Choix du pays">
+                                <option>Choisir un pays</option>
+                                <optgroup label="Europe">
+                                <option value="en">Angleterre</option>
+                                <option value="es">Espagne</option>
+                                <option value="fr" selected>France</option>
+                                <option value="it">Italie</option>
+                                </optgroup>
+                                <optgroup label="Amérique">
+                                <option value="ca">Canada</option>
+                                <option value="us">USA</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Autres types de champs</legend>
+                        <input type="hidden" name="id_article" value="135">
+                        <div class="form-group">
+                            <label for="pass">Mot de passe</label>
+                            <input type="password" id="pass" name="pass">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                pattern="+{11}[0-9]" 
+                                placeholder="+336..." 
+                                name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date</label>
+                            <input type="date" id="date" name="date">
+                        </div>
+                        <div class="form-group">
+                            <label for="range">Intervalle</label>
+                            <input type="range" id="range" name="range" min="0" max="100" value="50">
+                        </div>
+                        <div class="form-group">
+                            <label for="number">Nombre</label>
+                            <input type="number" min="0" max="100" step="1">
+                        </div>
+                        <div class="form-group">
+                            <label for="file">Déposer un dossier</label>
+                            <input type="file" id="file" name="file" multiple>
+                        </div>
+                        <div class="form-group">
+                            <label for="search">Revherche</label>
+                            <input type="search" id="search" name="search">
+                        </div>
+                    </fieldset>
+                </fieldset>
+                <div class="form-button">
+                    <input type="submit" value="Valider">
+                    <input type="reset" value="Annuler">
+                </div>
+            </form>
+        </section>
+
+
+
+        <section>
+            <h2>Méthode de soumission : get</h2>
+            <p>get est la valeur par défault de l'attribut <code>method</code> : les valeurs saisies sont envoyées dans l'url à la soumission du formulaire : <strong>à éviter pour les formulaires de saisie de données.</strong></p>
+            <form action="index.html">
+                <fieldset>
+                    <legend>Mon premier formulaire</legend>
+                    <div class="form-group">
+                        <label for="firstname">Votre prénom</label>
+                        <input type="text" id="firstname" name="first-name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastname">Votre nom</label>
+                        <input type="text" id="lastname" name="last-name">
+                    </div>
+                    <div class="form-button">
+                        <input type="submit" value="Valider">
+                        <input type="reset" value="Annuler">
+                    </div>
+                </fieldset>
+                
+
+                
+            </form>
+        </section>
+    </main>
+    <footer class="footer">
+        <p><a href="https://www.gretanet.com/action.php?idAction=3443&refererPage=listing" title="En savoir plus sur la formation">Formation Développeur Développeur WEB - GRETA</a></p>
+        <p>&copy; Elève : Quentin POGGI - Module HTML /CSS</p>
+        <p>Photos empruntées à <a href="https://www.google.com/imghp%22%3E"> Google images</a></p>
+        <a id="goTop" href="#" title="Haut de page">&UpArrow;</a>
+    </footer>
+</body>
+</html>

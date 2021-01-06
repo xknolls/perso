@@ -1,0 +1,154 @@
+:root {
+    --color-default: darkgrey;
+    --dark-color: rgb(31, 31, 31);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/****************** GENERAL *********************/
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background-image: url(../img/bg_1920.jpg);
+    background-position: center top;
+    background-attachment: fixed;
+    background-size: cover;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    font-size: 1.6em;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+    vertical-align: top;
+}
+
+.banner, 
+.footer  {
+    display: sticky;
+    padding: 0.5em calc((100% - 1200px ) / 2);
+    background-color: var(--dark-color);
+}
+
+.banner a,
+.footer a {
+    color: var(--color-default);
+    text-decoration: none;
+}
+
+/***************************************************************
+                            BANNER
+****************************************************************/
+
+.banner {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    grid-template-rows: auto;
+    align-items: center;
+    column-gap: 1em;
+}
+
+.banner-nav {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    justify-self: end;
+    text-transform: uppercase;
+}
+
+.banner p {
+    color: var(--color-default);
+}
+
+.site-logo {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.site-description {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 0;
+}
+
+/***************************************************************
+                            FOOTER
+****************************************************************/
+
+.footer {
+    position: relative;
+    text-align: center;
+}
+
+.footer > * {
+    margin: 0;
+    color: var(--color-default);
+}
+
+.footer p {
+    margin: 0.5em;
+}
+
+#goTop {
+    font-size: 2em;
+    width: 1em;
+    height: 1.2em;
+    line-height: 1.2em;
+    position: absolute;
+    top: -1.2em;
+    left: calc(50% - 0.75em);
+    background-color: var(--dark-color);
+}
+
+/*******************Style du tp******************************/
+
+form {
+    background-color: rgba(102, 51, 153, 0.911);
+    max-width: 600px;
+    margin: auto auto;
+    color: rgb(255, 179, 0);
+    box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.76);
+}
+
+.form-group {
+    text-align: left;
+    margin: 2em 1em;
+}
+
+.lol {
+    border-radius: 0.1em;
+    border: none;
+}
+
+.btn {
+    padding: 1em;
+    color: rgb(255, 179, 0);
+    background-color: rgba(255, 179, 0, 0.15);
+    margin-bottom: 2em;
+    border-radius: 0.3em;
+    border: none;
+}
+
+h2 {
+    margin-top: 2em;
+}
+
+h3,
+p {
+    color: wheat;
+}
+
+.banner, 
+.footer  {
+    display: none;
+}

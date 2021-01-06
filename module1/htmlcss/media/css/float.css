@@ -1,0 +1,138 @@
+/*************************************************************
+style général
+*************************************************************/
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+a {
+    text-decoration: none;
+    color: wheat;
+}
+
+header {
+    color: rgb(149, 148, 148);
+    background-color: rgb(0, 0, 0);
+    padding: 0 calc( ( 100% - 1200px ) / 2 );
+}
+
+header p {
+    margin: 0;
+}
+
+header > a {
+    float: left;
+}
+
+nav {
+    float: right
+}
+
+nav a {
+    background-color: blueviolet;
+    display: inline-block;
+    padding: 0.5em;
+}
+
+header::after,
+header::before {
+    content: ' ' ;
+    display: block;
+    clear: both;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.bg-light {
+    padding : 1em;
+    background-color: #eee;
+}
+
+.bg-dark {
+    padding: 1em;
+    background-color: rgb(168, 168, 168);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1 {
+    margin: 0 auto;
+}
+
+
+/***********************   CLASSES float **********************/
+
+.float-2 {
+    float: left;
+    width: calc(92% / 3 - 2em);
+    margin-right: 2%;
+    margin-left: 0%;
+}
+
+.float-2 + .float-2 {
+    margin: 0 2%;
+}
+
+.float-2:last-child {
+    margin-right: 0;
+}
+
+.float {
+    float: left;
+    /*width: calc(100% / 3 - 2em - 8%);
+    margin: 2%;*/
+    width: calc(84% / 3 - 2em);
+    margin-left: 4%;
+    margin-right: 2%;
+}
+
+.float-left {
+    float: left;
+    width: 50%;
+    margin-right: 1em;
+}
+
+.float + .float {
+    margin: 0 2%;
+}
+
+.float:last-child {
+    margin-right: 4%;
+}
+
+.float-right {
+    float: right;
+    width: 50%;
+    margin-left: 1em;
+}
+
+/*.clear {
+    overflow: hidden;
+    display: table;
+    float: left;
+    clear: both;
+}*/
+
+.clearfix::after,
+.clearfix::before {
+    content: ' ' ;
+    display: block;
+    clear: both;
+}
+
+ul {
+    list-style-position: inside;
+}

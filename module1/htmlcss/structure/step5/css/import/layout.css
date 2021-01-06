@@ -1,0 +1,86 @@
+section {
+  padding : 4em 0;
+}
+
+.section-article {
+  margin : 1em 1em;
+  padding : 0 ;
+  border : 1px solid #000;
+  background-color: white;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.description {
+  padding: 0 1em;
+}
+
+/* ******************************************
+                CLASSES
+********************************************/
+
+/* ******** Classes générales ******** */
+
+.container {
+  max-width : 1200px;
+  margin : 0 auto;
+  padding-right : 1em;
+  padding-left : 1em;
+}
+
+.clearfix:after,
+.clearfix:before {
+  content : '';
+  display : block;
+  clear : both;
+}
+
+@media screen and (min-width : 1024px) {
+  .h2 {
+    flex-basis: 100%;
+  }
+  
+  .section-article {
+    width: calc( 100% / 3 - 2em );
+  }
+
+  section .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+
+
+
+/* *********** THEME - FONDS ******************* */
+.home {
+  background-color : black;
+  background-image : url('../../img/mediterranean-cuisine_728.jpg');
+  background-repeat : no-repeat;
+  background-attachment: fixed;
+  background-size : cover;
+}
+
+@media screen and (min-width : 768px) {
+  .home {
+    background-image: url('../../img/mediterranean-cuisine_1024.jpg');
+  }
+}
+
+@media screen and (min-width : 1024px) {
+  .home {
+    background-image: url('../../img/mediterranean-cuisine_1920.jpg');
+  }
+}
+
+/* Couleurs de fond */
+.bg-dark {
+  background-color: white;
+}
+
+.bg-light {
+  background: linear-gradient(white, 60%, transparent);
+}

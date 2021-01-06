@@ -1,0 +1,18 @@
+/************************* MINIATURES**********************/
+
+.container-thumbnail {
+    display: block;
+    overflow: hidden;
+    height: 20vmin;
+  }
+  
+  .container-thumbnail img {
+    filter: blur(3px);
+    transform: scale(0.9);
+  }
+  
+  .container-thumbnail:hover img,
+  .container-thumbnail:focus img{
+    filter: none;
+    transform: scale(1) 
+  }

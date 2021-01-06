@@ -1,0 +1,30 @@
+@keyframes gogopowerrangers {
+    0% {
+        transform: translateY(0);
+    }
+    16.6% {
+        transform: translate(-50vh, -59vh);
+    }
+    33.3% {
+        transform: translate(-95vh, -25vh);
+    }
+    50% {
+        transform: translate(0, 0);
+    }
+    66.6% {
+        transform: translate(50vh, -59vh);
+    }
+    83.3% {
+        transform: translate(95vh, -25vh);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.arrow-down {
+    animation-name: gogopowerrangers;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}

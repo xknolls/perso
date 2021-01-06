@@ -1,0 +1,190 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background-color: rgb(221, 221, 221);
+    font-size: 1.6rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: space-between;
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+header, footer {
+    background-color: rgb(207, 207, 207);
+}
+
+main{
+    background: grey;
+    margin: 0 auto auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header p {
+    margin: 0 0 1em 0;
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+section > * {
+    width: calc( 100% / 3 - 4%);
+    margin: 1em 2%;
+}
+
+section h2 {
+    flex-basis: 100%;
+}
+
+section div {
+    padding: 1em;
+    background: #ccc;
+    border: solid 1px #bbb;
+}
+
+h1 + section {
+    flex-direction: row-reverse;
+}
+
+#goTop {
+    position: fixed;
+    bottom: 2vw;
+    right: 4vh;
+    font-size: 2em;
+    color: black;
+}
+
+
+
+
+/* BOUTON BURGER */
+
+/* Common button styles */
+.burger {
+    display: none;  
+    position: relative;
+    height: 2.4rem;
+    width: 2.8rem;
+    background-color: transparent;
+    background-image: linear-gradient(to right, currentColor, currentColor);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 5px;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    color: #333;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: .25s cubic-bezier(.17,.67,.89,1.4);
+    transition-property: transform;
+  will-change: transform;
+}
+
+.burger::before,
+.burger::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  display: block;
+  height: 5px;
+  background: currentColor;
+  transition: .25s;
+  transition-property: transform, top;
+  will-change: transform, top;
+}
+.burger::before {
+  top: 0;
+}
+.burger::after {
+  top: calc(100% - 4px);
+}
+
+/* cross button 
+.burger:focus {
+    background-image: none;
+  }
+  .burger:focus::before,
+  .burger:focus::after{
+    top: 50%;
+   }
+  .burger:focus::before {
+    transform: translate3d(0,-50%,0) rotate3d(0,0,1,45deg);
+   }
+  .burger:focus::after {
+    transform: translate3d(0,-50%,0) rotate3d(0,0,1,-45deg);
+  }*/
+
+.burger-close {
+    color: red;
+}
+
+
+
+@media screen and (max-width: 767px) {
+   
+    #menu {
+        display: none;
+    }
+
+    #menu a {
+        display: block;
+        background: rgb(103, 255, 57);
+        padding: 1rem;
+        text-decoration: none;
+    }
+
+    #menu:target,
+    #burger-close:target + #menu {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    section > * {
+        width: auto;
+    }
+
+    section {
+        display: block;
+    }
+
+    .burger {
+        position: absolute;
+        top: 1em;
+        right: 1em;
+        display: inline-block;
+        z-index: 9998989899859581269124586958563256258;
+    }
+
+    #burger-close {
+        display: none;
+    }
+
+    #burger-close:target {
+        display: block;
+    }
+}

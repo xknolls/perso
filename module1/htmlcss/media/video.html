@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Insérer des vidéos</title>
+    <meta name="description" content="Utilisation de la balise vidéo ou l'utilisation d'un service externe : balise iframe">
+    <link rel="stylesheet" href="css/video.css">
+</head>
+<body>
+    <header>
+        <a href="video.html">
+            <h1>Insérer des vidéos</h1>
+            <p>Utilisation de la balise <code>&lt;video&gt;</code> ou l'utilisation d'un service externe : balise <code>&lt;iframe&gt;</code>
+            </p>
+        </a>
+    </header>
+    <section class="container bg-light">
+        <h2>La balise <code>&lt;video&gt;</code></h2>
+        <figure>
+            <figcaption><h3>Tour en caméra embarqué sur le cicuit d'Ales</h3></figcaption>
+            <video controls>
+                <source src="./video/video.mp4" type="video/mp4">
+                <source src="./video/video.ogg" type="video/ogg">
+                <source src="./video/video.webm" type="video/webm">
+                <p>Votre navigateur ne peut pas lire la vidéo</p>    
+            </video>
+        </figure>
+    </section>
+    <section class="container bg-light">
+        <h2>Utilisation d'un service externe : balise <code>&lt;iframe&gt;</code></h2>
+        <figure>
+            <figcaption><h3>Vidéo sur youtube</h3></figcaption>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/20XsaHpRQC8" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </figure>
+
+    </section>
+</body>
+</html>

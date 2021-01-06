@@ -1,0 +1,54 @@
+/* **************************************************
+Définition de la police et des couleurs
+***************************************************** */
+/*rem se réfère à la taille définie dans html
+  em se réfère à la taille de la balise parent*/
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.8em;
+  line-height: 1.4;       /* Hauteur de ligne: par default 1.2(normal) */
+}
+
+h1 {
+  color: #b50000;
+}
+
+h2 {
+  color: #009cad;
+}
+
+h3 {
+  color: #009cad;
+}
+
+h4 {
+  color: #a34fbc;
+}
+
+p {
+  color : black;
+}
+
+ul {
+  color : black;
+  font-size: 0.9em;
+}
+
+ol {
+  color  : black;
+  font-size: 0.9em;
+}
+
+li {
+  font-size: 0.9em;
+}
+
+dl {
+  color : black;
+  font-size: 0.9em;
+}

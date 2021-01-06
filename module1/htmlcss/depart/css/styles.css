@@ -1,0 +1,153 @@
+/* **************************************************
+Définition de la police et des couleurs
+***************************************************** */
+/*rem se réfère à la taille définie dans html
+  em se réfère à la taille de la balise parent*/
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color : #1f1f23;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #212121;
+  font-size: 1.8em;
+  line-height: 1.4;       /* Hauteur de ligne: par default 1.2(normal) */
+}
+
+footer {
+  padding: 1em;
+  text-align: center;
+  background-color: #383838;
+}
+
+footer p {
+  margin: 0;
+  color: #CFD8DC;
+}
+
+a:visited {                      /*une fois que le lien est visité*/
+  color: #a00000;
+}
+
+nav a:visited {
+  color: #00BCD4;
+}
+
+nav a:hover {
+  text-decoration: none;
+}
+
+a {
+  color: #00BCD4;
+  text-decoration: none;
+}
+
+a:hover,                        /*survole avec la souris*/
+a:focus {                       /*survole avec tab*/
+  color: red;
+  text-decoration: underline;
+}
+
+hr {
+  display: none; /*éléments non visble*/
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Sarpanch';
+}
+
+h1 {
+  color: #b50000;
+  text-align: center;
+}
+
+h2 {
+  padding: 0.5rem;
+  color: #009cad;
+  text-align: center;
+  background-color: #1f1f23;
+  border-radius: 1rem;
+}
+
+h3 {
+  color: #009cad;
+  margin: 1em;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px red solid;
+
+}
+
+h4 {
+  color: #a34fbc;
+}
+
+p {
+  color : #CFD8DC;
+}
+
+ul {
+  color : #CFD8DC;
+  font-size: 0.9em;
+}
+
+ol {
+  color  : #CFD8DC;
+  font-size: 0.9em;
+}
+
+li {
+  font-size: 0.9em;
+}
+
+dl {
+  max-width: 36em;
+  margin: 1em;
+  color : #CFD8DC;
+  font-size: 0.9em;
+  border: solid 1px #a30000;
+  border-radius: 0.4em;
+}
+
+dd {
+  padding: 0.5em;
+  margin-left: 0;
+}
+
+dt {
+  background-color: #1f1f23;
+  padding: 0.5em;
+  border-radius: 0.4em;
+}
+
+nav a {
+  display: inline-block;
+  background-color: #1f1f23;
+  padding: 0.5em 1rem;
+  margin: 0 0.5rem;
+  border: solid 1px #a30000;
+  border-radius: 0.5em;
+}
+
+/*********************couleur des blocs div************************/
+
+.section {
+  max-width: 992px;
+  background-color: #383838;
+  padding: 1px 1em;
+  margin: 1em auto;
+  border: solid 1px #a30000;
+  border-radius: 1em;
+}
+
+nav {
+  max-width: 992px;
+  background-color: #00707a;
+  text-align: center;
+  padding: 0.5em 1em;
+  margin:auto;
+  border-radius: 1em;
+  border: solid 1px #a30000;
+}

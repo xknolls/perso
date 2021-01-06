@@ -1,0 +1,98 @@
+/**********************************************************
+style générales
+***********************************************************/
+html {
+    font-size: 62.5;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0%;
+    font-size: 1.6rem;
+    background-color: #4E5A72;
+}
+
+a {
+    text-decoration: none;
+    color: wheat;
+}
+
+header {
+    color: rgb(149, 148, 148);
+    background-color: #5b4e72;
+    padding: 0 calc( ( 100% - 1200px ) / 2 );
+}
+
+header p {
+    margin: 0;
+}
+
+h1 {
+    margin: 0%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.bg-light {
+    padding : 1em;
+    background-color: #eee;
+}
+
+img {
+    max-width: 60%;
+    height: auto;
+    vertical-align: middle;
+}
+
+h2 {
+    text-align: center;
+    text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
+}
+
+figure {
+    background-color: rgb(125, 122, 151);
+    max-width: 1200px;
+    text-align: center;
+    border: solid 0.25em rgb(128, 123, 123);
+    margin: auto;
+}
+
+figure img {
+    border: solid 0.25em rgb(253, 177, 177);
+    box-shadow: 5px 5px 15px 5px #000000; 
+    margin: 1em;
+}
+
+figcaption {
+    text-align: center;
+    padding: 1em;
+    font-size: 60%;
+}
+
+figcaption > h2 {
+    font-size: 2em;
+}
+
+.gallery img {
+    width: calc( 100% / 3 - 2em - 0.5em);
+}
+
+section {
+    text-align: center;
+}
+
+figure {
+    position: relative;
+    text-align: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}

@@ -1,0 +1,75 @@
+/*******************************************
+              Styles généraux
+********************************************/
+
+* {
+    box-sizing : border-box;
+  }
+  
+  html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    margin : 0;
+    background-color : #e2e2e2;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.6em;
+  }
+  
+  a {
+    color : orange;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: top;
+    border: solid 1px black;
+    border-radius: 0.5rem 0.25em 0 0;
+  }
+  
+  figure {
+    margin: 0;
+  }
+  
+  strong {
+    /* Parce-que choix syle medium pour le bold pour la police par défaut Raleway */
+    font-weight : 600;
+  }
+  
+  /*.linear-gradient {
+    background: linear-gradient(white, rgba(255,255,255,0.3));
+  }*/
+  
+  /* *************** Titres ***************** */
+  
+  h1,h2,h3,h4,h5,h6 {
+    font-family: 'Courgette', cursive;
+    font-weight: 400;
+  }
+  
+  h1,.h1,
+  h2,.h2 {
+    text-align: center;
+  }
+  
+  h2, .h2 {
+    font-size : 2.2em;
+  }
+  
+  h3, .h3 {
+    font-size : 1.5em;
+    text-align: center;
+  }
+  
+  
+  /* Sélecteur de pseudo-élément -> insérer du contenu en CSS (insérer un pseudo-élément) */
+  .h2::before,
+  .h2::after {
+    /* Quel contenu ? : un tiret qui va s'afficher avant et après le titre */
+    content : ' - ';
+    /* On peut appliquer n'importe quelle autre propriété à ce pseudo élément */
+    color : orange;
+  }

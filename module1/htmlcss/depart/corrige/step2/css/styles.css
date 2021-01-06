@@ -1,0 +1,96 @@
+
+/*
+  Définir la taille de police par défaut
+  http://www.pompage.net/traduction/dimensionner-ses-fontes-avec-rem
+  https://developer.mozilla.org/fr/docs/Web/CSS/font-size
+
+  L'unité de police rem (qui signifie « root em ») se raporte à la taille définie par défaut,
+  soit celle de la balise HTML (16px par défaut definit dans les préférences du navigateur)
+
+  Définir la taille de HTML à 10px, puis ramener à 1.6rem sur body
+*/
+html {
+  font-size : 62.5%; /* 1rem = 10px */
+}
+
+
+/*
+  Définir les polices de caractères
+  https://developer.mozilla.org/fr/docs/Web/CSS/font-family
+  https://www.alsacreations.com/article/lire/631-quelles-polices-pour-un-site-web.html
+    -> jeu de polices standards suceptitble d'être installé sur l'ensemble des systèmes
+    -> police non standard : nécessité d'envoyer le fichier de police sur le poste du navigateur
+
+*/
+
+
+body {
+  /* On revient à 16px par défaut (héritage pour tous les éléments enfants)*/
+  font-size: 1.6rem;
+  /* Choix d'un jeu de polices standard */
+  font-family: Arial, Helvetica, sans-serif;
+  /* Définir une couleur de texte par défaut */
+  color : #212121;
+}
+
+/*
+  Choix d'une police non standard pour les titres
+  Utilisation d'un service externe dans un premier temps
+
+*/
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+/* Alignement du texte : center le titre h1 */
+h1 {
+  text-align : center;
+  color : #607D8B;
+}
+
+/* Définir une autre couleur de texte pour les titres */
+h2 {
+  color : #00BCD4;
+}
+
+h3 {
+  color : #455A64;
+}
+
+h4 {
+  /* Texte en majuscule : https://developer.mozilla.org/fr/docs/Web/CSS/text-transform */
+  text-transform : uppercase;
+}
+
+/*
+  Les styles de liens
+  https://www.alsacreations.com/astuce/lire/43-Comment-definir-lapparence-de-ses-liens.html
+*/
+
+a {
+  color : #00BCD4;
+  /* Supprimer le soulignement */
+  text-decoration : none;
+}
+
+/* Les styles de liens : les pseudos classes
+  :hover : survolés
+  :focus : clavier
+  :active : au relachement du clic
+*/
+a:hover,
+a:focus,
+a:active {
+  /* Rétablir le soulignement */
+  text-decoration : underline;
+}
+
+p {
+  /*
+    Augmenter la hauteur de ligne pour aérer le texte
+    Sans unité, 1.8 signifie 1.8 fois la taille de police
+  */
+  line-height : 1.8;
+}

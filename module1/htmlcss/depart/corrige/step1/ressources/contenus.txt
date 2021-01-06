@@ -1,0 +1,94 @@
+(En-tête du document)
+
+Titre du document :
+  Étape 1 : Environnement WEB
+
+Description du document :
+  Introduction à l'environnement WEB : ses objectifs, le mode d'accès et les technologies concernées 
+
+(Contenu visible dans la page)
+
+L'environnement WEB
+
+Qu'est-ce que le WEB ?
+
+Le Web fait référence au système hypertexte fonctionnant sur le réseau informatique mondial Internet.
+
+Le WEB fut créé au tournant des années 1990 par Timothy John Berners-Lee, informaticien britannique.
+Hypertexte
+
+Un système hypertexte est un système contenant des "unités minimales d'information" liées entre elles par des hyperliens.
+Les liens permettent d'accéder à l'information d'une manière associative (par association d'idées) au gré de l'utilisateur.
+Web sémantique
+
+Le Web sémantique vise à automatiser l’extraction et l’exploitation de toutes les données présentes sur la toile.
+Le Web a vocation à devenir une base documentaire, à la fois culturelle mais aussi commerciale.
+Standards du WEB
+
+Les langages du web reposent sur des normes et des standards. Les organisations de normalisation, comme le W3C (World Wide Web Consortium), créent un consensus à travers ces groupes et ces experts pour maintenir et développer des principes architecturaux cohérents.
+Accessibilité
+
+L'accessibilité consiste à mettre le Web et ses services à la disposition de tous les individus, quelque soit leur matériel ou logiciel, leur infrastructure réseau, leur langue maternelle, leur culture, leur localisation géographique, ou leurs aptitudes physiques ou mentales
+
+Elle est définie par des normes techniques établies par la WAI
+
+WebDesign
+
+Ergonomie
+
+L'ergonomie est l'étude de la relation entre l'homme et ses moyens, méthodes et milieux de travail dans le but de concevoir des outils pouvant être utilisés avec le maximum de confort, de sécurité et d'efficacité
+
+L'ergonomie d'un site web est une démarche transversale qui s'applique dès la conception et qui consiste à concevoir une interface d'utilisation la mieux adaptée aux utilisateurs visés, de manière à faciliter sa consultation et son utilisation.
+
+UX et UI DESIGN
+
+UI : interface utilisateur
+
+L’interface utilisateur (User Interface) correspond au design et à la facilité offerte à l’utilisateur pour accèder aux différentes informations présentes sur ce site (choix des polices, des icônes, agencement des éléments graphiques)
+UX : expérience utilisateur
+
+L’expérience utilisateur (User eXperience) intègre l’interface utilisateur (UI) mais prend également en compte les besoins de l’internaute pour qu’il atteigne son but lors de sa navigation (achat, recherche d’une information, contact, etc.). Le but étant de proposer la meilleure expérience pour lui.
+
+Pour en savoir plus : UX et UI DESIGN : quelles différences ?
+(http://www.withdesigners.com/blog/conseils/ux-ui-design-differences/)
+
+Accès au pages Web
+
+Les pages web sont des fichiers accessibles via une adresse unique, appelée URL permettant à un navigateur (logiciel permettant la lecture des pages web) d'y accéder.
+
+Cet envoi de fichier est le résultat d'un dialogue entre l'ordinateur de l'utilisateur, appelé système Client et un ordinateur distant appelé Serveur Web
+Le protocole HTTP
+
+Ce dialogue s'effectue au travers un programme appelé protocole de communication HTTP
+  (alternative textuelle de l'image : Illustration du protocole HTTP dans la barre d'adresse d'un navigateur)
+
+Les langages du WEB
+
+Les langages interprétés par un navigateur
+
+    HTML : Hypertexte Markup Language
+    XML : eXtended Markup Language
+    CSS : Cascading Style Sheets
+    javaScript : compatible sur tous les navigateurs, il se base sur le langage normalisé ECMAScript (https://fr.wikipedia.org/wiki/ECMAScript)
+
+Langages de programmation
+
+    JAVA :JAVA est un langage de programmation développé par Sun Microsystems (aujourd'hui racheté par Oracle), à ne pas confondre avec JavaScript. JAVA est largement utilisé pour le développement d'applications d'entreprises et mobiles; une de ses plus grandes forces est son excellente portabilité
+    PHP : est un langage de programmation libre, principalement utilisé pour produire des pages Web dynamiques via un serveur HTTP.
+    Python
+    Ruby
+    ASP
+    etc.
+
+Stockage et gestion des informations
+
+Bases de données
+    Une base de données informatique est un ensemble de données stockées de manière structurée et organisée, afin d'être facilement consultées et modifiées.
+
+Un Système de Gestion de Base de Données (SGBD) est un logiciel (ou un ensemble de logiciels) permettant de manipuler les données d'une base de données; parmi les plus connus :
+
+    MySQL
+    MariaDB
+    Oracle
+    Microsoft SQL Server
+    etc.

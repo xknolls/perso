@@ -1,0 +1,86 @@
+/* **************************************************
+Définition de la police et des couleurs
+***************************************************** */
+/*rem se réfère à la taille définie dans html
+  em se réfère à la taille de la balise parent*/
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color : #1f1f23;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #212121;
+  font-size: 1.8em;
+  line-height: 1.4;       /* Hauteur de ligne: par default 1.2(normal) */
+}
+
+a:visited {                      /*une fois que le lien est visité*/
+  color: #a00000;
+}
+
+a {
+  color: #00BCD4;
+  text-decoration: none;
+}
+
+a:hover,                        /*survole avec la souris*/
+a:focus {                       /*survole avec tab*/
+  color: red;
+  text-decoration: underline;
+}
+
+hr {
+  display: none; /*éléments non visble*/
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+h2 {
+  padding: 0.5rem;
+  color: #009cad;
+  text-align: center;
+}
+
+h3 {
+  color: #009cad;
+  margin: 1em;
+}
+
+h4 {
+  color: #a34fbc;
+}
+
+p {
+  color : #CFD8DC;
+}
+
+ul {
+  color : #CFD8DC;
+  font-size: 0.9em;
+}
+
+ol {
+  color  : #CFD8DC;
+  font-size: 0.9em;
+}
+
+li {
+  font-size: 0.9em;
+}
+
+dl {
+  color : #CFD8DC;
+  font-size: 0.9em;
+}
+
+/*********************couleur des blocs div************************/
+
+.section {
+  background-color: #383838;
+}

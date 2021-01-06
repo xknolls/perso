@@ -1,0 +1,69 @@
+.article-container {
+    max-width: 1200px;
+    margin: 0 auto;
+} 
+
+@media screen and (min-width : 1024px) {
+    .article-header {
+        display: grid;
+        grid-template-columns: 60% repeat(4,1fr);
+        grid-template-rows: auto;
+        gap: 1rem;
+        grid-area: header;
+    }
+
+    .article-title {
+        grid-column: 1 / span5;
+        grid-row: 1;
+    }
+
+    .article-ingredients {
+        grid-area: ingredients;
+    }
+
+    .article-preparation {
+        grid-area: preparation;
+    }
+
+    .article-aside {
+        grid-area: aside;    
+    }
+
+    .article-picture {
+        grid-area: picture;
+        margin: 0 0 5em 0;
+    }
+
+    .article-container {
+        display: grid;
+        grid-template-columns: auto;
+        gap: 2%;
+        grid-template-areas: 
+            "header header header"
+            "preparation preparation ingredients"
+            "picture picture aside";
+    }
+}
+
+.article-metas {
+    border: solid red 2px;
+    border-radius: 0.5em;
+}
+
+.article-metas dt {
+    background-color: red;
+    text-align: center;
+    color: silver;
+    padding: 0.2em;
+}
+
+.article-metas dd {
+    text-align: center;
+    margin: 0.5em;
+}
+
+.article-ingredients h2,
+.article-preparation h2,
+.article-aside h2 {
+    text-align: left;
+}

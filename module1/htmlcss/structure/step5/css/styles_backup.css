@@ -1,0 +1,355 @@
+/* ******************************************
+              Styles généraux
+********************************************/
+
+* {
+  box-sizing : border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin : 0;
+  background-color : #e2e2e2;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.6em;
+}
+
+a {
+  color : orange;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: top;
+  border: solid 1px black;
+  border-radius: 0.5rem 0.25em 0 0;
+}
+
+figure {
+  margin: 0;
+}
+
+strong {
+  /* Parce-que choix syle medium pour le bold pour la police par défaut Raleway */
+  font-weight : 600;
+}
+
+/*.linear-gradient {
+  background: linear-gradient(white, rgba(255,255,255,0.3));
+}*/
+
+/* *************** Titres ***************** */
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Courgette', cursive;
+  font-weight: 400;
+}
+
+h1,.h1,
+h2,.h2 {
+  text-align: center;
+}
+
+h2, .h2 {
+  font-size : 2.2em;
+}
+
+h3, .h3 {
+  font-size : 1.5em;
+  text-align: center;
+}
+
+
+/* Sélecteur de pseudo-élément -> insérer du contenu en CSS (insérer un pseudo-élément) */
+.h2::before,
+.h2::after {
+  /* Quel contenu ? : un tiret qui va s'afficher avant et après le titre */
+  content : ' - ';
+  /* On peut appliquer n'importe quelle autre propriété à ce pseudo élément */
+  color : orange;
+}
+
+
+section {
+  padding : 4em 0;
+}
+
+article {
+  margin : 1em 1em;
+  padding : 0 ;
+  border : 1px solid #000;
+  background-color: white;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.description {
+  padding: 0 1em;
+}
+
+
+
+/* ******************************************
+                FOOTER
+********************************************/
+
+footer {
+  padding : 1em;
+  background-color: black;
+  color : white;
+  text-align: center;
+}
+
+#goTop {
+  position : fixed;
+  right : 1vw;
+  bottom : 5vh;
+  font-size : 2em;
+}
+
+.footer-article {
+  background-color: rgb(151, 151, 151);
+  border-radius: 0 0 0.25em 0.25em;
+  text-align: left;
+}
+
+.footer-article p {
+  padding: 0;
+  margin: 0;
+  font-size: 0.8em;
+}
+
+.bouton {
+  background-color: red;
+  text-align: right;
+  display: block;
+  color: cornsilk;
+  text-decoration: none;
+  border-radius: 0.20em;
+  padding: 0.5em;
+}
+
+.bouton::after {
+  content: '        -->';
+}
+
+/* ******************************************
+                CLASSES
+********************************************/
+
+/* ******** Classes générales ******** */
+
+.container {
+  max-width : 1200px;
+  margin : 0 auto;
+  padding-right : 1em;
+  padding-left : 1em;
+}
+
+.clearfix:after,
+.clearfix:before {
+  content : '';
+  display : block;
+  clear : both;
+}
+
+@media screen and (min-width : 1024px) {
+  .h2 {
+    flex-basis: 100%;
+  }
+  
+  article {
+    width: calc( 100% / 3 - 2em );
+  }
+
+  section .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+
+/* *********** BANNIERE************** */
+
+.banner {
+  padding : 1rem 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  background-image: url('../img/mediterranean-cuisine_728.jpg');
+}
+
+.banner a {
+  text-decoration: none;
+  color : #555;
+}
+
+.site-logo {
+  display: inline-block;
+  padding : 1rem;
+  border : 3px solid rgb(255, 255, 255);
+  font-size : 1.5em;
+}
+
+.banner .site-logo {
+  color: white;
+}
+
+@media screen and (min-width : 768px) {
+  .banner {
+    background: url('../img/mediterranean-cuisine_1024.jpg');
+  }
+}
+
+@media screen and (min-width : 1024px) {
+  .banner {
+    background: linear-gradient(135deg , transparent 50%, white 50%),
+    url('../img/mediterranean-cuisine_1920.jpg');
+    background-size: cover;
+    position: sticky;
+    top: 0;
+    z-index: 300;
+  }
+}
+
+/* *********** NAV *************** */
+
+nav {
+  display: none;
+}
+
+.banner nav a {
+  display: block;
+  padding : 1rem;
+  text-transform: uppercase;
+  transition: 250ms all linear;
+}
+
+.banner nav a:hover,
+.banner nav a:focus,
+.banner nav a:active {
+  background : orange;
+  color : white;
+  border-top: solid 3px rgb(255, 102, 0);
+  transform: scale(1.1);
+  transform: skewX(360deg);
+}
+
+.banner nav a.active {
+  background : orangeRed;
+  color : white;
+}
+
+@media screen and (min-width : 1024px) {
+  .banner-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .banner nav {
+    display: flex;
+  }
+}
+
+/* ******* HEADER DE MAIN : SUR UNE PHOTO ******* */
+
+.main-header {
+  height : 30vh;
+  background-color : rgba(0,0,0,0.3);
+  color : white;
+  text-align: center;
+  font-size : 3vmax;
+  font-weight : bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-header h1 {
+  font-size : 4vmax;
+  text-shadow: black 0.1em 0.1em 0.2em;
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+.main-header p {
+  display : inline-block;
+  padding : 0 1rem;
+  background-color : orangeRed;
+  margin-top: 0;
+  margin-bottom: auto;
+}
+
+.arrow-down {
+  background-color: rgb(255, 255, 255);
+  color: orangered;
+  padding: 0.3em;
+  padding-bottom: 0.6em;
+  padding-top: 0.1em;
+  margin-top: auto;
+  margin-bottom: 0;
+  display: inline-block;
+}
+
+@media screen and (min-width : 1024px) {
+  .main-header {
+    height: 70vh;
+  }
+}
+
+/* *********** THEME - FONDS ******************* */
+.home {
+  background-color : black;
+  background-image : url('../img/mediterranean-cuisine_728.jpg');
+  background-repeat : no-repeat;
+  background-attachment: fixed;
+  background-size : cover;
+}
+
+@media screen and (min-width : 768px) {
+  .home {
+    background-image: url('../img/mediterranean-cuisine_1024.jpg');
+  }
+}
+
+@media screen and (min-width : 1024px) {
+  .home {
+    background-image: url('../img/mediterranean-cuisine_1920.jpg');
+  }
+}
+
+/* Couleurs de fond */
+.bg-dark {
+  background-color: white;
+}
+
+.bg-light {
+  background: linear-gradient(white, 60%, transparent);
+}
+
+
+
+/************************* MINIATURES**********************/
+
+.container-thumbnail {
+  display: block;
+  overflow: hidden;
+  height: 20vmin;
+}
+
+.container-thumbnail img {
+  filter: blur(3px);
+  transform: scale(0.9);
+}
+
+.container-thumbnail:hover img,
+.container-thumbnail:focus img{
+  filter: none;
+  transform: scale(1) 
+}
