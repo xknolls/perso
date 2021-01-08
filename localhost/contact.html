@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <meta name="description" content="">
+    <title>Contact</title>
+    <meta name="description" content="Tout pour me contacter">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Iceland&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="http://quentin.greta/perso/localhost/css/styles.css">
 </head>
 <body>
     <div class="background">
@@ -63,30 +63,32 @@
         <span></span>
     </div>
     <main>
-        <form method="POST" action="" enctype="multipart/form-data" novalidate>
-            <h2>Nous écrire</h2>
-            <h3>Merci de bien vouloir compléter le formulaire suivant</h3>
-            <p>(Toutes les informations sont requises)</p>
-            <div class="form-group">
-                <label for="text">Votre nom</label><br>
-                <input class="lol" type="text" name="text" id="text" required minlength="3" maxlength="30" aria-describedby="help-text" size="60">
-            </div>
-            <div class="form-group">
-                <label for="text">Votre adresse email</label><br>
-                <input class="lol" type="email" name="email" id="email" required size="60">
-            </div>
-            <div class="form-group">
-                <label for="text">Objet de votre message</label><br>
-                <input class="lol" type="text" name="objet" id="objet" required maxlength="50" size="60">
-            </div>
-            <div class="form-group">
-                <label for="text">Votre message</label><br>
-                <input class="lol" type="message" id="message" name="message" spellcheck="true" size="60" required>
-            </div>
-            <div class="form-button">
-                <input class="btn" type="submit" value="ENVOYER">
-            </div>
+        <section class="form">
+            <form method="POST" action="" enctype="multipart/form-data" novalidate>
+                <h2>Nous écrire</h2>
+                <h3>Merci de bien vouloir compléter le formulaire suivant</h3>
+                <p>(Toutes les informations sont requises)</p>
+                <div class="form-group">
+                    <label for="text">Votre nom</label>
+                    <input type="text" name="text" id="text" required minlength="3" maxlength="30" aria-describedby="help-text" size="73">
+                </div>
+                <div class="form-group">
+                    <label for="text">Votre adresse email</label>
+                    <input type="email" name="email" id="email" required size="73">
+                </div>
+                <div class="form-group">
+                    <label for="text">Objet de votre message</label>
+                    <input type="text" name="objet" id="objet" required maxlength="50" size="73">
+                </div>
+                <div class="form-group">
+                    <label for="text">Votre message</label>
+                    <input type="message" id="message" name="message" spellcheck="true" size="73" required>
+                </div>
+                <div class="form-button">
+                    <input class="btn" type="submit" value="ENVOYER">
+                </div>
             </form>
+        </section>
     </main>
 </body>
 </html>
