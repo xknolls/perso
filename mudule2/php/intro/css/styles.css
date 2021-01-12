@@ -91,6 +91,7 @@ video {
 ****************************************************************/
 
 .footer {
+    display: none;
     position: relative;
     text-align: center;
 }

@@ -61,6 +61,140 @@ ini_set("display_errors", 1);
         ?>
         <img src="<?= $picture['src'] ?>" alt="<?= $picture['alt'] ?>" width="200">
 
+        <h2>Tableau à 2 dimensions : liste de factures</h2>
+        <?php
+            // 2équivalent à : $invoices = [];
+            $invoices = array();
+
+
+            //Tableau repésantant une seule facture 
+            $invoices = [
+                'number' => '40',
+                'customer' => 'Tante Ursule',
+                'date' => '11-01-2020',
+                'amount' => '500',
+            ];
+
+            echo $invoices['amount'];
+
+            //Pluieurs factures dans une même varible
+            $invoices = [
+                [
+                    'number' => '40',
+                    'customer' => 'Tante Ursule',
+                    'date' => '11-01-2020',
+                    'amount' => '500'
+                ],
+                [
+                    'number' => '41',
+                    'customer' => 'Tante Agathe',
+                    'date' => '12-01-2020',
+                    'amount' => '800.50'
+                ],
+            ];
+
+            var_dump($invoices)
+        ?>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Numéro</th>
+                    <th>Client</th>
+                    <th>Date</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php for($compteur = 0; $compteur < count($invoices); $compteur++ ) : ?>
+                <tr>
+                    <td><?php echo $invoices[$compteur]['number']?> </td>
+                    <td><?php echo $invoices[$compteur]['date']?></td>
+                    <td><?php echo $invoices[$compteur]['customer']?></td>
+                    <td><?php echo $invoices[$compteur]['amount']?></td>
+                </tr>
+                <?php endfor; ?>
+            </tbody>
+        </table>
+
+        <h2>La boucle foreach</h2>
+        <?php
+
+            $invoices = [
+                [
+                    'number' => '40',
+                    'customer' => 'Tante Ursule',
+                    'date' => '11-01-2020',
+                    'amount' => '500'
+                ],
+                [
+                    'number' => '41',
+                    'customer' => 'Tante Agathe',
+                    'date' => '12-01-2020',
+                    'amount' => '800.50'
+                ],
+            ];
+
+            /*Pour chaque ligne du tableau $invoices
+            L'indice est stockée dans $key 
+            La valeur de la ligne(le 2eme taleau) est stocké dans $value
+            */
+
+
+            foreach ($invoices as $key => $value) {
+                echo $key . '<br>';
+                var_dump($value);
+                //Equivalent à : $invoices[$compteur]['customer] de la boucle for
+                echo $value ['customer']. '<br>';
+            }
+
+            /*Pour chaque ligne du tableau $invoices
+            La valeur (donc, les données d'une facture) est stockée dans $invoices 
+
+            Caculer 
+                le montant de la TVA (20%)
+                le montant TTC
+            Puis afficher 
+                TVA : montant de la TVA 
+                TTC : montant TTC
+            */
+
+            /*foreach ($invoices as $invoice) {
+                echo $invoice['amount']. '<br>';
+            }*/
+
+            foreach ($invoices as $invoice) {
+                echo 'TVA : ' .$invoice['amount'] * 0.2 .'<br>';
+                echo 'TTC : ' .$invoice['amount'] * 1.2 . '<br>';
+            }
+
+        ?>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Numéro</th>
+                    <th>Client</th>
+                    <th>Date</th>
+                    <th>HT</th>
+                    <th>TVA</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($invoices as $invoice) : ?>
+                <tr> 
+                    <td><?=$invoice['number'] ?></td>
+                    <td><?=$invoice['customer'] ?></td>
+                    <td><?=$invoice['date'] ?></td>
+                    <td><?=$invoice['amount'] ?></td>
+                    <td><?=$invoice['amount'] * 0.2 ?></td>
+                    <td><?=$invoice['amount'] * 1.2 ?></td>
+                    <?php endforeach; ?>
+                </tr>
+            </tbody>
+        </table>
+
 
     </main>
     <footer class="footer">
