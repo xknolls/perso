@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$_GET</title>
+    <meta name="description" content="Paramètres URL">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="banner">
+        <a class="site-logo" href="index.php">$_GET</a>
+        <p class="site-description">Paramètres URL</p>
+        <nav class="banner-nav">
+            <a <?php if($page == 'page1') { echo 'class="is-current"'; } ?> href="index.php?p=1">Page 1</a>
+            <a <?php if($page == 'page2') { echo 'class="is-current"'; } ?> href="index.php?p=2">Page 2</a>
+            <a <?php if($page == 'page3') { echo 'class="is-current"'; } ?> href="index.php?p=3">Page 3</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Canger de contenu en fonction d'un paramètre passé dans l'URL</h1>
+
+        <form action="">
+            <fieldset>
+            
+                <legend>Choisir une page</legend>
+                <select name="p" id="page">
+                    <option value="1">Page 1</option>
+                    <option value="2">Page 2</option>
+                    <option value="3">Page 3</option>
+                </select> 
+                <div>
+                <input type="submit" value="CHOISIR">
+                </div>
+            </fieldset>
+        </form>
+        
+
+    </main>
+    <footer class="footer">
+        <p><a href="https://www.gretanet.com/action.php?idAction=3443&refererPage=listing" title="En savoir plus sur la formation">Formation Développeur Développeur WEB - GRETA</a></p>
+        <p>&copy; Elève : Quentin POGGI - Module HTML /CSS</p>
+        <p>Photos empruntées à <a href="https://www.google.com/imghp%22%3E"> Google images</a></p>
+        <a id="goTop" href="#" title="Haut de page">&UpArrow;</a>
+    </footer>
+</body>
+</html>

@@ -42,6 +42,10 @@ video {
     text-decoration: none;
 }
 
+main {
+    padding: 0 calc( 100% - 1200px);
+}
+
 /***************************************************************
                             BANNER
 ****************************************************************/
@@ -63,6 +67,12 @@ video {
 
 .banner-nav a {
     margin: 0 1em;
+    padding: 0.5em;
+    border-bottom: solid 3px transparent;
+}
+
+.banner-nav a.is-current {
+    border-bottom: solid 3px darkgray;
 }
 
 .banner p {
