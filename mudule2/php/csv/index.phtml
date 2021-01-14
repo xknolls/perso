@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture d'un fichier CSV en PHP</title>
+    <meta name="description" content="Afficher les données stockées dans un fichier CSV">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="banner">
+        <a class="site-logo" href="index.php">CSV</a>
+        <p class="site-description">Liste des contacts stockés en CSV</p>
+        <nav class="banner-nav">
+            <a href="https://www.php.net/manual/fr/function.fgetcsv.php" target="_blank">fopen()</a>
+            <a href="https://www.php.net/manual/fr/function.fgetcsv.php" target="_blank">fgetcsv()</a>
+            <a href="https://www.php.net/manual/fr/function.array-push.php">array_push</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Liste des contacts</h1>
+        <?php
+        if( !empty($contacts)) {
+            include 'include/contacts.phtml';
+        } else {
+            echo '<p>La liste de contacts est vide<p>';
+        }
+        ?>
+
+        <a class="btn" href="add.php">Ajouter un nouveau contact</a>
+
+    </main>
+    <footer class="footer">
+        <p><a href="https://www.gretanet.com/action.php?idAction=3443&refererPage=listing" title="En savoir plus sur la formation">Formation Développeur Développeur WEB - GRETA</a></p>
+        <p>&copy; Elève : Quentin POGGI - Module HTML /CSS</p>
+        <p>Photos empruntées à <a href="https://www.google.com/imghp%22%3E"> Google images</a></p>
+        <a id="goTop" href="#" title="Haut de page">&UpArrow;</a>
+    </footer>
+</body>
+</html>
