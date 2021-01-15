@@ -1,0 +1,22 @@
+<section>
+    <table>
+        <caption>Liste de contacts stockés</caption>
+        <thead>
+            <tr>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Courriel</th>
+                <th>Téléphone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($contacts as $contact) :?>
+            <tr>
+                <?php for($i = 0; $i < count($contact); $i++) : ?>
+                <td><?=$contact[$i]; ?></td>
+                <?php endfor;?>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</section>
