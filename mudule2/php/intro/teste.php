@@ -165,6 +165,55 @@ ini_set("display_errors", 1);
             
         ?>
 
+        <h2>Le switch</h2>
+        <p>Séries de teste pour comparer la valeur d'une variable</p>
+        <h3>Avec if</h3>
+        <?php
+            //En fonction de la valeur de $vegetables, afficher un plat correspondant 
+            $vegetables = 'salade';
+
+            if(
+                $vegetables == 'tomate'
+                OR $vegetables == 'salade'
+                ) {
+                    echo '<p>Salade composée</p>';
+            }
+            elseif($vegetables == 'endive') {
+                echo '<p>Endives au jambon</p>';
+            }
+            elseif($vegetables == 'épinard') {
+                echo '<p>Grattin d\'épinard</p>';
+            }
+            else {
+                echo 'McDO';
+            }
+
+
+            ?>
+            <h3>Avec switch</h3>
+            <?php
+            ///Utiliser une structure switch 
+            switch($vegetables) {
+                case 'tomate' :
+                case 'salade' :
+                    echo '<p>Salade composée</p>';
+                break;
+
+                case 'épinard' :
+                    echo '<p>Grattin d\épinard</p>';
+                break;
+
+                case 'endive' :
+                    echo '<p>Endives au jambon</p>';
+                break;
+                
+                default:
+                    echo 'McDO';
+
+
+            }
+        ?>
+
     </main>
     <footer class="footer">
         <p><a href="https://www.gretanet.com/action.php?idAction=3443&refererPage=listing" title="En savoir plus sur la formation">Formation Développeur Développeur WEB - GRETA</a></p>

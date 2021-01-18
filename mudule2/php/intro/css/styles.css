@@ -38,7 +38,7 @@ video {
 .banner, 
 .footer  {
     display: sticky;
-    padding: 0.5em calc((100% - 1200px ) / 2);
+    /*padding: 0.5em calc((100% - 1200px ) / 2);*/
     background-color: var(--dark-color);
 }
 
