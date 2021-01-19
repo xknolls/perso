@@ -74,7 +74,45 @@ ini_set("display_errors", 1);
             }
 
             hello2('Madame', 'Europe/Paris');
-            hello2('Monssieur', 'America/Los_Angeles')
+            hello2('Monssieur', 'America/Los_Angeles');
+
+            ///Valeur de retour 
+            function carre($num) {
+                //Les variable déclaré dans une fonction sont local
+                //$result = $num * $num;
+                return $num * $num;
+                //Return met fin à la fonction
+            }
+            
+            //Récupérer le résultat d'une fonction : créer une variable dans la quelle on stocke notre fonction 
+            $result = carre(4);
+            echo $result . '<br><br>';
+
+            //Ducoup on peut réutiliser la variable 
+            echo $result + 3 . '<br><br>';
+
+
+            function calcul($a,$b) {
+                if ($a > $b){
+                    $carre = carre($a) + carre($b);
+                    return carre($carre);
+                }
+            }
+
+            echo calcul(4,2) . '<br><br>';
+
+            function calcul2($a,$b){
+                if($a <= $b) {
+                    return;
+                }
+
+                $carre = carre($a) + carre($b);
+                return carre($carre);
+            }
+
+            echo calcul2(4,2) . '<br><br>';
+
+
 
 
         ?>
