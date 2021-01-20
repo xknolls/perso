@@ -1,0 +1,33 @@
+<section>
+    <form action="delete.php" method="POST">
+        <table>
+            <caption>Liste de contacts stockés</caption>
+            <thead>
+                <tr>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Courriel</th>
+                    <th>Téléphone</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($contacts as $index => $contact) : ?>
+                    <tr>
+                        <?php for ($i = 0; $i < count($contact); $i++) : ?>
+                            <td><?= $contact[$i]; ?></td>
+                        <?php endfor; ?>
+                        <td>
+                            <input
+                                name="todelete[]"
+                                value="<?=$index; ?>" 
+                                type="checkbox" 
+                                aria-label="Supprimer le contact">
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        <input type="submit" value="Supprimer le(s) contact(s) selectionné(s)">
+    </form>
+</section>

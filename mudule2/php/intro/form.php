@@ -1,35 +1,9 @@
 <?php
 
-$vegetables = ['Salade','Tomates','Carottes'];
-$meat = ['Boeuf','Poulet'];
-
-/*switch($_POST) {
-    case 'Boeuf' :
-    case $vegetables['2'] :
-        echo 'Boeuf aux carottes';
-    break;
-
-    case $meat['1'] && $vegetables['0'] :
-    case $meat['1'] && $vegetables['0' && '1'] :
-    case $meat['1'] && $vegetables['0' && '2'] :
-    case $meat['1'] && $vegetables['0' && '1' && '2'] :
-    case $meat['1'] && $vegetables['1'] :
-    case $meat['1'] && $vegetables['1' && '2'] :
-        echo 'Polueeeet';
-        break;
-
-    case $meat['1'] :
-    case $vegetables['2'] :
-        echo 'Poulet aux légumes';
-    break;
-
-    default : 
-        echo 'Go faire les courses';
-}*/
+$vegetables = ['Salade', 'Tomates', 'Carottes'];
+$meat = ['Boeuf', 'Poulet'];
 
 $message = '';
-
-
 
 /*
 Si $_POST n'est pas vide
@@ -42,14 +16,31 @@ Si $_POST n'est pas vide
 
 */
 
+if (!empty($_POST['meat']) && !empty($_POST['vegetables'])) {
+    switch ($_POST['meat']) {
+        case 'Boeuf':
+            if (in_array('2', $_POST['vegetables'])) {
+                $message = 'Boeuf aux carottes';
+            } else {
+                $message = 'Go faire les courses';
+            }
+            break;
 
-
-if(!empty($_POST['meat']) && !empty($_POST['vegetebles'])) {
+        case 'Poulet':
+            if (in_array('0', $_POST['vegetables'])) {
+                $message = 'Poulet grillé';
+            } elseif (in_array('1', $_POST['vegetables'])) {
+                $message = 'Poulet grillé';
+            } else {
+                $message = 'Go faire les courses';
+            }
+            break;
+    }
 } else {
-    $message = 'Go faire les courses';
+    $message = 'Remplir les deux champs';
 }
 
 
 
 
-include 'form.phtml' ;
+include 'form.phtml';

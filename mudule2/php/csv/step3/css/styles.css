@@ -1,0 +1,212 @@
+:root {
+    --color-default: darkgrey;
+    --dark-color: rgb(31, 31, 31);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/****************** GENERAL *********************/
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    font-size: 1.6em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+    vertical-align: top;
+}
+
+.banner, 
+.footer  {
+    display: sticky;
+    padding: 0.5em calc((100% - 1200px ) / 2);
+    background-color: var(--dark-color);
+}
+
+.banner a,
+.footer a {
+    color: var(--color-default);
+    text-decoration: none;
+}
+
+/***************************************************************
+                            BANNER
+****************************************************************/
+
+.banner {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    grid-template-rows: auto;
+    align-items: center;
+    column-gap: 1em;
+}
+
+.banner-nav {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    justify-self: end;
+    text-transform: uppercase;
+}
+
+.banner-nav a {
+    margin: 0 1em;
+}
+
+.banner p {
+    color: var(--color-default);
+    font-size: 1em;
+}
+
+.site-logo {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.site-description {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 0;
+}
+
+/***************************************************************
+                            FOOTER
+****************************************************************/
+
+.footer {
+    position: relative;
+    text-align: center;
+}
+
+.footer > * {
+    margin: 0;
+    color: var(--color-default);
+}
+
+.footer p {
+    margin: 0.5em;
+    font-size: 1em;
+}
+
+#goTop {
+    font-size: 2em;
+    width: 1em;
+    height: 1.2em;
+    line-height: 1.2em;
+    position: absolute;
+    top: -1.2em;
+    left: calc(50% - 0.75em);
+    background-color: var(--dark-color);
+}
+
+/*******************Style du tp******************************/
+
+section {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 1.5em;
+}
+
+table {
+    border: black solid 4px;
+    margin: 0 auto;
+}
+
+th{
+    border: solid black 3px;
+    padding: 0.3em;
+}
+
+td {
+    border: black solid 2px;
+    padding: 0.3em;
+    text-align: center;
+}
+
+.btn {
+    text-decoration: none;
+    font-size: 2em;
+    color: red;
+    border: solid 1px red;
+}
+
+.form {
+    color: rgb(0, 0, 0);
+    font-family: 'Iceland';
+    font-size: 1.5em;
+    max-width: 700px;
+    margin: 5em auto;
+    text-align: center;
+    border: solid 2px rgb(255, 255, 255);
+    background-color:  rgba(255, 255, 255, 0.185);
+    border-radius: 0.5em;
+    box-shadow: 0px 0px 9px 2px hsl(254, 100%, 50%);
+    animation: wheelHueColor 4s infinite;
+}
+
+fieldset {
+    border: transparent;
+}
+
+p {
+    font-size: 1.5em;
+}
+
+
+label {
+    font-size: 1.2em;
+    display: block;
+    text-align: left;
+    margin-bottom: 0.5em;
+}
+
+.form-group {
+    margin: 0 1em;
+}
+
+.btn {
+    font-size: 2.5em;
+    font-family: 'Iceland';
+    color: rgb(0, 0, 0);
+    border-radius: 1em;
+    border: solid 2px rgb(0, 0, 0);
+    transition: 250ms all linear;
+    background-color: rgba(255, 255, 255, 0.185);
+    margin-bottom: 24px;
+    margin-top: 24px;
+}
+
+@keyframes wheelHueColor {
+    from, to { box-shadow: 0px 0px 9px 2px hsl(254, 100%, 50%); }
+    33%      { box-shadow: 0px 0px 9px 2px hsl(360, 100%, 50%); }
+    66%      { box-shadow: 0px 0px 9px 2px hsl( 120, 100%, 50%); }
+    100%      { box-shadow: 0px 0px 9px 2px hsl( 240, 75%, 50%); }
+}
+
+input[type=text],
+input[type=email],
+input[type=message],
+input[type=tel] {
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.226);
+}
+
+.form-error {
+    color: rgb(255, 0, 0);
+    font-size: 0.8em;
+    margin: 0;
+}
