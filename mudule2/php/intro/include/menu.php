@@ -5,4 +5,5 @@
     <a href="array.php">Variable tableau</a>
     <a href="date.php">Dates</a>
     <a href="fonction.php">Fonctions</a>
+    <a href="form.php">Form</a>
 </nav>

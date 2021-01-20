@@ -1,0 +1,69 @@
+<?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+?>
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premiers pas en PHP</title>
+    <meta name="description" content="Affichage de texte et concaténation">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header class="banner">
+        <a href="site-logo" href="./">PHP</a>
+        <p class="site-description">Description du TP</p>
+        <?php include 'include/menu.php'; ?>
+    </header>
+    <main>
+        <h1>Que'est ce qu'on mange ?</h1>
+        <p>Ouvrir le frigo pour trouver des légumes et une viande</p>
+        <form action="" method="POST">
+            <fieldset>
+                <legend>Quels ingrédient en réserve ?</legend>
+                <fieldset>
+                    <legend>Viande</legend>
+                    <div>
+                        <?php foreach ($meat as $key => $value) : ?>
+                            <label for="<?= $value; ?>">
+                                <input type="radio" id="<?= $value; ?>" value="<?= $key; ?>" name="meat">
+                                <?= $value; ?>
+                            </label>
+                        <?php endforeach; ?>
+                    </div>
+                </fieldset>
+                <div>
+                    <label for="vegetables">Légumes en stock (Plusieurs choix possibles)</label>
+                    <select name="vegetables[]" id="vegetables" multiple>
+                        <?php foreach ($vegetables as $key => $value) : ?>
+                            <option value="<?= $key; ?>"><?= $value; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </fieldset> 
+            <div class="form-button">
+                <input type="submit" value="OK">
+            </div>
+        </form>
+
+        <?= $message?>
+
+
+        <?php var_dump($_POST) ?>
+
+    </main>
+    <footer class="footer">
+        <p><a href="https://www.gretanet.com/action.php?idAction=3443&refererPage=listing" title="En savoir plus sur la formation">Formation Développeur Développeur WEB - GRETA</a></p>
+        <p>&copy; Elève : Quentin POGGI - Module HTML /CSS</p>
+        <p>Photos empruntées à <a href="https://www.google.com/imghp%22%3E"> Google images</a></p>
+        <a id="goTop" href="#" title="Haut de page">&UpArrow;</a>
+    </footer>
+</body>
+
+</html>

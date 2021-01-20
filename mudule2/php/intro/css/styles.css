@@ -23,8 +23,7 @@ body {
 }
 
 main {
-    /*padding: 0 calc((100% - 1200px) / 2);*/
-    justify-self: center;
+    padding: 0 calc((100% - 800px) / 2);
 }
 
 
@@ -83,7 +82,10 @@ video {
 }
 
 .banner-nav a {
-    margin: 0 1em;
+    margin: 0 0.5em;
+    background-color: rgba(255, 235, 205, 0.226);
+    padding: 0.2em;
+    border-radius: 0.2em;
 }
 
 /***************************************************************
@@ -117,3 +119,16 @@ video {
 }
 
 /*******************Style du tp******************************/
+
+
+label {
+    display: block;
+}
+
+select {
+    width: 100%;
+}
+
+.form-button {
+    text-align: right;
+}
