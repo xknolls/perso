@@ -210,3 +210,8 @@ input[type=tel] {
     font-size: 0.8em;
     margin: 0;
 }
+
+td a {
+    text-decoration: none;
+    color: black;
+}

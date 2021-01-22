@@ -9,6 +9,7 @@
                     <th>Courriel</th>
                     <th>Téléphone</th>
                     <th>Delete</th>
+                    <th>Modifier</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,6 +24,9 @@
                                 value="<?=$index; ?>" 
                                 type="checkbox" 
                                 aria-label="Supprimer le contact">
+                        </td>
+                        <td>
+                            <a href="edit.php?index=<?= $index ?>">Modifier</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

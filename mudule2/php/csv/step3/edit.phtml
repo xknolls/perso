@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecriture dans un fichier CSV en PHP</title>
+    <meta name="description" content="Ajouter des données stockées dans un fichier CSV">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header class="banner">
+        <a class="site-logo" href="index.php">CSV</a>
+        <p class="site-description">Liste des contacts stockés en CSV</p>
+        <?php include 'include/menu.phtml' ?>
+    </header>
+    <main>
+        <section class="form">
+            <form method="POST" action="edit.php" novalidate>
+            <input type="hidden" name="index" value="<?= $index ?>">
+                <fieldset>
+                    <p>Modifier le contact</p>
+                    <div class="form-group">
+                        <label for="fisrtname" value="firstname">Votre prénom</label>
+                        <input type="text" name="firstname" id="firstname" required minlength="3" maxlength="30" aria-describedby="help-text" size="40" value="<?= $contact[0]?>">
+                        <?php if (!empty($errors['firstname'])) : ?>
+                            <p class="form-error"><?= $errors['firstname'] ?></p>
+                        <?php endif; ?>
+                    </div>
+                    <div class="form-group" value="lastname">
+                        <label for="lastname">Votre nom</label>
+                        <input type="text" name="lastname" id="lastname" required size="40" value="<?= $contact[1]?>">
+                        <?php if (!empty($errors['lastname'])) : ?>
+                            <p class="form-error"><?= $errors['lastname'] ?></p>
+                        <?php endif; ?>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Votre adresse email</label>
+                        <input type="email" name="email" id="email" required size="40" value="<?= $contact[2]?>">
+                        <?php if (!empty($errors['email'])) : ?>
+                            <p class="form-error"><?= $errors['email'] ?></p>
+                        <?php endif; ?>
+                    </div>
+                    <div class="form-group" value="tel">
+                        <label for="tel">Numéro</label>
+                        <input type="tel" name="tel" id="tel" required maxlength="50" size="40" value="<?= $contact[3]?>">
+                        <?php if (!empty($errors['tel'])) : ?>
+                            <p class="form-error"><?= $errors['tel'] ?></p>
+                        <?php endif; ?>
+                    </div>
+                    <div class="form-button">
+                        <input class="btn" type="submit" value="ENVOYER">
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+
+
+
+    </main>
+    <footer class="footer">
+        <p><a href="https://www.gretanet.com/action.php?idAction=3443&refererPage=listing" title="En savoir plus sur la formation">Formation Développeur Développeur WEB - GRETA</a></p>
+        <p>&copy; Elève : Quentin POGGI - Module HTML /CSS</p>
+        <p>Photos empruntées à <a href="https://www.google.com/imghp%22%3E"> Google images</a></p>
+        <a id="goTop" href="#" title="Haut de page">&UpArrow;</a>
+    </footer>
+</body>
+
+</html>

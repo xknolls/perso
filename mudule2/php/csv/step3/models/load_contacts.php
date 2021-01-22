@@ -9,7 +9,7 @@ $contacts = array();
 if ( is_readable(DATAFILE) ) {
     $file = fopen(DATAFILE, 'r');
 
-    while(( $data = fgetcsv($file,0,';'))) {
+    while(( $data = fgetcsv($file,0))) {
         array_push($contacts, $data);
     } 
 

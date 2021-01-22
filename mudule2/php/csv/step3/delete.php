@@ -2,9 +2,6 @@
 //Traitement du formulaire permettant de supprimer les contacts selectionés
 var_dump($_POST);
 
-const DATAFILE = 'data/contacts.csv';
-
-
 /*
     Si on veut supprimer une ligne dans un tableau
 
@@ -24,19 +21,13 @@ const DATAFILE = 'data/contacts.csv';
             Rediriger vers l'index
 
     Si on ne veut pas supprimer une ligne dans le tableau
-*/
-/*
+*//*
+include 'models/function_load.php';
+
 if (!array_key_exists('todelete', $_POST) == true) {
     header('location: index.php');
 }
-$contacts = array();
-if (is_readable(DATAFILE)) {
-    $file = fopen(DATAFILE, 'r');
-    while ($data = fgetcsv($file, 0, ';')) {
-        array_push($contacts, $data);
-    }
-    fclose($file);
-}
+load();
 foreach ($contacts as $key => $value) {
     if (in_array($key, $_POST['todelete'])) {
         unset($contacts[$key]);
@@ -68,12 +59,29 @@ header('Location: index.php');
 */
 
 
-if (array_key_exists('todelete', $_POST)) {
+if ( !array_key_exists('todelete', $_POST)) {
+    header('Location: index.php');
+    exit;
+}
     $new_contacts = array();
-    include 'models/load_contacts.php';
-    foreach ($contacts as $key => $value) {
-        if (in_array($key, $_POST['todelete'])) {
-            
+    
+    include 'models/models.php';
+    foreach ($contacts as $index => $value) {
+        if (in_array($index, $_POST['todelete']) ==FALSE) {
+            array_push($new_contacts, $value);
         }
     }
-}
+
+    if(is_writable(DATAFILE)) {
+        $open = fopen(DATAFILE, 'w+');
+
+        foreach ($new_contacts as $line) {
+            fputcsv($open, $line);
+        }
+
+        fclose($open);
+    }
+
+
+
+    header('Location: index.php');
