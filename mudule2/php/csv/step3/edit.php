@@ -21,41 +21,54 @@ include 'models/models.php';
 
 
 $contacts = load_contact(DATAFILE);
-
 $error = array();
 
 
 if (empty($_POST)) {
 
-    $contact = $contacts[$_GET['index']];
     $index = $_GET['index'];
+    $contact = $_POST['index'];
 } elseif (!empty($_POST)) {
 
     $index = $_POST['index'];
-    $contact = $contacts[$index];
+    $contact = array();
 
     if (empty($_POST['firstname'])) {
         $errors['firstname'] = 'Le champs est requis*';
+    }
+    else {
+        $contact['firstname'] = $_POST['firstname'];
     }
 
     if (empty($_POST['lastname'])) {
         $errors['lastname'] = 'Le champs est requis*';
     }
+    else {
+        $contact['lastname'] = $_POST['lastname'];
+    }
 
     if (empty($_POST['email'])) {
         $errors['email'] = 'Le champs est requis*';
-    } elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+    } 
+    elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
         $errors['email'] = 'L\'adresse n\'est pas au bon format';
-    } else {
+    } 
+    elseif {
         foreach ($contacts as $already) {
             if (in_array($_POST['email'], $already, true)) {
                 $errors['email'] = 'L\'adresse mail existe déja';
             }
         }
     }
+    else {
+        $contact['email'] = $_POST['email'];
+    }
 
     if (empty($_POST['tel'])) {
         $errors['tel'] = 'Le champs est requis*';
+    } 
+    else {
+        $contact['tel'] = $_POST['tel'];
     }
 }
 
