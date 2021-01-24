@@ -46,7 +46,7 @@ if (!empty($_POST)) {
     if (empty($errors)) {
         $file = fopen(DATAFILE, 'a');
 
-        fputcsv($file, $_POST, ';');
+        fputcsv($file, $_POST, ',');
 
         fclose($file);
 
