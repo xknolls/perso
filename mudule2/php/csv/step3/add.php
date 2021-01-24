@@ -30,13 +30,13 @@ if (!empty($_POST)) {
         $errors['email'] = 'Le champs est requis*';
     } elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
         $errors['email'] = 'L\'adresse n\'est pas au bon format';
-    } else {
+    } /*else {
         foreach ($contacts as $already) {
             if (in_array($_POST['email'], $already, true)) {
                 $errors['email'] = 'L\'adresse mail existe déja';
             }
         }
-    }
+    }*/
 
     if (empty($_POST['tel'])) {
         $errors['tel'] = 'Le champs est requis*';

@@ -53,13 +53,13 @@ if (empty($_POST)) {
     elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
         $errors['email'] = 'L\'adresse n\'est pas au bon format';
     } 
-    elseif {
+    /*elseif {
         foreach ($contacts as $already) {
             if (in_array($_POST['email'], $already, true)) {
                 $errors['email'] = 'L\'adresse mail existe déja';
             }
         }
-    }
+    }*/
     else {
         $contact['email'] = $_POST['email'];
     }
@@ -74,6 +74,5 @@ if (empty($_POST)) {
 
 //var_dump($contacts);
 
-var_dump($contact);
 
 include 'edit.phtml';
