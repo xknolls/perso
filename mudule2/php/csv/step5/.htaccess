@@ -1,0 +1,6 @@
+# Sécuriser l'accés à ce dossier
+AuthName "Interdit"
+AuthType Basic
+# Chemin système du fichier .htpasswd  
+AuthUserFile "C:\wamp64\wamp\www\quentin.greta\perso\mudule2\php\csv\.htpasswd"
+Require valid-user

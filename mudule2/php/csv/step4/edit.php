@@ -34,10 +34,10 @@ if(array_key_exists('index', $_GET)
 
 	$form_datas = array(
 		'index' => $index,
-		'firstname' => $contacts[$index][0],
-		'lastname' => $contacts[$index][1],
-		'email' => $contacts[$index][2],
-		'tel' => $contacts[$index][3],
+		'firstname' => htmlspecialchars($contacts[$index][0]),
+		'lastname' => htmlspecialchars($contacts[$index][1]),
+		'email' => htmlspecialchars($contacts[$index][2]),
+		'tel' => htmlspecialchars($contacts[$index][3]),
 	);
 }
 else {

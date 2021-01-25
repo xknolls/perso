@@ -4,6 +4,7 @@ ini_set("display_errors", 1);
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,50 +14,87 @@ ini_set("display_errors", 1);
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
     <header class="banner">
         <a href="site-logo" href="./">PHP</a>
         <p class="site-description">Description du TP</p>
-        <?php include'include/menu.php'; ?>
+        <?php include 'include/menu.php'; ?>
     </header>
     <main>
         <h1>Itroduction à PHP</h1>
-        
-        <h2>Afficher du texte</h2>
+        <h2>La faille XSS (Cross-Site Scripting)</h2>
+        <script>
+            //Du code javascript
+            console.log('Coucou !');
+        </script>
+
         <?php
-            echo 'Du texte affiché avec echo de php<br>';
-            echo "<p>La même chose</p>";
-            print "Avec l'instruction print<br>";
-            echo 'Je m\'apelle "quentin"'
+        //Contenu provenant d'une saisie utilisateur
+        $input = '<p>Tu vas te faire hacker ! </p><script>window.alert(\'Boum !\')</script>';
+
+        //Le js est interprété
+        echo $input;
         ?>
         
-        <h2>Les variables</h2>     
+        <h3>Encode les caractères spéciaux html</h3>
+
         <?php
-            $pseudo = 'quentin';            
-            echo "Je m'apelle $pseudo";
-            echo $existepas;
-            //Afficher dles informations d'une variable
-            var_dump($pseudo);
-            echo 'Je m\'apelle $pseudo';
+            //Encode les caractères spéciaux html
+            echo htmlspecialchars($input);
+        ?>
+
+        <h3>Encodetouts les caractères pouvant être traduit en entités HTML</h3>
+
+        <?php
+
+        //Encodetouts les caractères pouvant être traduit en entités HTML
+        echo htmlentities($input);
+        ?>
+
+        <h3>Supprimer toutes les balises</h3>
+
+        <?php
+            //Supprimer toutes les balises 
+            echo strip_tags($input)
+
+        ?>
+
+        <h2>Afficher du texte</h2>
+        <?php
+        echo 'Du texte affiché avec echo de php<br>';
+        echo "<p>La même chose</p>";
+        print "Avec l'instruction print<br>";
+        echo 'Je m\'apelle "quentin"'
+        ?>
+
+        <h2>Les variables</h2>
+        <?php
+        $pseudo = 'quentin';
+        echo "Je m'apelle $pseudo";
+        echo $existepas;
+        //Afficher dles informations d'une variable
+        var_dump($pseudo);
+        echo 'Je m\'apelle $pseudo';
         ?>
 
         <h3>Concaténation</h3>
         <?php
-            echo 'Je m\'apelle ' .$pseudo;
+        echo 'Je m\'apelle ' . $pseudo;
         ?>
 
         <img src="" alt="">
-        
+
         <?php
-            $src = 'img/alicia_720.png';
-            $alt = 'Juste la bosse enfaite';
-            echo '<img src="' .$src. '" alt="' .$alt. '" width="200"';
+        $src = 'img/alicia_720.png';
+        $alt = 'Juste la bosse enfaite';
+        echo '<img src="' . $src . '" alt="' . $alt . '" width="200"';
         ?>
 
         <h4>Eviter la concaténation</h4>
         <?php
-            // En utilisant les simples quottes pour les attrbbuts HTML 
-            echo "<img src='$src' alt='$alt' width='200'>";
+        // En utilisant les simples quottes pour les attrbbuts HTML 
+        echo "<img src='$src' alt='$alt' width='200'>";
         ?>
 
         <img src="<?php echo $src ?>" alt="<?php echo $alt ?>" width="200">
@@ -72,4 +110,5 @@ ini_set("display_errors", 1);
         <a id="goTop" href="#" title="Haut de page">&UpArrow;</a>
     </footer>
 </body>
+
 </html>

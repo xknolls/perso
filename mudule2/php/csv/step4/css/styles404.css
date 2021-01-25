@@ -1,0 +1,32 @@
+:root {
+    --color-default: darkgrey;
+    --dark-color: rgb(31, 31, 31);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/****************** GENERAL *********************/
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-image: url('../404.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    font-size: 1.6em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer,
+header {
+    display: none;
+}
