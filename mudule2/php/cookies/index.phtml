@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,8 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+
+<body class="<?= $class ?>">
     <header class="banner">
         <a class="site-logo" href="./">Cookies</a>
         <p class="site-description">Stocker des données sur le navigateur</p>
@@ -18,7 +20,32 @@
         </nav>
     </header>
     <main>
+        <section class="section">
+            <h1>COOKIES</h1>
+            <p>Le cookie est un oetit fichier texte enregistré sur l'ordinateur du visiteur : il permet de "retenir" des informations sur le visiteur</p>
+            <p>le cookie pseudo contient la valeur : <?= $_COOKIE['pseudo']; ?></p>
 
+
+
+            <form action="" method="POST">
+                <fieldset>
+                    <legend>Sélectionner un style</legend>
+                    <div>
+                        <label for="light">
+                            <input type="radio" id="light" value="light" name="theme">
+                            light
+                        </label>
+                        <label for="">
+                            <input type="radio" id="dark" value="dark" name="theme">
+                            dark
+                        </label>
+                    </div>
+                </fieldset>
+                <div class="form-button">
+                    <input type="submit" value="OK">
+                </div>
+            </form>
+        </section>
     </main>
     <footer class="footer">
         <p><a href="https://www.gretanet.com/action.php?idAction=3443&refererPage=listing" title="En savoir plus sur la formation">Formation Développeur Développeur WEB - GRETA</a></p>
@@ -26,5 +53,9 @@
         <p>Photos empruntées à <a href="https://www.google.com/imghp%22%3E"> Google images</a></p>
         <a id="goTop" href="#" title="Haut de page">&UpArrow;</a>
     </footer>
+    <script>
+        console.log(document.cookie);
+    </script>
 </body>
+
 </html>

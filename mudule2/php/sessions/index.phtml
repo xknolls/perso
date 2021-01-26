@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sessions</title>
+    <meta name="description" content="Conserver des variables sur toutes les pages">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header class="banner">
+        <a class="site-logo" href="./">PHP</a>
+        <p class="site-description">Gestion de session</p>
+        <nav class="banner-nav">
+            <a href="sessions.php">Voir cours</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h1>Se connecter</h1>
+            <form method="POST">
+                <p> <?= $message ; ?></p>
+                <fieldset>
+                    <legend>Se connecter</legend>
+                    <div class="form-group">
+                            <label for="login">Login</label>
+                            <input type="text" id="login" name="login">
+                        </div>
+                    <div class="form-group">
+                            <label for="pass">Mot de passe</label>
+                            <input type="password" id="pass" name="pass">
+                        </div>
+                </fieldset>
+                <div class="form-button">
+                    <input type="submit" value="OK">
+                </div>
+            </form>
+        </section>
+
+    </main>
+    <footer class="footer">
+        <p><a href="https://www.gretanet.com/action.php?idAction=3443&refererPage=listing" title="En savoir plus sur la formation">Formation Développeur Développeur WEB - GRETA</a></p>
+        <p>&copy; Elève : Quentin POGGI - Module HTML /CSS</p>
+        <p>Photos empruntées à <a href="https://www.google.com/imghp%22%3E"> Google images</a></p>
+        <a id="goTop" href="#" title="Haut de page">&UpArrow;</a>
+    </footer>
+</body>
+
+</html>

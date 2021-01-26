@@ -110,20 +110,3 @@ video {
 }
 
 /*******************Style du tp******************************/
-
-.section {
-    padding: 0.5em calc((100% - 1200px ) / 2);
-}
-
-.light {
-    background-color: rgb(255, 255, 255);
-}
-
-.dark {
-    background-color: rgb(0, 0, 0);
-    color: white;
-}
-
-label {
-    display: block;
-}
