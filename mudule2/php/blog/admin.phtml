@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <meta name="description" content="Interfacer une base données MySQL avec PHP">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <header class="navbar navbar-expand-sm navbar-dark bg-dark px-4">
+        <a class="navbar-brand" href="./">Blog</a>
+        <p class="navbar-text m-0 d-none d-sm-block">L'extension PDO (PHP Data Objects)</p>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Ouvrir ou fermer le menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse ms-auto w-auto" id="menu">
+            <nav class="navbar-nav ms-auto">
+                <a class="nav-link" href="#">Acceuil</a>
+                <a class="nav-link active" href="admin">Administration</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="row">
+            <nav class="col-3 bg-light">
+                <ul>
+                    <li><a href="admin.php">Tableau de bord</a></li>
+                    <li><a href="#">Créer un nouvel article</a></li>
+                </ul>
+            </nav>
+            <section class="col-9">
+                <header class="bg-light p-1 rounded text-center">
+                    <h1>Tableau de brod</h1>
+                    <p>Gestion des articles du blog</p>
+                </header>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <caption>Liste des derniers articles</caption>
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Date</th>
+                                <th>Titre</th>
+                                <th>Auteur</th>
+                                <th>Catégorie</th>
+                                <th>Modifier</th>
+                                <th>Supprimer</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <td>1</td>
+                            <td>12/01/2021</td>
+                            <td>Test</td>
+                            <td>knolls</td>
+                            <td>Humeur</td>
+                            <td></td>
+                            <td></td>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer class="footer">
+        <p><a href="https://www.gretanet.com/action.php?idAction=3443&refererPage=listing" title="En savoir plus sur la formation">Formation Développeur Développeur WEB - GRETA</a></p>
+        <p>&copy; Elève : Quentin POGGI - Module PHP</p>
+        <p>Photos empruntées à <a href="https://www.google.com/imghp%22%3E"> Google images</a></p>
+        <a id="goTop" href="#" title="Haut de page">&UpArrow;</a>
+    </footer>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
