@@ -4,8 +4,8 @@
 
 // MDP MyAdmin : 'CazEKLpwQmh4AjTu'
 require('models/functions.php');
-$query = getposts();
 
+$query = getposts();
 
 
 
