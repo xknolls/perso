@@ -13,7 +13,7 @@ require_once('models/functions.php');
 
 
 //Récuperer les données du post 
-$query_post = getpost($_GET['id']);
+$query_post = get_post($_GET['id']);
 
 $post = $query_post -> fetch();
 

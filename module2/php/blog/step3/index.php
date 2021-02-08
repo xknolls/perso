@@ -4,7 +4,7 @@
 
 require('models/functions.php');
 
-$query = getposts();
+$query = get_posts();
 
 
 $template = 'index';

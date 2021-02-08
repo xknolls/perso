@@ -38,11 +38,17 @@
                 </div>
 
                 <div class="col-12">
-                    <label for="title" class="form-label">Titre de l'article</label>
+                    <label for="title" class="form-label">Titre de l'article</label> <br>
+                    <?php if(!empty($errors['title'])) : ?>
+                        <p class="text-danger bg-dark d-inline-block"><?=$errors['title'] ?></p>
+                    <?php endif; ?>
                     <input type="text" class="form-control" id="title" name="title" placeholder="Saisir un titre évocateur">
                 </div>
                 <div class="col-12">
-                    <label for="texte" class="form-label">Texte</label>
+                    <label for="texte" class="form-label">Texte</label><br>
+                    <?php if(!empty($errors['content'])) : ?>
+                        <p class="text-danger bg-dark d-inline-block"><?= $errors['content'] ?></p>
+                    <?php endif; ?>
                     <textarea name="content" class="form-control" id="content" cols="30" rows="10"></textarea>
                 </div>
                 <div class="col-12">

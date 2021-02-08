@@ -7,14 +7,24 @@ $query_category = get_category();
 
 $query_users = get_users();
 $users = $query_users->fetchAll();
-var_dump($users);
 
 
-
-
+$errors = array();
+//var_dump($_POST);
 if (!empty($_POST)) {
-    var_dump($_POST);
-    $add_post = array();
+    /*
+    /*if (empty($_POST['id-category'])) {
+        $error['id_category'] = 'Veuiller choisir une catégorie ! ';
+    }
+
+    if (empty($_POST['title'])) {
+        $errors['title'] = 'Veuillez ajouter un titre ! ';
+    }
+    if (empty($_POST['content'])) {
+        $errors['content'] = 'Veuillez ajouter un contenue ! ';
+    }
+} elseif(!empty($_POST) AND empty($errors)) { */
+
 
     $add_post['id_category'] = $_POST['id_category'];
     $add_post['id_user'] = $_POST['id_user'];
@@ -22,6 +32,9 @@ if (!empty($_POST)) {
     $add_post['content'] = $_POST['content'];
 
     add_post($add_post);
+
+    header('Location:index.php');
+    exit;
 }
 
 
@@ -29,7 +42,7 @@ $template = 'add_post';
 include './views/layout.phtml';
 
 /*
- * faire le edit et faire le add
+ * faire le edit
  * 
  *  
  */

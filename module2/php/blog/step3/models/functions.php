@@ -54,7 +54,7 @@ function connect()
  *
  * @return $query
  */
-function getposts($limit=10, $offset=0) {
+function get_posts($limit=10, $offset=0) {
     $pdo = connect();
     //Transmission de la requête
     $query = $pdo-> prepare('
@@ -93,7 +93,7 @@ function getposts($limit=10, $offset=0) {
     return $query;
 }
 
-function getpost($id_post) {
+function get_post($id_post) {
     $pdo = connect();
 
     $query = $pdo -> prepare('
@@ -103,7 +103,9 @@ function getpost($id_post) {
         DATE_FORMAT(date_update, "%e/%c/%Y") AS date, 
         content,
         label, 
-        pseudo
+        pseudo,
+        posts.id_user,
+        posts.id_category
 
     FROM posts 
 
@@ -211,4 +213,33 @@ function get_category() {
 
     $query ->execute();
     return $query;
+}
+
+function delet_post($id_post) {
+    $pdo = connect();
+    $query = $pdo -> prepare('
+    DELETE FROM 
+    `posts` 
+    WHERE `posts`.`id_post` = :id_post
+    ');
+
+    $query->execute($id_post);
+
+}
+
+function edit_post($id_post) {
+    $pdo = connect();
+    $query = $pdo -> prepare('
+        UPDATE posts
+        SET 
+            id_user= :id_user,
+            id_category= :id_category,
+            title= :title,
+            content= :content,
+            date_update= NOW()
+        WHERE id_post = :id_post
+    ');
+
+    $query -> execute($id_post); 
+
 }
