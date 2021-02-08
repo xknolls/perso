@@ -1,8 +1,10 @@
 <?php
 
+
+
 require('models/functions.php');
 
-$query = getposts(5);
+$query = getposts();
 
 
 $template = 'index';

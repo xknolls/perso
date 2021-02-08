@@ -4,13 +4,13 @@
 function connect()
 {
 
-    require('config/config.php');
+    require_once('config/config.php');
 
     // Tenter de se connecter à la base de données
     try {
         $pdo = new PDO(
             // Source de données : DSN (Date Source Name)
-            'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=UTF8;port=' . DB_PORT . '',
+            'mysql:host='. DB_HOST .';dbname='. DB_NAME .';charset=UTF8;port= ' . DB_PORT,
             // Identification
             DB_USER,
             // Mot de passe
@@ -24,8 +24,15 @@ function connect()
         */
         $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
+        //Uniquement en dev 
+        if (defined('DB_SQL_DEBUG')) {
+            $pdo -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        }
+       
+
         return $pdo;
-    } catch (PDOException $error) {
+    } 
+    catch (PDOException $error) {
         //echo 'Erreur : ' . $error -> getMessage();
         error_log(
             // Message
@@ -39,6 +46,7 @@ function connect()
         header('Location:404.php?er=503');
         exit;
     }
+    return $pdo;
 }
 
 /**
@@ -46,11 +54,11 @@ function connect()
  *
  * @return $query
  */
-function getposts($limit = 10, $offset = 1)
+function getposts($limit=10, $offset=0)
 {
     $pdo = connect();
     //Transmission de la requête
-    $query = $pdo->prepare('
+    $query = $pdo-> prepare('
         SELECT 
             id_post,
             title,
@@ -58,7 +66,8 @@ function getposts($limit = 10, $offset = 1)
             content,
             label, 
             firstname, 
-            lastname 
+            lastname,
+            pseudo
         
         FROM posts 
 
@@ -66,7 +75,7 @@ function getposts($limit = 10, $offset = 1)
         INNER JOIN users ON users.id_user = posts.id_user
 
         ORDER BY date_update DESC, id_post DESC
-        LIMIT :limit OFfSET :offset
+        LIMIT :limit OFFSET :offset
     ');
     /*
     $query->execute(array(
@@ -83,4 +92,86 @@ function getposts($limit = 10, $offset = 1)
 
 
     return $query;
+}
+
+function getpost($id_post) {
+    $pdo = connect();
+
+    $query = $pdo -> prepare('
+    SELECT 
+        id_post,
+        title,
+        DATE_FORMAT(date_update, "%e/%c/%Y") AS date, 
+        content,
+        label, 
+        pseudo
+
+    FROM posts 
+
+    INNER JOIN category ON category.id_category = posts.id_category 
+    INNER JOIN users ON users.id_user = posts.id_user
+    
+    WHERE id_post = :id_post
+    ');
+    $query->bindValue(':id_post', $id_post, PDO::PARAM_INT);
+    $query ->execute();
+
+    return $query;
+}
+
+function getcomments_post($id_post) {
+
+    $pdo = connect();
+
+    $query = $pdo -> prepare('
+    SELECT 
+        id_comment,
+        pseudo,
+        DATE_FORMAT(date_create, "%e/%c/%Y") AS date, 
+        comment,
+        id_post
+
+    FROM comments 
+
+    INNER JOIN users ON users.id_user = comments.id_user
+
+    WHERE id_post = :id_post
+
+    ORDER BY date ASC, id_comment ASC
+    
+    ');
+
+    $query->bindValue(':id_post', $id_post, PDO::PARAM_INT);
+    $query ->execute();
+
+    return $query;
+}
+
+
+function countComments_post($id_post) {
+    $pdo = connect();
+
+    $query = $pdo -> prepare('
+
+        SELECT COUNT(*)
+        FROM comments
+        WHERE id_post = :id_post
+    ');
+
+    $query->bindValue(':id_post', $id_post, PDO::PARAM_INT);
+    $query ->execute();
+
+    return $query ->fetchColumn();
+}
+
+function add_comment( $comment = array()) {
+    $pdo = connect();
+    $query = $pdo -> prepare('
+        INSERT INTO comments
+            (comment, date_create, id_user, id_post)
+        VALUES
+            (:comment, NOW(), :id_user, :id_post)
+        ');
+
+        $query -> execute($comment);
 }

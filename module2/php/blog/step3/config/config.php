@@ -4,7 +4,7 @@
 define('DB_NAME', 'blog');
 
 /*Utilisateur de la base de donées */
-define('DB_USER', 'knollss');
+define('DB_USER', 'knolls');
 
 /*Mot de passe de la base de donées */
 define('DB_PASSWORD', 'CazEKLpwQmh4AjTu');
@@ -14,3 +14,6 @@ define('DB_HOST', 'localhost');
 
 /*Port */
 define('DB_PORT', '3306');
+
+/*Mode debug : afficher les erreures sql */
+define('DB_SQL_DEBUG', true);
