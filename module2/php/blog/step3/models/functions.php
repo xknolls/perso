@@ -54,8 +54,7 @@ function connect()
  *
  * @return $query
  */
-function getposts($limit=10, $offset=0)
-{
+function getposts($limit=10, $offset=0) {
     $pdo = connect();
     //Transmission de la requête
     $query = $pdo-> prepare('
@@ -174,4 +173,42 @@ function add_comment( $comment = array()) {
         ');
 
         $query -> execute($comment);
+}
+
+function add_post( $add_post) {
+    $pdo = connect();
+    $query = $pdo -> prepare('
+        INSERT INTO posts
+            (title, date_update, content, id_user, id_category)
+        VALUES
+            (:title, NOW(), :content, :id_user, :id_category)
+        ');
+
+        $query->execute($add_post);
+}
+
+function get_users() {
+    $pdo = connect();
+    $query = $pdo -> prepare('
+    SELECT 
+        id_user, pseudo
+    
+    FROM `users` 
+    ');
+
+    $query ->execute();
+    return $query;
+}
+
+function get_category() {
+    $pdo = connect();
+    $query = $pdo -> prepare('
+    SELECT 
+        id_category, label
+    
+    FROM `category` 
+    ');
+
+    $query ->execute();
+    return $query;
 }
