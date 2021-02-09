@@ -13,35 +13,50 @@ if (array_key_exists('id', $_GET) && (ctype_digit($_GET['id']))) {
 
     $post = $query_post->fetch();
 
-}
+    $edit_post = array(
+        'id_post' => '', 
+        'title' => '',
+        
 
-if (!empty($_POST)) {
-    /*
-    /*if (empty($_POST['id-category'])) {
-        $error['id_category'] = 'Veuiller choisir une catégorie ! ';
+    );
+
+}
+elseif (!empty($_POST)) {
+
+    $errors = array();
+    $edit_post = array();
+
+    if (empty($_POST['id_category'])) {
+        $errors['id_category'] = 'Veuillez choisir une catégorie ! ';
+    }
+
+    if (empty($_POST['id_user'])) {
+        $errors['id_user'] = 'Veuillez choisir un auteur ! ';
     }
 
     if (empty($_POST['title'])) {
         $errors['title'] = 'Veuillez ajouter un titre ! ';
     }
+    
     if (empty($_POST['content'])) {
-        $errors['content'] = 'Veuillez ajouter un contenue ! ';
+        $errors['content'] = 'Veuillez ajouter un contenu ! ';
     }
-} elseif(!empty($_POST) AND empty($errors)) { */
-
-
     $edit_post['id_category'] = $_POST['id_category'];
     $edit_post['id_user'] = $_POST['id_user'];
     $edit_post['title'] = $_POST['title'];
     $edit_post['content'] = $_POST['content'];
+    $edit_post['id_post'] = $_POST['id_post'];
 
-    add_post($edit_post);
+    var_dump($errors);
+    var_dump($edit_post);
 
-    header('Location:index.php');
+} 
+
+if(!empty($_POST) AND empty($errors)) {
+    edit_post($edit_post);
+    header('Location:admin.php');
     exit;
 }
-
-
 
 
 

@@ -120,6 +120,7 @@ function get_post($id_post) {
     return $query;
 }
 
+
 function getcomments_post($id_post) {
 
     $pdo = connect();
@@ -147,7 +148,6 @@ function getcomments_post($id_post) {
 
     return $query;
 }
-
 
 function countComments_post($id_post) {
     $pdo = connect();
@@ -211,6 +211,22 @@ function get_category() {
     FROM `category` 
     ');
 
+    $query ->execute();
+    return $query;
+}
+
+function get_one_category($id_category) {
+    $pdo = connect();
+    $query = $pdo -> prepare('
+    SELECT 
+        id_category, label
+    
+    FROM `category` 
+
+    WHERE id_category = :id_category
+    ');
+
+    $query->bindValue(':id_category', $id_category, PDO::PARAM_INT);
     $query ->execute();
     return $query;
 }
