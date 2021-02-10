@@ -42,21 +42,32 @@
                 <?php endwhile; ?>
             </ul>
         <?php endif; ?>
+        <hr>
 
-        <form action="add_comment.php" method="POST" class="mt-5">
-                    <input type="hidden" name="id_post" value="<?= intval($post['id_post']); ?>">
-            <fieldset class="bg-warning rounded">
-                <legend class="bg-dark text-center m-0 fs-2 rounded-top">Nouveau commentaire</legend>
-                <div class="m-3 mt-0">
-                    <label for="comment" class="form-label text-dark m-3 fs-4"><strong>Votre Commentaire</strong></label>
-                    <textarea class="form-control mh-100 m-3" name="comment" id="comment" rows="5"></textarea>
-                </div>
-                <p class="text-end">
-                    <button type="submit" class="btn btn-dark mx-3">Poster</button>
-                </p>
-            </fieldset>
 
-        </form>
+        <?php if (is_logged() == true) : ?>
+            <div>
+                <form action="add_comment.php" method="POST" class="mt-5">
+                <input type="hidden" name="id_post" value="<?= intval($post['id_post']); ?>">
+                <fieldset class="bg-warning rounded">
+                    <legend class="bg-dark text-center m-0 fs-2 rounded-top">Nouveau commentaire</legend>
+                    <div class="m-3 mt-0">
+                        <label for="comment" class="form-label text-dark m-3 fs-4"><strong>Votre Commentaire</strong></label>
+                        <textarea class="form-control mh-100 m-3" name="comment" id="comment" rows="5"></textarea>
+                    </div>
+                    <p class="text-end">
+                        <button type="submit" class="btn btn-dark mx-3">Poster</button>
+                    </p>
+                </fieldset>
+            </form>
+            </div>
+        <?php else : ?>
+            <div class="bg-dark p-3 text-center rounded">
+                <h3>Si tu veut te connecter connect toi FDP ! </h3>
+                <a href="#"><button type="button" class="btn btn-warning">S'incrire</button></a>
+                <a href="login.php"><button type="button" class="btn btn-light">Se connecter</button></a>
+            </div>
+        <?php endif; ?>
 
     </aside>
 </article>

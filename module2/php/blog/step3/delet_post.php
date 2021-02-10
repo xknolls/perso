@@ -1,4 +1,10 @@
 <?php 
+require_once('models/utils.php');
+init_session();
+if(is_logged() !==true ) {
+    header('Location:login.php');
+    exit;
+}
 
 require_once('models/functions.php');
 

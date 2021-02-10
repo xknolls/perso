@@ -1,4 +1,10 @@
 <?php
+require_once('models/utils.php');
+init_session();
+if(is_logged() !==true ) {
+    header('Location:login.php');
+    exit;
+}
 
 require_once('models/functions.php');
 
@@ -17,8 +23,6 @@ $add_post = array(
 );
 
 
-//var_dump($users);
-//var_dump($_POST);
 if (!empty($_POST)) {
 
     if (empty($_POST['id_category'])) {
@@ -36,31 +40,23 @@ if (!empty($_POST)) {
     if (empty($_POST['content'])) {
         $errors['content'] = 'Veuillez ajouter un contenue ! ';
     }
-
-    var_dump($_POST);
-    var_dump($errors);
-
-} 
-
-if(!empty($_POST) && empty($errors)) {
     
     $add_post['id_category'] = $_POST['id_category'];
     $add_post['id_user'] = $_POST['id_user'];
     $add_post['title'] = $_POST['title'];
     $add_post['content'] = $_POST['content'];
+
+    if(!empty($_POST) && empty($errors)) {
     
-    var_dump($add_post);
+        add_post($add_post);
+    
+        header('Location:index.php');
+        exit;
+    }
+} 
 
-    add_post($add_post);
 
-    header('Location:index.php');
-    exit;
-}
 
 
 $template = 'add_post';
 include './views/layout.phtml';
-
-/*
- * faire le edit
- */

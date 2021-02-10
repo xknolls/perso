@@ -14,6 +14,7 @@ $users = array(
 );
 
 if (array_key_exists('login', $_POST)) {
+
     foreach ($users as $user) {
         if (
             $_POST['login'] == $user['login']

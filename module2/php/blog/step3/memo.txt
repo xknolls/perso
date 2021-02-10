@@ -1,0 +1,9 @@
+Travail à faire pour terminer le blog:
+    - La sécurité
+    - Finir la pagination 
+        https://zestedesavoir.com/tutoriels/351/paginer-avec-php-et-mysql/
+    - Mettre en place :
+        Le formulaire d'inscription
+        Gérer :
+            Les commentaire 
+            Les catégories

@@ -254,8 +254,29 @@ function edit_post($id_post) {
             content= :content,
             date_update= NOW()
         WHERE id_post = :id_post
-    ');
+        ');
+        
+        $query -> execute($id_post); 
+        
+}
 
-    $query -> execute($id_post); 
+function get_user_by_login($login) {
+    $pdo = connect();
+    $query = $pdo -> prepare('
+        SELECT
+            id_user,
+            pseudo,
+            pass
+        FROM users
+        WHERE email = :login
+    ');
+    
+    $query -> execute(
+        array(
+            ':login' => $login
+        )
+    );
+    $user = $query->fetch();
+    return $user;
 
 }

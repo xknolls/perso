@@ -1,4 +1,11 @@
 <?php
+require_once('models/utils.php');
+init_session();
+if(is_logged() !==true ) {
+    header('Location:login.php');
+    exit;
+}
+
 /*
     Pour inserer un comentaire, il faut 
 
@@ -13,7 +20,7 @@
 
 
 //Pour l'instant 
-$id_user = 4;
+$id_user = $_SESSION['id_user'];
 
 //Si les données sont incomplète ou eronées : redirection vers pot.ph
 if (

@@ -5,8 +5,8 @@
     </header>
 
     <div class="row justify-content-center mx-auto">
-        
-        <?php while( $post = $query -> fetch() ) : ?>
+
+        <?php while ($post = $query->fetch()) : ?>
             <div class="col-sm-3 p-0 m-3 card shadow">
                 <div class="card-header bg-warning">
                     <h2 class="card-title text-light h5"><?= htmlspecialchars($post['title']); ?></h2>
@@ -25,4 +25,11 @@
             </div>
         <?php endwhile; ?>
     </div>
+    <nav class="mt-5" aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item"><a class="page-link link-dark" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link link-dark" href="#">1</a></li>
+            <li class="page-item"><a class="page-link link-dark" href="#">Next</a></li>
+        </ul>
+    </nav>
 </div>

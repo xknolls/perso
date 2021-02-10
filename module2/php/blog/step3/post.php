@@ -1,4 +1,7 @@
-<?php 
+<?php
+require_once('models/utils.php');
+init_session();
+
 
 // Si $_GET['id'] n'est pas ce qu'on attend ; il n'existe pas ou il ne contient pas un nombre 
 if ( 
