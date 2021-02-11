@@ -280,3 +280,15 @@ function get_user_by_login($login) {
     return $user;
 
 }
+
+function add_document($document = array() ) {
+    $pdo = connect();
+    $query = $pdo -> prepare('
+        INSERT INTO documents
+            (name,type,size,description,legend,date_upload)
+        VALUES
+            (:name,:type,:size,:description,:legend,NOW())
+    ');
+
+    $query -> execute($document);
+}

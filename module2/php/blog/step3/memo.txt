@@ -4,6 +4,8 @@ Travail à faire pour terminer le blog:
         https://zestedesavoir.com/tutoriels/351/paginer-avec-php-et-mysql/
     - Mettre en place :
         Le formulaire d'inscription
+        Le logout 
+        Finir les sessions
         Gérer :
-            Les commentaire 
+            Les commentaires
             Les catégories
