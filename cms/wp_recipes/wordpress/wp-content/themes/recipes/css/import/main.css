@@ -1,0 +1,46 @@
+.main-header {
+  height : 40vh;
+  background-color : rgba(0,0,0,0.3);
+  color : white;
+  text-align: center;
+  font-size : 3vmax;
+  font-weight : bold;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-header * {
+  margin : 0;
+}
+
+.main-header h1 {
+  font-size : 4vmax;
+  text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+.main-header p {
+  display : inline-block;
+  padding : 0 1rem;
+  background-color : orangeRed;
+  margin-bottom: auto;
+}
+
+.main-header .title {
+  margin-top: auto;
+}
+
+.header-cta {
+  color: orangered;
+  text-decoration: none;
+  margin-top: auto;
+}
+
+@media screen and (min-width: 1024px) {
+
+  .main-header {
+    height : 60vh;
+  }
+}

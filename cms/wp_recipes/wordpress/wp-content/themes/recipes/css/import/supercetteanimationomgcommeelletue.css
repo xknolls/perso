@@ -1,0 +1,37 @@
+@keyframes bounce {
+	0% {
+		transform: translate(0, 0)
+	}
+	12.5% {
+		transform: translate(50vh, -46vh);
+	}
+	25% {
+		transform: translate(96vh, -23vh);
+	}
+	37.5% {
+		transform: translate(50vh, 0vh);
+	}
+	50% {
+		transform: translate(0vh, -46vh);
+	}
+	62.5% {
+		transform: translate(-50vh, 0vh);
+	}
+	75% {
+		transform: translate(-96vh, -23vh);
+	}
+	87.5% {
+		transform: translate(-50vh, -46vh);
+	}
+	100% {
+		transform: translate(0, 0);
+	}
+}
+
+.header-cta {
+	animation-name: bounce;
+	animation-duration: 20s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	/*animation-direction: alternate;*/
+}

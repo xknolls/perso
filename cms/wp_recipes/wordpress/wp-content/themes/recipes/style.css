@@ -1,0 +1,15 @@
+/*
+Theme Name: Recipes
+Author: GretaWeb 2021
+Description: Le thème du TP Recettes de Tante Huguette
+Version: 1.0
+*/
+
+@import url("./css/import/normalize.css") screen;
+@import url("./css/import/header.css") screen;
+@import url("./css/import/base.css") screen;
+@import url("./css/import/main.css") screen;
+@import url("./css/import/theme.css") screen;
+@import url("./css/import/footer.css") screen;
+@import url("./css/import/article.css") screen;
+@import url("./css/import/supercetteanimationomgcommeelletue.css") screen;
