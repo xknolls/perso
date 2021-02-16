@@ -36,7 +36,6 @@
 
   .container-thumbnail {
     display: block;
-    height: 20vmin;
     overflow: hidden;
     background: #653216;
     border-radius: 0.5em 0.5em 0 0;

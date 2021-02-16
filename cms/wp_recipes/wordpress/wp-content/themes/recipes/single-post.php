@@ -5,7 +5,11 @@
 		<section>
 			<div class="container">
 				<?php while (have_posts()) : the_post(); ?>
-					<?php get_template_part('template-parts/content','archive') ?>
+ 
+					<?php
+						$postformat = get_post_format();			
+						get_template_part('template-parts/content', $postformat) 
+					?>
 				<?php endwhile; ?>
 			</div>
 		</section>

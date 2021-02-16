@@ -2,8 +2,13 @@
   padding : 1rem 0;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   position: sticky;
+  top: 0;
   width: 100%;
   z-index: 4000;
+}
+
+.logged-in .banner {
+  top: 32px;
 }
 
 .banner a {
@@ -22,8 +27,20 @@
   color: white;
 }
 
-.banner nav {
+.banner-nav {
   display: none;
+}
+
+.menu {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.menu-item {
+  margin: 0;
+  padding: 0;
+
 }
 
 .banner nav a {
@@ -48,13 +65,17 @@
 
 @media screen and (min-width: 1024px) {
 
-  .banner-container {
+  .banner-nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
   }
 
-  .banner nav {
-      display: flex;
+  .banner {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .menu {
+    display: flex;
   }
 }
