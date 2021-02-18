@@ -81,3 +81,8 @@ function buildCaracteristics(array &$character)
     $character['position']['y'] = rand(0, SIZE_Y - 1);    
 
 }
+
+function hit () 
+{
+    
+}

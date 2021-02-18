@@ -1,0 +1,2 @@
+<?php 
+echo PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . "Marie est bannie du jeu !". PHP_EOL. PHP_EOL. "Et ducoup c'est sur et certain que je n'aime que max meme si c'était deja le cas avant" .PHP_EOL. PHP_EOL. PHP_EOL. PHP_EOL. PHP_EOL. PHP_EOL;

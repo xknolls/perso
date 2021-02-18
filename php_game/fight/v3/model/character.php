@@ -1,12 +1,23 @@
-<?php 
-class Warrior {
-    private $name;
-    private $health;
-    private $strength;
+<?php
+abstract class Character
+{
 
-    public function __construct(string $sName = 'Guerrier')
+    protected $name;
+    protected $health;
+    protected $strength;
+
+
+    /**
+     * Simulation de combat
+     *
+     * @param  Character $b
+     * 
+     * @return void
+     * 
+     */
+    function hit(Character $b): void
     {
-        $this->name = $sName;
+        $b->setHealth($b->getHealth() - $this->getStrength());
     }
 
     /**
@@ -18,13 +29,13 @@ class Warrior {
     }
 
     public function display()
-        {
-            print_r($this);
-        }
+    {
+        print_r($this);
+    }
 
     /**
      * Get the value of name
-     */ 
+     */
     public function getName()
     {
         return $this->name;
@@ -34,7 +45,7 @@ class Warrior {
      * Set the value of name
      *
      * @return  self
-     */ 
+     */
     public function setName($name)
     {
         $this->name = $name;
@@ -44,7 +55,7 @@ class Warrior {
 
     /**
      * Get the value of health
-     */ 
+     */
     public function getHealth()
     {
         return $this->health;
@@ -54,7 +65,7 @@ class Warrior {
      * Set the value of health
      *
      * @return  self
-     */ 
+     */
     public function setHealth($health)
     {
         $this->health = $health;
@@ -64,7 +75,7 @@ class Warrior {
 
     /**
      * Get the value of strength
-     */ 
+     */
     public function getStrength()
     {
         return $this->strength;
@@ -74,7 +85,7 @@ class Warrior {
      * Set the value of strength
      *
      * @return  self
-     */ 
+     */
     public function setStrength($strength)
     {
         $this->strength = $strength;
