@@ -14,7 +14,7 @@ function createBoard(): array
     for ($y = 0; $y < SIZE_Y; $y++) {
         $aBoard[$y] = [];
         for ($x = 0; $x < SIZE_X; $x++) {
-            $aBoard[$y][$x] = $x . ';' . $y;
+            $aBoard[$y][$x] = ' ';
         }
     }
 
@@ -32,7 +32,7 @@ function displayBoard(array $aBoard): void
 {
     for ($y = 0; $y < SIZE_Y; $y++) {
         for ($x = 0; $x < SIZE_X; $x++) {
-            echo ' [   ] ';
+            echo ' ['. $aBoard[$y][$x] .'] ';
         }
         echo PHP_EOL . PHP_EOL;
     }
@@ -40,3 +40,8 @@ function displayBoard(array $aBoard): void
 
     return;
 }
+
+/*function testValue(): bool
+{
+    $x >= 0 && $x < SIZE_X && $y >= 0 && $y < SIZE_X;
+}*/
