@@ -51,7 +51,7 @@ function displayBoard(array $aBoard): void
  */
 function testValue($x, $y): bool
 {
-    return ($x >= 0 && $x < SIZE_X && $y >= 0 && $y < SIZE_X);
+    return $x >= 0 && $x < SIZE_X && $y >= 0 && $x < SIZE_Y;
 
 }
 

@@ -2,7 +2,8 @@
 
 //Executer la fonction recipes_theme_support à l'activation du thème
 add_action('after_setup_theme', 'recipes_theme_support');
-function recipes_theme_support(){
+function recipes_theme_support()
+{
 
     //Activer les images à la une 
     add_theme_support('post-thumbnails');
@@ -24,7 +25,8 @@ function recipes_theme_support(){
 }
 
 add_action('wp_enqueue_scripts', 'recipes_register_styles');
-function recipes_register_styles() {
+function recipes_register_styles()
+{
 
     // Déclarer le changement de normalize.css
     wp_register_style(
@@ -43,11 +45,11 @@ function recipes_register_styles() {
 
     wp_enqueue_style('normalize');
     wp_enqueue_style('style');
-
 }
 
 add_action('wp_head', 'recipes_customize_css');
-function recipes_customize_css(){
+function recipes_customize_css()
+{
 
     $custom_header = get_custom_header();
 
@@ -69,20 +71,23 @@ function recipes_customize_css(){
         );
     }
 
-    ?>
+?>
     <style>
-        .home, .banner {
+        .home,
+        .banner {
             background-image: url(<?= esc_url($url_mobile) ?>);
         }
 
         @media screen and (min-width: 768px) {
-            .home, .banner {
+
+            .home,
+            .banner {
                 background-image: url(<?= esc_url($url_tablet) ?>);
             }
         }
 
         @media screen and (min-width: 1024px) {
-            .home .banner{
+            .home .banner {
                 background-image: url(<?= esc_url($url_desktop) ?>);
             }
 
@@ -102,12 +107,38 @@ function recipes_customize_css(){
 
 //Activer les menus
 add_action('init', 'recipes_menu');
-function recipes_menu() {
+function recipes_menu()
+{
 
     //Déclarer plusieurs emplacements de menus
     register_nav_menus(array(
         'primary' => 'Menu principal',
         'secondary' => 'Menu secondaire'
-        
+
     ));
+}
+
+
+
+add_action('widgets_init', 'recipes_widgets_init');
+function recipes_widgets_init()
+{
+    register_sidebar(array(
+        'name'          => 'Emplacment Principal',
+        'id'            => 'principal',
+        'before_widget' => '<div class="widget %2$s">',
+        'after_widget'  => '</div>',
+    ));
+}
+
+add_filter('wp_nav_menu_items', 'gkp_add_login_logout_link', 10, 2);
+function gkp_add_login_logout_link($items, $args)
+{
+
+    ob_start();
+    wp_loginout('index.php');
+    $loginout = ob_get_contents();
+    ob_end_clean();
+    $items .= '<li>' . $loginout . '</li>';
+    return $items;
 }

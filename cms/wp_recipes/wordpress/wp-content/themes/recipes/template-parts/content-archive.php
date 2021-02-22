@@ -13,7 +13,7 @@
         <?php the_category(); ?>
     </header>
     <div itemprop="description" class="description">
-        <?php the_content('', true) ?>
+        <?php the_excerpt() ?>
     </div>
     <footer>
         <p>Publiée le <time itemprop="datePublished" datetime="<?php the_time('Y-m-d') ?>"><?php the_time('j F Y') ?></time> par <span itemprop="author"><?php the_author() ?></span></p>

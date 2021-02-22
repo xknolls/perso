@@ -5,6 +5,7 @@ Description: Le thème du TP Recettes de Tante Huguette
 Version: 1.0
 */
 
+@import url("./css/import/animate.css") screen;
 @import url("./css/import/normalize.css") screen;
 @import url("./css/import/header.css") screen;
 @import url("./css/import/base.css") screen;

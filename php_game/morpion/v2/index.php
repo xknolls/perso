@@ -32,7 +32,7 @@ do {
             //Permet de récupérer une saisie utilisateur
             $sResponse = readline('>> Quelle case ? ') . PHP_EOL;
 
-            
+
 
             // Explode : permet de scinder une chaine de caractère en un tableau
             //$aParts = explode(',', $sResponse);
@@ -40,16 +40,14 @@ do {
             //$y = $aParts[1];
             list($x, $y) = explode(',', $sResponse);
 
-            $bReplay = false;
+            $bReplay = !empty(trim($aBoard[$y][$x])) && !testValue($x, $y);
 
-            if (empty(trim($aBoard[$y][$x])) && testValue($x, $y)) {
-                $aBoard[$y][$x] = $sPlayer;
-            } else {
+            if ($bReplay) {
                 echo 'Case déja prise ou les coordonées sont invalides' . PHP_EOL;
-                $bReplay = true; 
             }
+        } while ($bReplay);
 
-        } while( $bReplay );
+        $aBoard[$y][$x] = $sPlayer;
 
         displayBoard($aBoard);
 
@@ -59,8 +57,7 @@ do {
             break;
         }
     }
-
-} while( !$bEndGame );
+} while (!$bEndGame);
 
 
 echo '== Fin du programme ==' . PHP_EOL;

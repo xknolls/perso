@@ -30,7 +30,7 @@
 
 .header-cta {
 	animation-name: bounce;
-	animation-duration: 20s;
+	animation-duration: 60s;
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
 	/*animation-direction: alternate;*/

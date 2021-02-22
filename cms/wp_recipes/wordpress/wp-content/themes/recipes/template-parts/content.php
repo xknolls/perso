@@ -1,22 +1,49 @@
-<article class="section-article" itemscope itemtype="https://schema.org/Recipe">
-    <?php
-    $categories = get_the_category();
-    $first_cat = $categories[0];
-    ?>
-    <header>
-        <a itemprop="url" class="container-thumbnail" href="<?php the_permalink() ?>">
-            <?php the_post_thumbnail('medium-760-250') ?>
-        </a>
-        <h3 itemprop="name"><?php the_title() ?></h3>
-        <meta itemprop="recipeCategory" content="<?php echo $first_cat->cat_name; ?>">
-        <meta itemprop="cookTime" content="<?php the_field('cooking_time') ?>">
-        <?php the_category(); ?>
+<?php
+$categories = get_the_category();
+$first_cat = $categories[0];
+?>
+
+<article class="article-container">
+    <header class="article-header">
+        <h1 class="h1 article-title" itemprop="name"><?php the_title() ?></h1>
+        <?php the_excerpt() ?>
+        <dl class="article-metas">
+            <dt>Temps</dt>
+            <dd><?php the_field('cooking_time') ?></dd>
+        </dl>
+        <dl class="article-metas">
+            <dt>Personnes</dt>
+            <dd><?php the_field('persons') ?></dd>
+        </dl>
+        <dl class="article-metas">
+            <dt>Facile</dt>
+            <dd><?php the_field('level') ?></dd>
+        </dl>
+        <dl class="article-metas">
+            <dt>Bon marché</dt>
+            <dd><?php the_field('cost') ?></dd>
+        </dl>
     </header>
-    <div itemprop="description" class="description">
-        <?php the_content('', true) ?>
+
+
+    <div itemprop="url" class="article-picture" href="<?php the_permalink() ?>">
+        <?php the_post_thumbnail('large') ?>
     </div>
-    <footer>
-        <p>Publiée le <time itemprop="datePublished" datetime="<?php the_time('Y-m-d') ?>"><?php the_time('j F Y') ?></time> par <span itemprop="author"><?php the_author() ?></span></p>
-        <a itemprop="url" href="<?php the_permalink() ?>" class="cta">Lire la suite</a>
-    </footer>
-</article>
+
+
+    <section class="article-ingredient">
+        <h2 class="h3">Ingrédients</h2>
+        <?php the_field('ingredients') ?>
+    </section>
+
+    <section class="article-preparation">
+        <h2 class="h3">Etapes de préparation</h2>
+        <?php the_content('', true) ?>
+    </section>
+
+    <aside class="article-aside">
+        <h2 class="h3">Astuces & conseils</h2>
+        <?php the_field('advices') ?>
+    </aside>
+
+    </arcitcle>

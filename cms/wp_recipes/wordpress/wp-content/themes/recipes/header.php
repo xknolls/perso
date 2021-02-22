@@ -3,7 +3,11 @@
 
 <head>
     <meta charset="utf-8">
-    <title><?php bloginfo('name') ?></title>
+    <?php if( is_single()) : ?>
+        <title><?php the_title() ?></title>
+    <?php else : ?>
+        <title><?php bloginfo('name') ?></title>
+    <?php endif ; ?>
     <meta name="description" content="<?php bloginfo('description') ?>">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url') ?>">
@@ -14,7 +18,7 @@
 <body <?php body_class() ?>>
 
     <header class="banner">
-        <a class="site-logo" href="<?php bloginfo('siteURL') ?>"><?php bloginfo('name') ?></a>
+        <a class="site-logo" href="<?php bloginfo('url') ?>"><?php bloginfo('name') ?></a>
         <p class="site-description"><?php bloginfo('description') ?></p>
         <?php 
             wp_nav_menu( array(
