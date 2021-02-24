@@ -20,6 +20,7 @@ $aPlayers = [];
 $aPlayers[] = 'O';
 $aPlayers[] = 'X';
 
+
 // 4. Effectuer un "tour de jeu"
 do {
   foreach ($aPlayers as $sPlayer) {
