@@ -1,0 +1,44 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Auto-chargement des classes
+// > on défini une fonction anonyme à appeler en cas d'erreur
+spl_autoload_register(function ($sNamespaceClass) {
+  //echo '?? '. $sNamespaceClass.PHP_EOL;
+  // ex: Model\XXX >> Model/XXX.php
+  // ex: Entity\XXX >> Entity/XXX.php
+  // ex: Entity\Toto\XXX >> Entity/Toto/XXX.php
+  $sConvertedClass = str_replace('\\', '/', $sNamespaceClass);
+  include_once($sConvertedClass . '.php');
+});
+//include_once 'model/Player.php';
+//include_once 'model/MorpionGame.php';
+
+include_once 'functions.php';
+
+// Permet d'utiliser "MorpionGame" directement au lieu de "Model\MorpionGame"
+use Model\MorpionGame;
+
+echo '== Début du programme ==' . PHP_EOL;
+
+// 1. Créer un plateau de jeu 3x3
+$oGame = new MorpionGame();
+
+// 2. Afficher le plateau de jeu vide
+//displayBoard($oGame->getBoard());
+$oGame->displayBoard();
+
+// 3. Créer un tableau de joueurs et ajouter 2 joueurs
+foreach (MorpionGame::PAWNS as $sPawn) {
+  $sName = readline('Prénom ? ');
+  //$aPlayers[] = new Player($sName, $sPawn);
+  $oGame->addPlayer(new Entity\Player($sName, $sPawn));
+}
+
+// 4. Effectuer un "tour de jeu"
+do {
+  echo '== Nouveau tour de jeu ==' . PHP_EOL;
+} while ($oGame->playRound());
+
+echo '== Fin du programme ==' . PHP_EOL;

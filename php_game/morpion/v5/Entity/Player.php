@@ -1,4 +1,5 @@
 <?php 
+namespace Entity;
 final class Player 
 {
     private string $name;
