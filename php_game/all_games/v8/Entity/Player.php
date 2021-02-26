@@ -34,8 +34,6 @@ final class Player
         return $this->name;
     }
 
-    // Comportements / Fonctions
-
     /**
      * Get the value of team
      */ 

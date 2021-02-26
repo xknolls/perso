@@ -3,13 +3,22 @@ namespace Model;
 
 //use \Entity\Player;
 
-final class Pawn 
+class Pawn 
 {
+
     /** @var string */
-    private string $symbol;
+    protected const SYMBOL = '';
+
+    /** @var string */
+    protected string $symbol;
 
     /** @var Player */
     private \Entity\Player $player;
+
+    public function __construct()
+    {
+        $this->symbol = static::SYMBOL;
+    }
         
     /**
      * @return string

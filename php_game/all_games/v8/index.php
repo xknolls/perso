@@ -9,7 +9,7 @@ spl_autoload_register(function ($sNamespaceClass) {
   // ex: Model\XXX >> Model/XXX.php
   // ex: Entity\XXX >> Entity/XXX.php
   $sConvertedClass = str_replace('\\', '/', $sNamespaceClass);
-  include_once($sConvertedClass.'.php');
+  include_once($sConvertedClass . '.php');
 });
 //include_once 'model/Player.php';
 //include_once 'model/MorpionGame.php';
@@ -19,7 +19,7 @@ include_once 'functions.php';
 // Permet d'utiliser "MorpionGame" directement au lieu de "Model\MorpionGame"
 use Model\MorpionGame;
 
-echo '== Début du programme =='.PHP_EOL;
+echo '== Début du programme ==' . PHP_EOL;
 
 // 1. Créer un plateau de jeu
 $oGame = new MorpionGame();
@@ -30,13 +30,13 @@ $oGame->displayBoard();
 
 // 3. Créer les joueurs
 foreach (MorpionGame::TEAMS as $sTeam) {
-    $sName = readline('Prénom ? ');
-    $oGame->addPlayer(new Entity\Player($sName, $sTeam));
+  $sName = readline('Prénom ? ');
+  $oGame->addPlayer(new Entity\Player($sName, $sTeam));
 }
 
 // 4. Effectuer un "tour de jeu"
 do {
-  echo '== Nouveau tour de jeu =='.PHP_EOL;
+  echo '== Nouveau tour de jeu ==' . PHP_EOL;
 } while ($oGame->playRound());
 
-echo '== Fin du programme =='.PHP_EOL;
+echo '== Fin du programme ==' . PHP_EOL;

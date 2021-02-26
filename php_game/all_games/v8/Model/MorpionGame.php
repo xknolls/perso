@@ -17,91 +17,36 @@ final class MorpionGame extends AbstractGame
     // On précise les dimessions
     protected const SIZE_X = 3;
     protected const SIZE_Y = 3;
-
-    public function playRound() : bool 
-    {
-        foreach ($this->getPlayers() as $oPlayer) {
-            echo $oPlayer.' à vous de jouer !' . PHP_EOL;
-        
-            do {
-                // Obtenir les coordonnées saisies désirées par le joueur
-                // readline permet de récupérer une saisie utilisateur
-                // explode : permet de scinder une chaîne de caractère en un tableau (plusieurs morceaux)
-                $sResponse = readline('>> Quelle case ? ');  
-                list($x, $y) = explode(',',  $sResponse);
-        
-                // On teste si la case est vide ET si les coordonnées sont valides
-                $bReplay = !$this->isValidXY($x, $y) || !$this->isEmptyXY($x, $y);
-                if ($bReplay) {
-                echo 'Case déjà prise OU coordonnées invalides'.PHP_EOL;
-                }
-                // Condition de "reboucle" : pas valide ou pas vide
-            } while ($bReplay);
-        
-            // On assigne le joueur/pion dans la case
-            $oPawn = (new Pawn())
-                ->setPlayer($oPlayer)
-                ->setSymbol($oPlayer->getTeam())
-            ;
-            $this->setXY($x, $y, $oPawn);
-        
-            // Affichage plateau après que le joueur est joué
-            $this->displayBoard();
-        
-            // Il faut appeler isWin après le tour de chaque joueur pour arrêter la partie directement en cas de victoire
-            $bWin = $this->isWinUltraOptimized();
-            if ($bWin) {
-                break;
-            }
-        }
-
-        // On retourne la condition de "Peut-on rejouer ?"
-        return !$bWin;
-    }
-        
-    /**
-     * @param  Player $player
-     * @return void
-     */
-    public function addPlayer(\Entity\Player $player) : void
-    {
-        $this->players[] = $player;
-    }
     
     /**
-     * trim = supprime les espaces présents
-     * @param  int $x
-     * @param  int $y
-     * @return bool
-     */
-    public function isEmptyXY(int $x, int $y) : bool
-    {
-        return empty(trim($this->board[$y][$x]));
-    }
-
-    /**
-     * Vérifie si les coordonnées $x, $y sont valides
+     * playerAction
      *
-     * @param  int $x
-     * @param  int $y
-     * @return bool
-     */
-    function isValidXY(int $x, int $y) : bool
-    {
-        return $x >= 0 && $x < self::SIZE_X && $y >= 0 && $y < self::SIZE_Y;
-    }
-
-    /**
-     * Vérifie si les coordonnées $x, $y sont valides
-     *
-     * @param  int $x
-     * @param  int $y
      * @param  Player $oPlayer
      * @return void
      */
-    function setXY(int $x, int $y, Pawn $oPawn) : void
+    public function playerAction(\Entity\Player $oPlayer): void
     {
-        $this->board[$y][$x] = $oPawn;
+        do {
+            // Obtenir les coordonnées saisies désirées par le joueur
+            // readline permet de récupérer une saisie utilisateur
+            // explode : permet de scinder une chaîne de caractère en un tableau (plusieurs morceaux)
+            $sResponse = readline('>> Quelle case ? ');  
+            list($x, $y) = explode(',',  $sResponse);
+    
+            // On teste si la case est vide ET si les coordonnées sont valides
+            $bReplay = !$this->isValidXY($x, $y) || !$this->isEmptyXY($x, $y);
+            if ($bReplay) {
+            echo 'Case déjà prise OU coordonnées invalides'.PHP_EOL;
+            }
+            // Condition de "reboucle" : pas valide ou pas vide
+        } while ($bReplay);
+    
+        // On assigne le joueur/pion dans la case
+        $oPawn = (new Pawn())
+            ->setPlayer($oPlayer)
+            ->setSymbol($oPlayer->getTeam())
+        ;
+        $this->setXY($x, $y, $oPawn);
     }
 
     /**
@@ -247,7 +192,7 @@ final class MorpionGame extends AbstractGame
             [ [0,0], [0,1], [0,2] ],        // Line 1
             [ [1,0], [1,1], [1,2] ],        // Line 2
             [ [2,0], [2,1], [2,2] ],        // Line 3
-            [ [0,0], [0,1], [0,2] ],        // Col 1
+            [ [0,0], [1,0], [1,2] ],        // Col 1
             [ [0,1], [1,1], [2,1] ],        // Col 2
             [ [0,2], [1,2], [2,2] ],        // Col 3
             [ [0,0], [1,1], [2,2] ],        // Diag LR
@@ -294,24 +239,4 @@ final class MorpionGame extends AbstractGame
                         == $this->board[ $aListCoords[2][0] ][ $aListCoords[2][1] ])
         ;
     }
-
-    /**
-     * Display the board
-     *
-     * @return void
-     */
-    public function displayBoard(): void
-    {
-        // -- Parcours des lignes
-        for ($y = 0; $y < self::SIZE_Y; $y++) {
-            // -- Parcours des colonnes
-            for ($x = 0; $x < self::SIZE_X; $x++) {
-                // Variable intermédiaire pour alléger le code
-                $mCell = $this->board[$y][$x];
-                echo '['. $mCell .']';
-            }
-            echo PHP_EOL;
-        }
-        echo PHP_EOL;
-    } 
 }
