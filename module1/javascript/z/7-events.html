@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Evénements</title>
+    <meta name="description" content="créer un évenement">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        .is-hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="banner">
+        <a class="site-logo" href="./">Evenements</a>
+        <p class="site-description">Gestion des evenement en javaScript</p>
+        <nav class="banner-nav">
+            <a href="">Un lien</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>L'interrupteur</h1>
+        <button id="btn1" data-target="#target1" class="toggle">Cacher la div</button>
+        <div id="target1">Cachée si on clique sur le boutton</div>
+
+        <hr>
+
+        <p>Comment reproduire ce comportement plusieurs fois, sans ré-écrire une fonction pour chaque bouton</p>
+
+        <hr>
+
+        <button data-target="#target2" class="toggle">Cacher la div</button>
+        <div id="target2">Cachée si on clique sur le boutton</div>
+
+        <hr>
+
+        <button data-target="#target3" class="toggle">Cacher la div</button>
+        <div id="target3">Cachée si on clique sur le boutton</div>
+
+        <hr>
+
+        <h1>API classList</h1>
+        <p>Une API destinée à faciliter la manipulation de l'attribut class</p>
+        <p id="p1" class="p1">Maipuler les classes de ce paragraphe</p>
+
+    </main>
+
+    <footer class="footer">
+        <p><a href="https://gretaprovence-extranet.fr/accueil.php" title="En savoir plus sur la formation">Formation
+                Développeur WEB - GRETA</a></p>
+        <p>Eleve : Robin SIMSOLO &copy; - Module HTML /CSS</p>
+        <p>Photos empruntées à <a href=""></a></p>
+        <a id="goTop" href="#" title="Haut de page">&UpArrow;</a>
+    </footer>
+    <script src="./js/7-events.js"></script>
+</body>
+
+</html>

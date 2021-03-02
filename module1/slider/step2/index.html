@@ -1,62 +1,79 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Slider : étape 1</title>
-        <meta name="description" content="Mise en place de l'interface">
-        <link href="./css/styles.css" rel="stylesheet">
-    </head>
-
-<body>
-
+  <head>
+    <meta charset="utf-8">
+    <title>Slider : étape 1</title>
+    <meta name="description" content="Mise en place de l'interface">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,900;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
     <header class="banner">
-        <a class="site-logo" href="index.html">Slider : Étape 1</a>
-        <p class="site-dsecription">Mise en place de l'interface</p>
-        <nav class="banner-nav">
-            <a class="is-current" href="./">Étape 1</a>
-            <a href="../step2">Étape 2</a>
-            <a href="../step3">Étape 3</a>
-            <a href="../step4">Étape 4</a>
-        </nav>
+      <a class="site-logo" href="index.html">Slider : étape 1</a>
+      <p class="site-description">Mise en place de l'interface</p>
+      <nav class="banner-nav">
+        <a href="./">Étape 1</a>
+        <a class="is-current" href="../step2">Étape 2</a>
+        <a href="../step3/">Étape 3</a>
+        <a href="../step4/">Étape 4</a>
+      </nav>
     </header>
+    <!-- https://www.w3.org/WAI/tutorials/carousels/ -->
+    <div
+      id="christmas-carousel"
+      aria-label="Photos de Noël"
+      aria-roledescription="carousel"
+      aria-live="polite"
+      class="slider">
+      <!-- Figure visible au chargement -->
+      <figure
+        class="slider-figure is-active"
+        aria-hidden="false"
+        role="group"
+        aria-roledescription="slide"
+      >
+        <figcaption class="slider-legend">Les cadeaux de Noël</figcaption>
+        <img src="img/christmas_1920.jpg" alt="">
+      </figure>
+      <!-- Figures non visibles au chargement (il faudra rajouter les autres)-->
+      <figure
+        class="slider-figure"
+        aria-hidden="true"
+        role="group"
+        aria-roledescription="slide"
+      >
+        <figcaption class="slider-legend">Sapin de Noël</figcaption>
+        <img src="img/christmas-tree_1920.jpg" alt="">
+      </figure>
 
-
-
-    <div class="slider">
-        <figure class="slider-figure is-active">
-            <figcaption class="slider-legend">Les cadeaux de noël</figcaption>
-            <img src="img/cadeaux_1920.jpg" alt="tanjirooououuouoououuouo">
-        </figure>
-        <figure class="slider-figure">
-            <figcaption class="slider-legend">nezuko</figcaption>
-            <img src="img/flocon_1920.jpg" alt="nezuko chan">
-        </figure>
-        
-        <nav class="slider-nav">
-            <a href="#" rel="prev" aria-label="photo précédente">
-                <span class="icon-left" aria-hidden="true"></span>
-            </a>
-            <a href="#" rel="next" aria-label="photo suivante">
-                <span class="icon-right" aria-hidden="true"></span>
-            </a>
-        </nav>
-        <ol class="slider-pagination">
-            <li class="slider-pagination-item is-active" data-slide="1"></li>
-            <li class="slider-pagination-item" data-slide="2"></li>
-        </ol>
-    </div>
-
-    <footer>
-        <p><a href="https://www.gretanet.com/action.php?idAction=3443&refererPage=listing" title="En savoir plus sur la formation">Formation Développeur Développeur WEB - GRETA</a></p>
-        <p>&copy; Eleve : Quentin POGGI - Module HTML /CSS</p>
-            <i class="fas fa-chevron-circle-up" aria-hidden="true"></i>
-       </a>
-        <p>Photos empruntées à <a href="https://www.google.com/imghp%22%3E"> Google images</a></p>
-        <a id="goTop" href="#" title="Haut de page">
-            <span class="icon-up" aria-hidden="true"></span>
+      <nav class="slider-nav">
+        <a
+          href="#"
+          rel="prev"
+          aria-controls="christmas-carousel"
+          aria-label="Photo précédente">
+          <span class="icon-arrow-left" aria-hidden="true"></span>
         </a>
+        <a
+          href="#"
+          rel="next"
+          aria-controls="christmas-carousel"
+          aria-label="Photo suivante">
+          <span class="icon-arrow-right" aria-hidden="true"></span>
+        </a>
+      </nav>
+    </div>
+    <footer class="footer">
+      <p>
+        <a href="https://www.gretanet.com/action.php?idAction=3443&refererPage=listing" title="En savoir plus sur la formation">Formation Développeur Développeur WEB - GRETA</a>
+      </p>
+      <p>&copy; Elève : Quentin POGGI - Module HTML /CSS</p>
+      <p class="mentions">Photos empruntées à <a href="https://pixabay.com/fr/">Pixabay</a>
+      <a id="goTop" href="#" title="Haut de page">
+        <span class="icon-arrow-up" aria-hidden="true"></span>
+      </a>
     </footer>
-
-</body>
-
+    <script src="js/slider.js"></script>
+  </body>
 </html>
