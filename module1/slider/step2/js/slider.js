@@ -11,6 +11,7 @@ var index;
 function changeSlide() {
     document.querySelector('.slider-figure.is-active').classList.remove('is-active');
     
+    
     slides[index].classList.toggle('is-active');
 }
 
@@ -30,6 +31,22 @@ function onClickNext() {
     changeSlide();
 }
 
+//Faire reculer le slider
+function onClickPrev() {
+    console.log(this);
+
+    // La figure à faire apparaitre correspond à l'index actuel
+    index--;
+
+    // Revenir au début si on arrive à la fin du tableau
+    if(index < 0) {
+        index = slides.length -1;
+    }
+    console.log(index);
+
+    changeSlide();
+}
+
 
 // traitement au chargement de la page
 
@@ -40,3 +57,5 @@ slides = document.querySelectorAll('.slider-figure');
 console.log(slides)
 
 document.querySelector('.slider-nav [rel="next"]').addEventListener('click', onClickNext);
+
+document.querySelector('.slider-nav [rel="prev"]').addEventListener('click', onClickPrev);
