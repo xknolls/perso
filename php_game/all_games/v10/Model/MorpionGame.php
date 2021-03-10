@@ -45,9 +45,9 @@ final class MorpionGame extends AbstractGame
         $this->setXY($x, $y, $oPawn);
     }
 
-    public function selectCell (int $x, $y) : bool
+    public function selectCell (int $x, $y) : array
     {
-        return false;
+        return [];
     }
     
     /**

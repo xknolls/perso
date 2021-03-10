@@ -1,4 +1,10 @@
 <?php
+// Gestion et démaraage de la session
+
+use Entity\Player;
+use Model\Chess\Rook;
+use Model\Pawn;
+
 session_start();
 
 // Affichage des erreurs PHP (à ne pas faire en production)
@@ -9,8 +15,7 @@ spl_autoload_register(function ($sNamespaceClass) {
     $sConvertedClass = str_replace('\\', '/', $sNamespaceClass);
     include_once($sConvertedClass . '.php');
 });
-
-$oGame = unserialize($_SESSION['game']) ?? null;
+$oGame = isset($_SESSION['game']) ? unserialize($_SESSION['game']) : null;
 
 // On essaie de charger le jeu en session (si existant)
 if (isset($_GET['new'])) {
@@ -24,13 +29,22 @@ if (isset($_GET['new'])) {
     // on enregistre le jeu en session 
     $_SESSION['game'] = serialize($oGame);
 }
+
+$aGameInfos = [];
+
 if ($oGame) {
     if (isset($_GET['x']) && isset($_GET['y'])) {
         // 2. Action sur le plateau de jeu 
-        $oGame->selectCell($_GET['x'], $_GET['y']);
+        $aGameInfos = $oGame->selectCell($_GET['x'], $_GET['y']);
     }
     $_SESSION['game'] = serialize($oGame);
+
+    if (isset($_GET['x']) && isset($_GET['y'])) {
+        include('templates/board.php');
+        exit();
+    }
 }
+
 
 ?>
 <!doctype html>
@@ -45,7 +59,7 @@ if ($oGame) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
 
-    <title>Hello, world!</title>
+    <title>ChessGame</title>
 </head>
 
 <body class="text-center">
@@ -53,9 +67,11 @@ if ($oGame) {
 
     <a href="?new" class="btn btn-primary my-3">Nouvelle partie</a>
 
+    
+
     <div class="container">
         <?php if ($oGame) : ?>
-            <div id="boar">
+            <div id="board">
                 <?php include('templates/board.php') ?>
             </div>
         <?php endif; ?>
@@ -73,7 +89,7 @@ if ($oGame) {
         });
 
         // aq. de addEventListener
-        $('.cell').on('click', function() {
+        $('#board').on('click', '.cell', function() {
             // this = objet courant JavaScript
             // $(this) = encapsulation jQuery de l'objet courant
 
@@ -84,8 +100,19 @@ if ($oGame) {
             console.log(x + ',' + y);
             console.log($(this));
 
-            //TODO : Communiquer avec le jeu (index.php?x=?&y=?)
-            window.location = '?x=' + x + '&y=' + y;
+            // Communiquer avec le jeu (index.php?x=?&y=?)
+            // window.location = '?x=' + x + '&y=' + y;
+
+            // Ajax - Requête GET
+            $.get('index.php?x=' + x + '&y=' + y, function(data, status) {
+                console.log(status);
+                console.log(data);
+
+                //let board = document.getElementById('board');
+                //board.innerHTML = data;
+
+                $('#board').html(data);
+            });
         });
     </script>
 </body>

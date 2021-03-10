@@ -73,7 +73,7 @@ abstract class AbstractGame
     }
 
     protected abstract function playerAction (\Entity\Player $oPlayer) : void;
-    protected abstract function selectCell (int $x, $y) : bool;
+    protected abstract function selectCell (int $x, $y) : array;
     protected abstract function isWin () : bool;
 
     protected function nextPlayer() : void 

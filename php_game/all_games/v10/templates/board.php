@@ -1,12 +1,18 @@
 <?php foreach ($oGame->getBoard() as $iY => $aLineY) : ?>
-    <div class="row justify-content-center">
+    <div class="flex justify-content-center">
         <?php foreach ($aLineY as $iX => $mColX) : ?>
-            <div class="col-auto border cell" 
+            <div class="col-auto cell" 
                 data-x="<?= $iX; ?>" 
                 data-y="<?= $iY; ?>">
                 <?php
                     if ($mColX instanceof \Model\Pawn) {
-                        echo '<span style="color: '. $mColX->getPlayer()->getTeam() .' ">';
+                        $sClass = '';
+                        if ($aGameInfos && ($mColX === $aGameInfos['selected_pawn'])) {
+                            $sClass = 'selected_pawn';
+                        }
+                        echo '<span 
+                        class = "' . $sClass .'"
+                        style="color: '. $mColX->getPlayer()->getTeam() .' ">';
                     } 
 
                     echo $mColX;

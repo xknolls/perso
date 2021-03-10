@@ -12,7 +12,7 @@ namespace Model;
 final class ChessGame extends AbstractGame
 {
     // On précise les équipes
-    public const TEAMS = ['White', 'Black'];
+    public const TEAMS = ['White', 'Grey'];
 
     // On précise les dimensions
     protected const SIZE_X = 8;
@@ -65,11 +65,18 @@ final class ChessGame extends AbstractGame
         $this->board[$y][$x] = ' ';
     }
 
-    public function selectCell (int $x, $y) : bool
+    public function selectCell (int $x, $y) : array
     {
+        $aData = [
+            'selected_pawn'     => $this->selectedPawn,
+            'current_player'    => $this->currentPlayer,
+            'is_win'            => $this->isWin(),
+            'moves'             => [],
+        ];
+
         //Coordonées invalides, on sort
         if(!$this->isValidXY($x, $y)) {
-            return false;
+            return $aData;
         }
 
         // Est-ce que je selectionne un pion ?
@@ -78,23 +85,24 @@ final class ChessGame extends AbstractGame
             // Est-ce que je selectionne le bon pion ?
             if($oPawn->getPlayer() === $this->currentPlayer){
                 $this->selectedPawn = $oPawn;
-                return true;
+                $aData['selected_pawn'] = $this->selectedPawn;
+                return $aData;
             }
         }
         if ($this->selectedPawn && !($oPawn instanceof Pawn)) {
+            $aPosInt = $this->selectedPawn->getPosition();
             $this->setXY($x, $y, $this->selectedPawn);
+            $this->selectedPawn->setPosition($x, $y);
+            $this->board[$aPosInt['y']][$aPosInt['x']] = '';           
             $this->selectedPawn = null;
-
-            // TODO : Effacer le pion de la case de départ
-
             // Joueru suivant !
             $this->nextPlayer();
-            return true;
+            return $aData;
         }
          
 
 
-        return false;
+        return $aData;
     }
 
     protected function isWin () : bool 
@@ -112,20 +120,20 @@ final class ChessGame extends AbstractGame
             7 => $this->players[0],
         ];
         foreach ($a as $i => $oPlayer) {
-            $this->board[$i][0] = (new Chess\Rook())->setPlayer( $oPlayer );
-            $this->board[$i][1] = (new Chess\Knight())->setPlayer( $oPlayer );
-            $this->board[$i][2] = (new Chess\Bishop())->setPlayer( $oPlayer );
-            $this->board[$i][3] = (new Chess\Queen())->setPlayer( $oPlayer );
-            $this->board[$i][4] = (new Chess\King())->setPlayer( $oPlayer );
-            $this->board[$i][5] = (new Chess\Bishop())->setPlayer( $oPlayer );
-            $this->board[$i][6] = (new Chess\Knight())->setPlayer( $oPlayer );
-            $this->board[$i][self::SIZE_X-1] = (new Chess\Rook())->setPlayer( $oPlayer ); 
+            $this->board[$i][0] = (new Chess\Rook())->setPlayer( $oPlayer )->setPosition(0, $i);
+            $this->board[$i][1] = (new Chess\Knight())->setPlayer( $oPlayer )->setPosition(1, $i);
+            $this->board[$i][2] = (new Chess\Bishop())->setPlayer( $oPlayer )->setPosition(2, $i);
+            $this->board[$i][3] = (new Chess\Queen())->setPlayer( $oPlayer )->setPosition(3, $i);
+            $this->board[$i][4] = (new Chess\King())->setPlayer( $oPlayer )->setPosition(4, $i);
+            $this->board[$i][5] = (new Chess\Bishop())->setPlayer( $oPlayer )->setPosition(5, $i);
+            $this->board[$i][6] = (new Chess\Knight())->setPlayer( $oPlayer )->setPosition(6, $i);
+            $this->board[$i][7] = (new Chess\Rook())->setPlayer( $oPlayer )->setPosition(7, $i); 
         }
 
         // Peons
         for ($i = 0 ; $i < self::SIZE_X ; $i++) {
-            $this->board[1][$i] = (new Chess\Peon())->setPlayer( $this->players[1] );
-            $this->board[6][$i] = (new Chess\Peon())->setPlayer( $this->players[0] );
+            $this->board[1][$i] = (new Chess\Peon())->setPlayer( $this->players[1] )->setPosition($i, 1);
+            $this->board[6][$i] = (new Chess\Peon())->setPlayer( $this->players[0] )->setPosition($i, 6);
         }
 
         // On défini le premier joueur

@@ -5,6 +5,9 @@ namespace Model;
 
 class Pawn 
 {
+
+    use Positionable;
+
     /**@var string */
     protected const SYMBOL = '';
 
@@ -67,4 +70,5 @@ class Pawn
 
         return $this;
     }
+
 }
