@@ -9,7 +9,7 @@ spl_autoload_register(function ($sNamespaceClass) {
   // ex: Model\XXX >> Model/XXX.php
   // ex: Entity\XXX >> Entity/XXX.php
   $sConvertedClass = str_replace('\\', '/', $sNamespaceClass);
-  include_once($sConvertedClass.'.php');
+  include_once($sConvertedClass . '.php');
 });
 
 include_once 'functions.php';
@@ -21,7 +21,7 @@ use Model\MorpionGame;
 use Model\ChessGame;
 use Entity\Player;
 
-echo '== Début du programme =='.PHP_EOL;
+echo '== Début du programme ==' . PHP_EOL;
 
 
 
@@ -29,8 +29,8 @@ echo '= Leaderboard =' . PHP_EOL;
 
 
 
-foreach(Player::loadAll() as $oPlayer) {
-  echo sprintf('[%d] %s',$oPlayer->getScore(), $oPlayer->getName()) . PHP_EOL;
+foreach (Player::loadAll() as $oPlayer) {
+  echo sprintf('[%d] %s', $oPlayer->getScore(), $oPlayer->getName()) . PHP_EOL;
 }
 echo '= /Leaderboard =' . PHP_EOL;
 
@@ -44,13 +44,20 @@ $oGame->displayBoard();
 
 // 3. Créer les joueurs
 foreach (ChessGame::TEAMS as $sTeam) {
-    $sName = readline('Prénom ? ');
-    $oGame->addPlayer(new Entity\Player($sName, $sTeam));
+  $sName = readline('Pseudo ? ');
+
+  $oPlayer = Player::getByName($sName);
+
+  if (!$oPlayer instanceof Player) {
+    $oPlayer = new Entity\Player($sName, $sTeam);
+  }
+  $oPlayer->setTeam($sTeam);
+  $oGame->addPlayer($oPlayer);
 }
 
 // 4. Effectuer un "tour de jeu"
 do {
-  echo '== Nouveau tour de jeu =='.PHP_EOL;
+  echo '== Nouveau tour de jeu ==' . PHP_EOL;
 } while ($oGame->playRound());
 
-echo '== Fin du programme =='.PHP_EOL;
+echo '== Fin du programme ==' . PHP_EOL;

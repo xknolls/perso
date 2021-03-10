@@ -24,6 +24,9 @@ abstract class AbstractGame
     /** @var array */
     protected $players = [];
 
+    /** @var \Entity\Player|null */
+    protected ?\Entity\Player $currentPlayer = null;
+
     /**
      * __construct est appellée automatiquement lors de l'instanciation de l'objet (= new)
      */
@@ -70,7 +73,32 @@ abstract class AbstractGame
     }
 
     protected abstract function playerAction (\Entity\Player $oPlayer) : void;
+    protected abstract function selectCell (int $x, $y) : bool;
     protected abstract function isWin () : bool;
+
+    protected function nextPlayer() : void 
+    {
+        // $this->players = tableau de joueurs 
+        // $this->currentPlayer = joueur actuel
+        
+        // in_array ($value, $array)    bool
+        // array_searh ($value, $array) int (= index) ou FALSE
+
+        $iIdxPlayer = array_search($this->currentPlayer, $this->players);
+        if ($iIdxPlayer !== FALSE) {
+            $iIdxPlayer++;
+            $iNbPlayers = count($this->players);
+
+            // Solution 1
+            if($iIdxPlayer >= $iNbPlayers) {
+                $iIdxPlayer = 0;
+            }
+            $this->currentPlayer = $this->players[$iIdxPlayer];
+
+            // Slution 2 (% = reste de la division)
+            //$this->currentPlayer = $this->players[$iIdxPlayer%$iNbPlayers];
+        }
+    }
     
     /**
      * @return bool
@@ -187,5 +215,29 @@ abstract class AbstractGame
     public function addPlayer(\Entity\Player $player) : void
     {
         $this->players[] = $player;
+    }
+
+    /**
+     * Get the value of currentPlayer
+     *
+     * @return ?\Entity\Player
+     */
+    public function getCurrentPlayer() : ?\Entity\Player 
+    {
+        return $this->currentPlayer;
+    }
+
+    /**
+     * Set the value of currentPlayer
+     *
+     * @param ?\Entity\Player $currentPlayer
+     *
+     * @return self
+     */
+    public function setCurrentPlayer(?\Entity\Player $currentPlayer) : self
+    {
+        $this->currentPlayer = $currentPlayer;
+
+        return $this;
     }
 }

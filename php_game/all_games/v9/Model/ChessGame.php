@@ -27,7 +27,29 @@ final class ChessGame extends AbstractGame
 
     protected function playerAction (\Entity\Player $oPlayer) : void 
     {
-        // TODO
+        do {
+            // Obtenir les coordonnées saisies désirées par le joueur
+            // readline permet de récupérer une saisie utilisateur
+            // explode : permet de scinder une chaîne de caractère en un tableau (plusieurs morceaux)
+            $sResponse = readline('>> Quelle case ? ');  
+            list($x, $y) = explode(',',  $sResponse);
+    
+            // On teste si la case est vide ET si les coordonnées sont valides
+            $bReplay = !$this->isValidXY($x, $y) || !$this->isEmptyXY($x, $y);
+            // Comme isValidXY est static on peut l'appeler depuis le référentiel statiquement
+            //$bReplay = !static::isValidXY($x, $y) || !$this->isEmptyXY($x, $y);
+            if ($bReplay) {
+            echo 'Case déjà prise OU coordonnées invalides'.PHP_EOL;
+            }
+            // Condition de "reboucle" : pas valide ou pas vide
+        } while ($bReplay);
+    
+        // On assigne le joueur/pion dans la case
+        $oPawn = (new Pawn())
+            ->setPlayer($oPlayer)
+            ->setSymbol($oPlayer->getTeam())
+        ;
+        $this->setXY($x, $y, $oPawn);
     }
 
     protected function isWin () : bool 

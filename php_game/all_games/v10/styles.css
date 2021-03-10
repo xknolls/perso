@@ -1,0 +1,16 @@
+.cell {
+    height: 100px;
+    width: 100px;
+    background-color: lightgray;
+}
+body {
+    font-size: 2em;
+}
+
+/*.cell:nth-child(odd) {
+    background-color: brown;
+}
+
+.cell:nth-child(even) {
+    background-color: rgb(146, 138, 138);
+}*/
