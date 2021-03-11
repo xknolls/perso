@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webstorage</title>
+    <meta name="description" content="Mise en application du stockage local : ">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header class="banner">
+        <a class="site-logo" href="./">Liste de courses</a>
+        <p class="site-description">Mise en place</p>
+        <nav class="banner-nav">
+            <a class="is-active" href="./step1.html">Step 1</a>
+            <a href="./step1.html">Step 1</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Liste de courses</h1>
+        <div class="flex">
+            <section class="container">
+                <form action="POST">
+                    <fieldset>
+                        <legend>Saisir un produit</legend>
+                        <div class="div-product">
+                            <label for="product">Produit</label>
+                            <input type="text" name="product" id="product">
+                        </div class="div-quantity">
+                        <div>
+                            <label for="text">Quantité</label>
+                            <input type="number" name="quantity" id="quantity" value="1" min="1" max="250" step="any">
+                        </div>
+                        <fieldset class="cond">
+                            <legend>Conditionnement</legend>
+                            <div class="div-radio">
+                                <label for="unit">
+                                    <input type="radio" id="unit" name="packaging" value="unit">
+                                    Unité
+                                </label>
+                                <label for="kg">
+                                    <input type="radio" id="kg" name="packaging" value="kg">
+                                    Kg
+                                </label>
+                                <label for="litre">
+                                    <input type="radio" id="litre" name="packaging" value="litre">
+                                    Litres
+                                </label>
+                                <label for="box">
+                                    <input type="radio" id="box" name="packaging" value="box">
+                                    Boite ou sachet
+                                </label>
+                            </div>
+                        </fieldset>
+                    </fieldset>
+                    <div class="div-btn">
+                        <button class="btn-valid" id="add-product" type="button">Valider</button>
+                        <button class="btn-reset" type="reset">Anuler</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="container">
+                <h2>Liste de courses</h2>
+
+                <button class="btn-clear" id="clear-list" type="button">&#128465</button>
+
+
+            </section>
+        </div>
+    </main>
+    <footer class="footer">
+        <p><a href="https://www.gretanet.com/action.php?idAction=3443&refererPage=listing"
+                title="En savoir plus sur la formation">Formation Développeur Développeur WEB - GRETA</a></p>
+        <p>&copy; Elève : Quentin POGGI - Module HTML /CSS</p>
+        <p>Photos empruntées à <a href="https://www.google.com/imghp%22%3E"> Google images</a></p>
+        <a id="goTop" href="#" title="Haut de page">&UpArrow;</a>
+    </footer>
+    <script src="js/webstorage.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,228 @@
+:root {
+    --color-default: darkgrey;
+    --dark-color: rgb(31, 31, 31);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/****************** GENERAL *********************/
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    font-size: 1.6em;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url('../img/17163958.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+    vertical-align: top;
+}
+
+.banner, 
+.footer  {
+    display: sticky;
+    padding: 0.5em calc((100% - 1200px ) / 2);
+    background-color: rgba(31, 31, 31, 0.664);
+}
+
+.banner a,
+.footer a {
+    color: var(--color-default);
+    text-decoration: none;
+}
+
+/***************************************************************
+                            BANNER
+****************************************************************/
+
+.banner {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    grid-template-rows: auto;
+    align-items: center;
+    column-gap: 1em;
+}
+
+.banner-nav {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    justify-self: end;
+    text-transform: uppercase;
+}
+
+.banner-nav a {
+    margin: 0 1em;
+    padding: 0.5em;
+    border-bottom: solid 2px transparent;    
+}
+
+.banner-nav a:hover {
+    background-color: rgba(169, 169, 169, 0.198);
+    border-bottom: darkgray solid 2px;
+}
+
+.banner p {
+    color: var(--color-default);
+}
+
+.site-logo {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.site-description {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 0;
+}
+
+/***************************************************************
+                            FOOTER
+****************************************************************/
+
+.footer {
+    position: relative;
+    text-align: center;
+}
+
+.footer > * {
+    margin: 0;
+    color: var(--color-default);
+}
+
+.footer p {
+    margin: 0.5em;
+}
+
+#goTop {
+    font-size: 2em;
+    width: 1em;
+    height: 1.2em;
+    line-height: 1.2em;
+    position: absolute;
+    top: -1.2em;
+    left: calc(50% - 0.75em);
+    background-color: var(--dark-color);
+}
+
+/*******************Style du tp******************************/
+
+.is-active {
+    border-bottom: solid 2px var(--color-default) !important;    
+}
+
+h1 {
+    text-align: center;
+    color: cornsilk;
+}
+
+h2 {
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-around;
+}
+
+.container {
+    position: relative;
+    border: solid 2px black;
+    border-radius: 2em;
+    padding: 2em 1em;
+    padding-bottom: 1.5em;
+    width: 650px;
+    height: auto;
+    margin: 1em;
+    background-color: rgba(119, 119, 119, 0.479);
+    color: blanchedalmond;
+}
+
+fieldset {
+    border-radius: 0.3em;
+}
+
+legend {
+    background-color: rgba(88, 88, 88, 0.575);
+    color: cornsilk;
+    border-radius: 0.5em;
+    padding: 0.5em;
+}
+
+div {
+    margin: 1em;
+}
+
+.div-product input {
+    display: inline;
+}
+
+.div-radio {
+    text-align: center;
+}
+
+.div-btn {
+    text-align: end;
+    margin-top: 2.5em;
+}
+
+button {
+    border-radius: 0.3em;
+    padding: 0.5em;
+    border: solid 1px black;
+}
+
+.btn-valid {
+    background-color: black;
+    color: blanchedalmond;
+}
+
+.btn-valid:hover {
+    background-color: rgba(106, 255, 47, 0.308);
+}
+
+.btn-reset:hover {
+    background-color: rgba(255, 47, 47, 0.308);
+}
+
+.btn-valid:active {
+    background-color: rgba(106, 255, 47, 0.705);
+}
+
+.btn-reset:active {
+    background-color: rgba(255, 47, 47, 0.904);   
+}
+.cond {
+    margin-bottom: 2em;
+}
+
+.btn-clear {
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    font-size: 1.8em;
+    padding: 0.1em 0.2em;
+}
+
+.btn-clear:hover {
+    background-color: rgba(255, 47, 47, 0.308);
+}
+
+.btn-clear:active {
+    background-color: rgba(255, 47, 47, 0.904);   
+}
