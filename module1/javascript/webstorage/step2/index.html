@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Webstorage</title>
-    <meta name="description" content="Mise en application du stockage local : ">
+    <meta name="description" content="Modifier supprimer un produit de la liste">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
@@ -14,17 +14,17 @@
 <body>
     <header class="banner">
         <a class="site-logo" href="./">Liste de courses</a>
-        <p class="site-description">Mise en place</p>
+        <p class="site-description">Modifier supprimer un produit de la liste</p>
         <nav class="banner-nav">
-            <a class="is-active" href="../step1/index.html">Step 1</a>
-            <a href="../step2/index.html">Step 2</a>
+            <a href="../step1/index.html">Step 1</a>
+            <a class="is-active" href="../step2/index.html">Step 2</a>
         </nav>
     </header>
     <main>
         <h1>Liste de courses</h1>
         <div class="flex">
             <section class="container">
-                <form action="POST">
+                <form id="form-product" data-edit="false">
                     <fieldset>
                         <legend>Saisir un produit</legend>
                         <div class="div-product">
@@ -48,7 +48,7 @@
                                 </label>
                                 <label for="litre">
                                     <input type="radio" id="litre" name="packaging" value="litre">
-                                    Litres
+                                    Litre
                                 </label>
                                 <label for="box">
                                     <input type="radio" id="box" name="packaging" value="box">
@@ -64,7 +64,7 @@
                 </form>
             </section>
 
-            <section class="container">
+            <section class="container list-container">
                 <h2>Liste de courses</h2>
                 <div id="list">
 

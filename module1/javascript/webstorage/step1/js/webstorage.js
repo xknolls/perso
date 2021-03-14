@@ -26,13 +26,43 @@ function getstorage(itemName)
     }
 
     return item;
-
 }
 
 function displayList() 
 {
     let listProducts;
+    let container;
+    let ul;  // Elément ol 
+
+    // Ciblerl le contenue de la liste 
+    container = document.getElementById('list');
+
+    // Récupérer la liste 
     listProducts = getstorage(ITEMSTORAGE);
+
+    // Si la liste est vide 
+    if ( listProducts.length === 0 ) {
+        console.log('vide')
+        container.innerHTML = '<p>La liste es vide.</p>';
+        // Sortir de la fonction (éviter le else)
+        return;
+    }
+
+    ul = document.createElement('ul');
+
+    for (let i = 0; i < listProducts.length; i++) {
+        let li;
+
+        li = document.createElement('li');
+
+        ul.append(li);
+
+        li.textContent = listProducts[i].designation + ' : ' + listProducts[i].quantity + ' ' + listProducts[i].packaging;
+    }
+
+    container.innerHTML = '';
+    container.append(ul);
+
 }
 
 /* -------------------------- fonction évennements -------------------------- */
@@ -54,7 +84,7 @@ function addProduct() {
 
     product = {
         'designation': designation.value,
-        'quantiy': quantity.value,
+        'quantity': quantity.value,
         'packaging': packaging.value,
     }
 
@@ -65,12 +95,21 @@ function addProduct() {
 
     // Sauvergarder le nouveau tableau dans le storage
     window.localStorage.setItem(ITEMSTORAGE, JSON.stringify(listProducts));
+
+    // Actualiser la liste
+    displayList();
+
+    // Vider le formulaire
+    document.getElementById('btn-reset').click(); 
 }
 
 function clearList() 
 {
     let confirm = window.confirm('Supprimer la liste ?')
     window.localStorage.removeItem(ITEMSTORAGE);
+
+    // Actualiser la liste
+    displayList();
 }
 
 // Au chargement de la page exécuter le code une fois le DOM complètement chargeé
@@ -83,4 +122,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let btnClearList;
     btnClearList = document.getElementById('clear-list');
     btnClearList.addEventListener('click', clearList);
+
+    // Afficher la liste au chargement de la page
+    displayList();
 });
