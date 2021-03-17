@@ -63,6 +63,13 @@ video {
 
 .banner-nav a {
     margin: 0 1em;
+    padding: 0.5em;
+    border-bottom: solid 2px transparent;
+}
+
+.banner-nav a:hover {
+    background-color: rgba(169, 169, 169, 0.198);
+    border-bottom: darkgray solid 2px;
 }
 
 .banner p {
@@ -110,3 +117,7 @@ video {
 }
 
 /*******************Style du tp******************************/
+
+.is-active {
+    border-bottom: solid 2px var(--color-default) !important;    
+}

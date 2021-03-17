@@ -121,3 +121,12 @@ video {
 .is-active {
     border-bottom: solid 2px var(--color-default) !important;    
 }
+
+.div-specs h1{
+    text-align: center;
+}
+
+.div-specs {
+    max-width: 800px;
+    margin: 0;
+}
