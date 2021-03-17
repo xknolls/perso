@@ -35,6 +35,11 @@ abstract class AbstractGame
         $this->initBoard(); 
     }
 
+    protected function getXY(int $x, int $y)
+    {
+        return$this->board[$y][$x];
+    }
+
     /**
      * Vérifie si les coordonnées $x, $y sont valides
      * static = fonction liée au référentiel AbstractGame

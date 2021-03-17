@@ -1,14 +1,16 @@
 <?php
-namespace Model\Chess;
+namespace Model;
 
-final class King extends \Model\Pawn 
+
+/**
+ * Warrior
+ */
+final class Monster extends Character
 {
     /**@var string */
-    protected const SYMBOL = '&#9818;';
+    protected const SYMBOL = '🧟';
 
-/* -------------------------------- fonctions ------------------------------- */
-
-public function getMoves () : array
+    public function getMoves () : array
     {
         $aMoves = [];
 
@@ -23,4 +25,5 @@ public function getMoves () : array
 
         return $aMoves;
     }
+
 }

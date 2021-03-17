@@ -6,23 +6,28 @@ final class Peon extends \Model\Pawn
     /**@var string */
     protected const SYMBOL = '&#9817;';
 
-    /* --------------------------------- Fontions -------------------------------- */
+/* -------------------------------- fonctions ------------------------------- */
 
-    public function getMoves() : array
+    public function getMoves () : array
     {
-        $currentXY = $this->getPosition();
+        $aMoves = [];
 
-        $canMove['y'] = $currentXY['y']-1; 
-        $canMove['x'] = $currentXY['x'];
+        switch ($this->getPlayer()->getTeam()) {
+            case \Model\ChessGame::TEAMS[0]:
+                if($this->y === 6) {
+                    $aMoves[0][] = [$this->x, $this->y - 2];
+                }
+                $aMoves[0][] = [$this->x, $this->y - 1];
+            break;
 
-        /*if () {
-            $canMove['y'] = $currentXY['y']-2; 
-            $canMove['x'] = $currentXY['x'];
-        }*/
-        return [
-            [$canMove['x'], $canMove['y']],
-            [$canMove['x'], $canMove['y']-1]
-        ];
+            case \Model\ChessGame::TEAMS[1]:
+                if($this->y === 1) {
+                    $aMoves[0][] = [$this->x, $this->y + 2];
+                }
+                $aMoves[0][] = [$this->x, $this->y + 1];
+            break;
+        }
+
+        return $aMoves;
     }
-
 }
