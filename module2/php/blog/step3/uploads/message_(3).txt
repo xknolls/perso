@@ -1,0 +1,57 @@
+private function getValidMoves(Pawn $oPawn)
+    {
+        $aValidMoves = [];
+
+        // Récupèrer les positions "envisagées" par le pion
+        $aMoves = $oPawn->getMoves();
+        if (!$aMoves) {
+            return [];
+        }
+
+        if (is_int($aMoves[0][0])) {
+            // Cas "Coordonnées séparées"
+            // Pour chaque coordonnées, tester si la position est valide (= libre et existante)
+            foreach ($aMoves as $aCoords) {
+                // Condition de sortie : case invalide ou non vide
+                if (!$this->isValidXY($aCoords[0], $aCoords[1]) 
+                        || (!$this->isEmptyXY($aCoords[0], $aCoords[1])
+                && $this->getXY($aCoords[0], $aCoords[1])->getPlayer() === $oPawn->getPlayer())) {
+                    // On arrête le traitement de cette valeur = on passe à la valeur suivante
+                    continue;
+                }
+
+                // Traitement standard, on autorise la coordonnée
+                $aValidMoves[] = $aCoords;
+            }
+        }
+        else {
+            // Case "Coordonnées liées"
+
+            // Pour chacune des directions
+            foreach ($aMoves as $aDirections) {
+                // Pour chaque coordonnées, tester si la position est valide (= libre et existante)
+                foreach ($aDirections as $aCoords) {
+                    // Condition de sortie : case invalide ou non vide
+                    if (!$this->isValidXY($aCoords[0], $aCoords[1]) 
+                            || (!$this->isEmptyXY($aCoords[0], $aCoords[1]) 
+                                    && $this->getXY($aCoords[0], $aCoords[1])->getPlayer() === $oPawn->getPlayer())) {
+                        // On arrête le traitement de cette direction
+                        break;
+                    }
+
+                    // Traitement standard, on autorise la coordonnée
+                    $aValidMoves[] = $aCoords;
+
+                    // Cas spécial : si pion ennemi on arrête le traitement de cette direction
+                    if (!$this->isEmptyXY($aCoords[0], $aCoords[1]) 
+                                && ($this->getXY($aCoords[0], $aCoords[1])->getPlayer() !== $oPawn->getPlayer())) {
+                        break;
+                    }
+
+                }
+            }
+        }
+
+        // Retourner les positions valides
+        return $aValidMoves;
+    }
