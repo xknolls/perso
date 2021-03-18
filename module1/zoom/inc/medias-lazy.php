@@ -12,12 +12,12 @@ function lazyGallery($path)
     //Tableau dans lequel seront stocké le nom des photos à afficher 
     $lazy_gallery = array();
     $exts_granted = array('jpg', 'jpeg', 'png', 'gif', 'webm', 'svg'); //extension recherché
-    $pathThumbnails = $path . "/thumbnails/";
+    $pathThumbnails = $path . "thumbnails/";
 
     //if( $dir_handle = opendir('img') ) {
-    if (is_readable('img')) {
+    if (is_readable($path)) {
 
-        $dir_handle = opendir('img');
+        $dir_handle = opendir($path);
 
         while (false !== ($entry = readdir($dir_handle))) {
             $ext = pathinfo($entry, PATHINFO_EXTENSION);
@@ -35,15 +35,18 @@ function lazyGallery($path)
 
                 //Créer la miniature si elle n'existe pas 
                 if (!file_exists($pathThumbnails . $entry)) {
-                    make_thumbnail($path . $entry, 0.75, $pathThumbnails . $entry);
+                    make_thumbnail($path . $entry , 0.50, $pathThumbnails . $entry);
                 }
+                var_dump($pathThumbnails . $entry);
 
                 $lazy_gallery[] = array(
                     'src' => $entry,
-                    'src_thubnails' => $pathThumbnails . $entry,
+                    'src_thumbnails' => $pathThumbnails . $entry,
                     'alt' => $alt,
                 );
             }
         }
+    } else {
+        echo 'dead';
     }
 }
