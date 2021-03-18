@@ -37,7 +37,6 @@ function lazyGallery($path)
                 if (!file_exists($pathThumbnails . $entry)) {
                     make_thumbnail($path . $entry , 0.50, $pathThumbnails . $entry);
                 }
-                var_dump($pathThumbnails . $entry);
 
                 $lazy_gallery[] = array(
                     'src' => $entry,
@@ -46,7 +45,6 @@ function lazyGallery($path)
                 );
             }
         }
-    } else {
-        echo 'dead';
     }
+    return $lazy_gallery;
 }

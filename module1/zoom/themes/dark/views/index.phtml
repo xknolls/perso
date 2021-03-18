@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZooM</title>
     <meta name="description" content="mise en place de la fonctionalitée de zoom depuis des miniatures;">
-    <link rel="stylesheet" href="themes/dark/css/main.min.css">
+    <link rel="stylesheet" href="themes/dark/css/normalize.css">
+    <link rel="stylesheet" href="themes/dark/css/styles.css">
 </head>
 <body>
     <header class="banner">
@@ -22,6 +23,19 @@
                 <a href=""></a>
             </nav>
         </header>
+    
+    <section class="gallery-container">
+        <div class="gallery">
+        <?php 
+            foreach($gallery as $image) :
+                echo '<img src="'. $gallery_path . $image['src'] .'" class="img-test">';
+            endforeach;
+            ?>
+        </div>
+        <div>
+            <img class="putaindephotodemerde" src="medias/macro/3.jpg">
+        </div>
+    </section>
 
     </main>
     <footer class="footer">
