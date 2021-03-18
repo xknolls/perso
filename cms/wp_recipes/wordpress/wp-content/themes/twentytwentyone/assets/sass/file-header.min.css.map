@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "01-settings/file-header.scss"
+    ],
+    "names": [],
+    "file": "file-header.min.css"
+}

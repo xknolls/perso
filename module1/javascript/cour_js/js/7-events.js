@@ -62,6 +62,12 @@ btns.forEach( function(btn) {
     btn.addEventListener('click', onClickBtn);
 });
 
+// Propagtion des evenements
+document.querySelector('main').addEventListener('click', function (event) {
+    console.log('main est aussi cliqué');
+    console.log(event);
+}, true);
+
 // API CLASSLIST
 
 let p1;
