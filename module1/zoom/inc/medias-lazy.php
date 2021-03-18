@@ -40,9 +40,10 @@ function lazyGallery($path)
 
                 $lazy_gallery[] = array(
                     'src' => $entry,
-                    'src_thumbnails' => $pathThumbnails . $entry,
+                    'src_thumbnails' => $path,
                     'alt' => $alt,
                 );
+
             }
         }
     }

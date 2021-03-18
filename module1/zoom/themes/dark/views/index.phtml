@@ -18,11 +18,11 @@
         </nav>
     </header>
     <main>
-        <header>
-            <nav>
-                <a href=""></a>
-            </nav>
-        </header>
+        <nav class="choice-gallery-nav">
+            <?php foreach($galleries as $gallerie) :?>
+                <a class="choice-gallery-a" href="?galerie=<?= htmlspecialchars($gallerie) ?>"><?= htmlspecialchars($gallerie) ?></a>
+            <?php endforeach;?>
+        </nav>
     
     <section class="gallery-container">
         <div class="gallery">

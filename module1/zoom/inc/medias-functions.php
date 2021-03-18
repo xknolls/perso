@@ -11,9 +11,10 @@
 
 function make_thumbnail($source, $reduction, $destination)
 {
+
     //Créer le sous-dossier $destination s'il n'existe pas 
     if (!is_dir(pathinfo($destination, PATHINFO_DIRNAME))) {
-        @mkdir( pathinfo($destination, PATHINFO_DIRNAME));
+        @mkdir(pathinfo($destination, PATHINFO_DIRNAME));
     }
 
     //si le dossier n'est pas accessible, sortir de la fonction
@@ -64,6 +65,7 @@ function make_thumbnail($source, $reduction, $destination)
     //Rcupération du nom du fichier dans le chemin de la source
     //$filename = pathinfo($source,PATHINFO_BASENAME);
 
+
     switch ($ext) {
         case 'jpeg':
         case 'jpg':
@@ -85,4 +87,23 @@ function make_thumbnail($source, $reduction, $destination)
         default:
             return;
     }
+}
+
+function listDirectory($path): array
+{
+    $directories = [];
+
+    if (is_readable($path)) {
+        $dir_handle = opendir($path);
+
+        while (false !== ($entry = readdir($dir_handle))) {
+
+            if (is_dir($path . $entry) && !in_array($entry, array('.', '..'))) {
+                //array_push($directories, $entry);
+                $directories[] = $entry;
+            }
+        }
+    }
+
+    return $directories;
 }
