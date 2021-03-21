@@ -13,4 +13,4 @@ define('THEME_DEFAULT', 'dark');
 
 /* --------------------------------- Médias --------------------------------- */
 define('PATH_MEDIAS', 'medias/');
-define('MEDIAS_DEFAULT', 'macro');
+define('MEDIAS_DEFAULT', 'gaming');

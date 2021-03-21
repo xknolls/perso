@@ -1,0 +1,5 @@
+Pour la prochiane fois :
+    -beau style css
+    -creer une v2 :
+        -nouveau controleur
+        -installer plusieurs galeries chacune dans une section sur le nouveau controleur

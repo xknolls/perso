@@ -23,20 +23,27 @@ $oGame = (isset($_SESSION['game'])? unserialize($_SESSION['game']) : null) ;
 // On essaye de charger le joueur en session (si existant)
 $oPlayer = (isset($_SESSION['player'])? unserialize($_SESSION['player']) : null) ;
 
+$oIa = (isset($_SESSION['ia'])? unserialize($_SESSION['ia']) : null) ;
+
 
 
 if (isset($_GET['new'])) {
 
     $oPlayer = new Entity\Player('knolls');
     $oCharacter = new Model\Warrior('Hercules');
+    $oIa = new Entity\Player('zombie');
+    $oIaCharacter = new Model\Monster('monster');
     
     // Liaison Player-Character / Character-Player
     $oPlayer->setCharacter($oCharacter);
     $oCharacter->setPlayer($oPlayer);
+    $oIa->setCharacter($oIaCharacter);
+    $oIaCharacter->setPlayer($oIa);
 
     // 1. Créer un plateau de jeu
     $oGame = new Model\RpgGame();
     $oGame->addPlayer($oPlayer);
+    $oGame->addPlayer($oIa);
     $oGame->fillBoard();
 
 
@@ -44,10 +51,13 @@ if (isset($_GET['new'])) {
     $_SESSION['game'] = serialize($oGame);
     // On enregistre le jeu en session
     $_SESSION['player'] = serialize($oPlayer);
+
+    $_SESSION['ia'] = serialize($oIa);
     header('Location:index.php');
 }
 
 $aGameInfo = [];
+
 if ($oGame){
     if (isset($_GET['x']) && isset($_GET['y'])) {
         // 2. Action sur le plateau de jeu
@@ -59,6 +69,8 @@ if ($oGame){
     // On enregistre le jeu en session
     $_SESSION['game'] = serialize($oGame);
     $_SESSION['player'] = serialize($oPlayer);
+    $_SESSION['ia'] = serialize($oIa);
+    
 
 
     if (isset($_GET['x']) && isset($_GET['y'])) {
@@ -116,8 +128,6 @@ if ($oGame){
             // window.location = '?x=' + x + '&y=' + y;
 
             $.get('index.php?x=' + x + '&y=' + y, function(data, status){
-                console.log(status);
-                console.log(data);
 
                 /* let board = document.getElementById('board');
                 board.innerHTML = data; */

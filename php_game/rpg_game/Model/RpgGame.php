@@ -130,6 +130,7 @@ final class RpgGame extends AbstractGame
         // Retourner les positions valides
         return $aValidMoves;
     }
+    
     public function addPlayer(Player $player): void
     {
         parent::addPlayer($player);

@@ -30,6 +30,7 @@ function lazyGallery($path)
 
                 //Passer le nom, sans l'extension en majuscule
                 $alt = ucfirst(pathinfo($entry, PATHINFO_FILENAME));
+                
                 //Supprimer tout ce qui se trouve apres le premier '_'
                 $alt = strstr($alt, '_', true);
 
@@ -39,10 +40,11 @@ function lazyGallery($path)
                 }
 
                 $lazy_gallery[] = array(
-                    'src' => $entry,
-                    'src_thumbnails' => $path,
+                    'src' =>$path . $entry,
+                    'src_thumbnails' => $pathThumbnails . $entry,
                     'alt' => $alt,
                 );
+                
 
             }
         }

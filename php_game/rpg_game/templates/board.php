@@ -8,12 +8,24 @@ foreach ($oGame->getBoard() as $iY => $aLineY) : ?>
         
             <div class="col-auto border text-center cell <?= $bCellMov ? 'cell-selected' : '' ?>" data-x="<?= $iX; ?>" data-y="<?= $iY; ?>">
                 <?php
-                if ($mColX instanceof \Model\Pawn) {
+                if ($mColX instanceof \Model\Warrior) {
                     $bSelected = false;
-                    echo '<span class="' . ($bSelected ? 'selected' : '') . '">';
+                    echo '<span class="player' . ($bSelected ? 'selected' : '') . '">';
+                    echo $mColX;
                 }
 
-                echo $mColX;
+
+                if ($mColX instanceof \Model\Pawn) {
+                    echo '</span>';
+                }
+                ?>
+                <?php
+                if ($mColX instanceof \Model\Monster) {
+                    $bSelected = false;
+                    echo '<span class="monster">';
+                    echo $mColX;
+                }
+
 
                 if ($mColX instanceof \Model\Pawn) {
                     echo '</span>';
