@@ -24,6 +24,12 @@ final class Wizard extends Character
     */
     
     private $magic;
+    
+    public function __construct(string $sName)
+    {
+        parent::__construct($sName);
+        $this->magic = 40;
+    }
 
     
     public function heal() : void
@@ -53,21 +59,7 @@ final class Wizard extends Character
     public function display()
     {
         print_r($this);
-    }
-
-
-    /*
-    * Constructeur de la classe Wizard
-    * On attend un paramètre correspondant au nom
-    * Valeur facultative. Si pas présent, valeur par défaut : Mage
-    */
-    public function __construct(string $sName = 'Mage')
-    {
-        $this->name = $sName;
-    }
-
-
-    
+    }  
 
     /**
      * Get the value of magic

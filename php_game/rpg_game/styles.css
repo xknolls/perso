@@ -24,3 +24,11 @@
 .selected{
     color: blueviolet !important;
 }
+
+p {
+    margin: 0;
+}
+
+.player-info {
+    position: absolute;
+}

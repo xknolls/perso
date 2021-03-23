@@ -16,8 +16,6 @@ class Pawn
     /** @var Player */
     protected \Entity\Player $player;
 
-    
-
     public function __construct()
     {
         $this->symbol = static::SYMBOL;

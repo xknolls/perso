@@ -14,10 +14,10 @@ abstract class AbstractGame
     protected const SIZE_Y = NULL;
 
     /** @var array */
-    protected $board = [];
+    protected array $board = [];
 
     /** @var array */
-    protected $players = [];
+    protected array $players = [];
 
     /**
      * __construct est appellée automatiquement lors de l'instanciation de l'objet (= new)
@@ -25,6 +25,19 @@ abstract class AbstractGame
     public function __construct()
     {
         $this->initBoard(); 
+    }
+
+    public function moveXY(int $x, int $y, object $oObject): void
+    {
+        // Mémoriser la case de départ
+        $aPosInit = $oObject->getPosition();
+
+        // Déplacer le pion
+        $this->setXY($x, $y, $oObject);
+        $oObject->setPosition($x, $y);
+
+        // Effacer l'ancien pion
+        $this->board[$aPosInit['y']][$aPosInit['x']] = ' ';
     }
 
     /**
@@ -65,9 +78,9 @@ abstract class AbstractGame
      * @param  Pawn $oPawn
      * @return void
      */
-    protected function setXY(int $x, int $y, Pawn $oPawn) : void
+    protected function setXY(int $x, int $y, $oObject) : void
     {
-        $this->board[$y][$x] = $oPawn;
+        $this->board[$y][$x] = $oObject;
     }
 
     protected abstract function selectCell(\Entity\Player $oPlayer, int $x, int $y): array;

@@ -22,7 +22,8 @@ abstract class Character extends Pawn
     public function __construct(string $name)
     {
         parent::__construct();
-
+        $this->strength = 69;
+        $this->health = 100;
         $this->name = $name;
     }
 
