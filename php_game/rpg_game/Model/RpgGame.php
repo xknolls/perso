@@ -1,42 +1,37 @@
 <?php
-
 namespace Model;
-
-use Entity\Player;
 
 // On aurait pu simplifier le code
 //use \Entity\Player;
 
 /**
- * Le but de la classe RpgGame est de centraliser au maximum tout ce qui concerne le jeu "Chess"
+ * Le but de la classe RpgGame est de centraliser au maximum tout ce qui concerne le jeu "RPG"
  * (dont le plateau de jeu)
  * final = empêche l'héritage de la classe (non obligatoire)
+ * extends = hérite des propriétés publics/protégées (UN SEUL HERITAGE POSSIBLE)
  */
 final class RpgGame extends AbstractGame
 {
-    // On précise les équipes
-    public const TEAMS = ['White', 'Black'];
-
     // On précise les dimensions
     protected const SIZE_X = 25;
     protected const SIZE_Y = 25;
 
     /** @var array */
-    private array $monsters = [];
+	protected $monsters = [];
 
     /**
-     * selectCell
+     * @param Player $oPlayer
+     * @param int $x
+     * @param int $y
      *
-     * @param  int $x
-     * @param  int $y
      * @return bool
      */
     public function selectCell(\Entity\Player $oPlayer, int $x, int $y): array
     {
-
         $aData = [
-            'moves'           => [],
+            'moves' => [],
         ];
+
         // Coordonnées invalides, on sort
         if (!$this->isValidXY($x, $y)) {
             return $aData;
@@ -45,49 +40,51 @@ final class RpgGame extends AbstractGame
         // On récupère le "pion" du joueur
         $oCharacter = $oPlayer->getCharacter();
 
-        // Validation des déplacements par RpgGame
+        // Obtention des déplacements valide
         $aData['moves'] = $this->getValidMoves($oCharacter);
 
-        // Est-ce que je déplace un pion?
+        // Déplacement autorisé ?
         if (in_array([$x, $y], $aData['moves'])) {
+            if ($oCharacter->getHealth() > 0) {
+                $this->moveXY($x, $y, $oCharacter);
+                $oCharacter->setHealth($oCharacter->getHealth() - 1);
+            }
 
-            $this->moveXY($x, $y, $oCharacter);
+            $this->getValidAttck($oCharacter);
+            
+            //Obtention des déplacements réactualisé
             $aData['moves'] = $this->getValidMoves($oCharacter);
+
             return $aData;
         }
+
         return $aData;
     }
 
-    public function moveMonster()
+    public function lifeTime() : void
     {
-        // par chaque monstres recup les co possible 
-        foreach ($this->monsters as $oMonster) {
-
-            // Valider les déplacements
-            $aMoves = $this->getValidMoves($oMonster);
-
-            // Choisir une au pif
-            $aMove = $aMoves[array_rand($aMoves)];
-
-            $x = $aMove[0];
-            $y = $aMove[1];
-
-            $this->moveXY($x, $y, $oMonster);
-        }
+        $this->moveMonsters();
     }
 
-    public function fillBoard(): void
+    public function fillBoard() : void
     {
-        for ($i = 0; $i < Zombie::NB_ZOMBIE; $i++) {
-            $oZombie = new Zombie;
-            $iRandX = rand(0, self::SIZE_X - 1);
-            $iRandY = rand(0, self::SIZE_Y - 1);
-            $this->setXY($iRandX, $iRandY, $oZombie);
-            $oZombie->setPosition($iRandX, $iRandY);
-            $this->monsters[] = $oZombie;
+        $aMonstersTypes = [Zombie::class, Vampire::class, Dragon::class];
+
+        foreach($aMonstersTypes as $aMonsterType) {
+            for($i=0; $i < $aMonsterType::NB_MONSTERS ; $i++) {
+                $oMonster = new $aMonsterType;
+    
+                $this->moveXY(
+                    rand(0, self::SIZE_X-1), 
+                    rand(0, self::SIZE_Y-1), 
+                    $oMonster
+                );
+    
+                $this->monsters[] = $oMonster;
+            }
         }
     }
-
+    
     private function getValidMoves($oPawn)
     {
         $aValidMoves = [];
@@ -103,10 +100,7 @@ final class RpgGame extends AbstractGame
             // Pour chaque coordonnées, tester si la position est valide (= libre et existante)
             foreach ($aMoves as $aCoords) {
                 // Condition de sortie : case invalide ou non vide
-                if (
-                    !$this->isValidXY($aCoords[0], $aCoords[1])
-                    || (!$this->isEmptyXY($aCoords[0], $aCoords[1]))
-                ) {
+                if (!$this->isValidXY($aCoords[0], $aCoords[1]) || !$this->isEmptyXY($aCoords[0], $aCoords[1])) {
                     // On arrête le traitement de cette valeur = on passe à la valeur suivante
                     continue;
                 }
@@ -122,10 +116,7 @@ final class RpgGame extends AbstractGame
                 // Pour chaque coordonnées, tester si la position est valide (= libre et existante)
                 foreach ($aDirections as $aCoords) {
                     // Condition de sortie : case invalide ou non vide
-                    if (
-                        !$this->isValidXY($aCoords[0], $aCoords[1])
-                        || (!$this->isEmptyXY($aCoords[0], $aCoords[1]))
-                    ) {
+                    if (!$this->isValidXY($aCoords[0], $aCoords[1]) || (!$this->isEmptyXY($aCoords[0], $aCoords[1]))) {
                         // On arrête le traitement de cette direction
                         break;
                     }
@@ -134,12 +125,11 @@ final class RpgGame extends AbstractGame
                     $aValidMoves[] = $aCoords;
 
                     // Cas spécial : si pion ennemi on arrête le traitement de cette direction
-                    if (
-                        !$this->isEmptyXY($aCoords[0], $aCoords[1])
-                        && ($this->getXY($aCoords[0], $aCoords[1])->getPlayer() !== $oPawn->getPlayer())
-                    ) {
+                    if (!$this->isEmptyXY($aCoords[0], $aCoords[1]) 
+                                && ($this->getXY($aCoords[0], $aCoords[1])->getPlayer() !== $oPawn->getPlayer())) {
                         break;
                     }
+
                 }
             }
         }
@@ -148,12 +138,65 @@ final class RpgGame extends AbstractGame
         return $aValidMoves;
     }
 
-    public function addPlayer(Player $player): void
+    public function addPlayer(\Entity\Player $player) : void
     {
         parent::addPlayer($player);
-        $iRandX = rand(0, self::SIZE_X - 1);
-        $iRandY = rand(0, self::SIZE_Y - 1);
 
-        $this->setXY($iRandX, $iRandY, $player->getcharacter()->setPosition($iRandX, $iRandY));
+        $iRandX = rand(0, self::SIZE_X-1);
+        $iRandY = rand(0, self::SIZE_Y-1);
+        
+        $player->getCharacter()->setPosition($iRandX, $iRandY);
+
+        $this->setXY($iRandX, $iRandY, $player->getCharacter());
+    }
+
+    public function moveMonsters()
+    {
+        foreach($this->monsters as $oMonster) {            
+            // Obtention des déplacements valide
+            $aMoves = $this->getValidMoves($oMonster);
+            if ($aMoves) {
+                $aMove = $aMoves[array_rand($aMoves)];
+                
+                $this->moveXY( $aMove[0], $aMove[1], $oMonster);
+            }
+        }
+    }
+
+	/**
+	 * Get the value of monsters
+	 */
+	public function getMonsters()
+	{
+		return $this->monsters;
+	}
+
+	/**
+	 * Set the value of monsters
+	 *
+	 * @return self
+	 */
+	public function setMonsters($monsters) : self
+	{
+		$this->monsters = $monsters;
+
+		return $this;
+	}
+
+    public function getValidAttck($oPlayer)
+    {
+        $aValidAttack = [];
+
+        // Récupèrer les positions "envisagées" par le pion
+        $aAttackCells = $oPlayer->getAttackCells();
+        if (!$aAttackCells) {
+            return [];
+        }
+
+        foreach($aAttackCells as $aAttack) {
+            if ($this->isValidXY($aAttack[0], $aAttack[1]) && !$this->isEmptyXY($aAttack[0], $aAttack[1])) {
+                $this->getXY($aAttack[0], $aAttack[1])->setHealth($oPlayer->getHealth());
+            }
+        }
     }
 }

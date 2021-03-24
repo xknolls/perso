@@ -1,17 +1,18 @@
 <?php
 namespace Model;
 
-
+/*
+ * Référentiel de la classe Character
+ * Conventions de code : PascalCase
+ * abstract = non instanciable (non obligatoire)
+ */
 abstract class Character extends Pawn
 {
-
-    /* 
-        Propriétés/Attributs
-        Convention de code : camelCase
-    */
-
     /** @var string */
     protected string $name;
+    
+    /** @var int */
+    protected int $maxHealth;
 
     /** @var int */
     protected int $health;
@@ -19,17 +20,22 @@ abstract class Character extends Pawn
     /** @var int */
     protected int $strength;
 
-    public function __construct(string $name)
+/* -------------------------------- fonctions ------------------------------- */
+    
+    /**
+     * @param string $sName
+     *
+     * @return void
+     */
+    public function __construct(string $sName)
     {
         parent::__construct();
-        $this->strength = 69;
-        $this->health = 100;
-        $this->name = $name;
+
+        $this->name = $sName;
     }
-
-
+    
     /**
-     * Get the value of name
+     * Get /*
      */ 
     public function getName()
     {
@@ -37,7 +43,7 @@ abstract class Character extends Pawn
     }
 
     /**
-     * Set the value of name
+     * Set /*
      *
      * @return  self
      */ 
@@ -84,6 +90,30 @@ abstract class Character extends Pawn
     public function setStrength($strength)
     {
         $this->strength = $strength;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of maxHealth
+     *
+     * @return int
+     */
+    public function getMaxHealth() : int 
+    {
+        return $this->maxHealth;
+    }
+
+    /**
+     * Set the value of maxHealth
+     *
+     * @param int $maxHealth
+     *
+     * @return self
+     */
+    public function setMaxHealth(int $maxHealth) : self
+    {
+        $this->maxHealth = $maxHealth;
 
         return $this;
     }

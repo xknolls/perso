@@ -7,8 +7,11 @@ class Pawn
 {
     use Positionable;
 
-    /**@var string */
+    /** @var string */
     protected const SYMBOL = '';
+
+    /** @var string */
+    public const TYPE = '';
 
     /** @var string */
     protected string $symbol;
@@ -20,12 +23,15 @@ class Pawn
     {
         $this->symbol = static::SYMBOL;
     }
-        
+    
+    /**
+     * @return array
+     */
     public function getMoves() : array
     {
         return [];
     }
-
+        
     /**
      * @return string
      */
@@ -74,6 +80,4 @@ class Pawn
 
         return $this;
     }
-
-    
 }

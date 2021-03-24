@@ -3,8 +3,6 @@ namespace Entity;
 
 use Manager\DbManager;
 
-//use \Manager\DbManagerInterface;
-
 /**
  * final = empêche l'héritage de la classe (non obligatoire)
  */
@@ -26,8 +24,6 @@ final class Player implements \Manager\DbManagerInterface
     private \Model\Character $character;
         
     /**
-     * __construct
-     *
      * @param  string $sName
      * @return void
      */
@@ -158,26 +154,6 @@ final class Player implements \Manager\DbManagerInterface
     // Comportements / Fonctions
 
     /**
-     * Get the value of character
-     */ 
-    public function getCharacter()
-    {
-        return $this->character;
-    }
-
-    /**
-     * Set the value of character
-     *
-     * @return  self
-     */ 
-    public function setCharacter($character)
-    {
-        $this->character = $character;
-
-        return $this;
-    }
-
-    /**
      * Get the value of name
      */ 
     public function getName()
@@ -233,6 +209,26 @@ final class Player implements \Manager\DbManagerInterface
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of character
+     */ 
+    public function getCharacter()
+    {
+        return $this->character;
+    }
+
+    /**
+     * Set the value of character
+     *
+     * @return  self
+     */ 
+    public function setCharacter($character)
+    {
+        $this->character = $character;
 
         return $this;
     }

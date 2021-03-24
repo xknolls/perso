@@ -8,16 +8,15 @@ namespace Model;
  */
 abstract class AbstractGame
 {
-
     // On défini la notion de dimensions X et Y
     protected const SIZE_X = NULL;
     protected const SIZE_Y = NULL;
 
     /** @var array */
-    protected array $board = [];
+    protected $board = [];
 
     /** @var array */
-    protected array $players = [];
+    protected $players = [];
 
     /**
      * __construct est appellée automatiquement lors de l'instanciation de l'objet (= new)
@@ -27,18 +26,7 @@ abstract class AbstractGame
         $this->initBoard(); 
     }
 
-    public function moveXY(int $x, int $y, object $oObject): void
-    {
-        // Mémoriser la case de départ
-        $aPosInit = $oObject->getPosition();
-
-        // Déplacer le pion
-        $this->setXY($x, $y, $oObject);
-        $oObject->setPosition($x, $y);
-
-        // Effacer l'ancien pion
-        $this->board[$aPosInit['y']][$aPosInit['x']] = ' ';
-    }
+    protected abstract function selectCell (\Entity\Player $oPlayer, int $x, int $y) : array;
 
     /**
      * Vérifie si les coordonnées $x, $y sont valides
@@ -64,27 +52,27 @@ abstract class AbstractGame
         return empty(trim($this->board[$y][$x]));
     }
 
+    /**
+     * @param  int $x
+     * @param  int $y
+     */
     protected function getXY(int $x, int $y)
     {
         return $this->board[$y][$x];
     }
-
 
     /**
      * Vérifie si les coordonnées $x, $y sont valides
      *
      * @param  int $x
      * @param  int $y
-     * @param  Pawn $oPawn
+     * @param  mixed $mObject
      * @return void
      */
-    protected function setXY(int $x, int $y, $oObject) : void
+    protected function setXY(int $x, int $y, $mObject) : void
     {
-        $this->board[$y][$x] = $oObject;
+        $this->board[$y][$x] = $mObject;
     }
-
-    protected abstract function selectCell(\Entity\Player $oPlayer, int $x, int $y): array;
-
 
     /**
      * Initialize a board
@@ -154,7 +142,19 @@ abstract class AbstractGame
      */
     public function addPlayer(\Entity\Player $player) : void
     {
-        $this->players[] = $player; 
+        $this->players[] = $player;
     }
 
+    public function moveXY(int $x, int $y, $mObject)
+    {
+        // Mémoriser la case de départ
+        $aPosInit = $mObject->getPosition();
+
+            // Déplacer le pion
+            $this->setXY($x, $y, $mObject);
+            $mObject->setPosition($x, $y);
+
+            // Effacer l'ancienne case
+            $this->board[$aPosInit['y']][$aPosInit['x']] = ' ';        
+    }
 }

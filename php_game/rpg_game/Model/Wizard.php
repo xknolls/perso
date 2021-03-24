@@ -1,65 +1,105 @@
 <?php
 namespace Model;
 
-
-
-/**
- * Wizard
+/*
+ * Référentiel de la classe Wizard
  */
 final class Wizard extends Character
 {
     /**@var string */
-    protected const SYMBOL = '&#129497';
+    protected const SYMBOL = '👩‍⚕️';
 
-    private const FIREBALL_COAST = 80;
-    private const FIREBALL_DMG = 60;
+    /** @var string */
+    public const TYPE = 'Wizard';
 
-    private const HEAL = 50;
-    private const HEAL_COAST = 50;
+    // Constantes de classes (accessibles via Wizard::XXX ou self:XXX au sein de la classe)
+    // public = accessible en dehors de la classe
+    public const FIREBALL_DAMAGE = 60;
+    public const FIREBALL_COST = 80;
 
+    // private = non accessible en dehors de la classe
+    private const HEAL_DAMAGE = 50;
+    private const HEAL_COST = 50;
 
-    /* 
-        Propriétés/Attributs
-        Convention de code : camelCase
-    */
-    
+    /*
+     * Propriétés/Attributs
+     * Conventions de code : camelCase
+     */
     private $magic;
-    
+
+/* -------------------------------- fonctions ------------------------------- */
+    /**
+     * @param string $sName
+     *
+     * @return void
+     */
     public function __construct(string $sName)
     {
         parent::__construct($sName);
-        $this->magic = 40;
+        
+        $this->strength = rand(5, 10);
+        $this->health = rand(50, 80);
+        $this->magic = rand(100, 250);
+        $this->maxHealth = $this->health;
     }
 
-    
-    public function heal() : void
+    function getMoves(): array
+	{
+		$aMoves = [];
+
+		$aMoves[] = [$this->x, $this->y+1];
+		$aMoves[] = [$this->x+1, $this->y];
+		$aMoves[] = [$this->x, $this->y-1];
+		$aMoves[] = [$this->x-1, $this->y];
+
+		return $aMoves;
+  }
+
+    /**
+     * Lancement d'un sort d'attaque "Fireball"
+     * (le sort en question occasionne 60 dégâts et consomme 80 de mana)
+     * @param Character $b
+     * 
+     * $this = instance appelante (ici l'attaquant "A" - un magicien)
+     * $b = instance en paramètre (ici l'attaqué "B")
+    */
+    function fireball (Character $b) : void
     {
-        if($this->getMagic() >= self::HEAL_COAST){
-            echo $this . ' dit : Soins !!!!' . PHP_EOL;
-            $this -> setHealth($this->getHealth() + self::HEAL);
-            $this->setMagic($this->getMagic() - self::HEAL_COAST);
-        }
-        else {
-            echo $this . ' dit : Je n\'ai pas assez de mana!' . PHP_EOL;
+        echo sprintf('(Boule de feu) %s >> %s', $this->getName(), $b->getName()).PHP_EOL;
+
+        // Vérification, est-ce que j'ai du mana ?
+        // > Première solution (fonctionnelle mais pas optimale car un ELSE est nécessaire)
+        if ($this->getMagic >= Wizard::FIREBALL_COST) {
+            $b -> setHealth ( $b->getHealth() - Wizard::FIREBALL_DAMAGE );
+            $this->setMagic ( $this->getMagic() - Wizard::FIREBALL_COST );
+        } else {
+            echo 'Oops.. pas assez de mana'.PHP_EOL;
         }
     }
 
-    public function fireball(Character $playerB) : void
+    /**
+     * Lancement d'un sort de soin personnel "Heal"
+     * (le sort en question restaure 50 points de vie et consomme 50 de mana)
+     * 
+     * $this = instance appelante (ici l'attaquant "A" - un magicien)
+    */
+    function heal() : void
     {
-        if ($this->getMagic() >= self::FIREBALL_COAST) {
-            echo $this . ' dit : Boule de feu !!!!!' . PHP_EOL;
-            $playerB->setHealth($playerB->getHealth() - self::FIREBALL_DMG);
-            $this -> setMagic($this->getMagic()- self::FIREBALL_COAST);
-        } 
-        else {
-            echo $this . ' dit : Je n\'ai pas assez de mana!'. PHP_EOL;
-        }
-    }
+        echo sprintf('(Soin) %s', $this->getName()).PHP_EOL;
 
-    public function display()
-    {
-        print_r($this);
-    }  
+        // Vérification, est-ce que j'ai du mana ?
+        // > Deuxième solution (= test de sortie)
+        if ($this->getMagic < Wizard::FIREBALL_COST) {
+            echo 'Oops.. pas assez de mana'.PHP_EOL;
+            return;
+        }
+
+        $this->setHealth ( $this->getHealth() + self::HEAL_DAMAGE );
+        $this->setMagic ( $this->getMagic() - self::HEAL_COST );
+
+        //$this -> health =  $this -> health + 50; (moins propre mais faisable)
+        //$this -> magic =  $this -> magic - 50; (moins propre mais faisable)
+    }
 
     /**
      * Get the value of magic

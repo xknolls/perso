@@ -6,13 +6,12 @@ namespace Model;
  * Référentiel de la classe Warrior
  */
 
-final class Zombie extends Monster
+final class Vampire extends Monster
 {
-
-	public const NB_MONSTERS = 10;
+    public const NB_MONSTERS = 3;
 
 	/** @var string */
-	protected const SYMBOL = '🧟';
+	protected const SYMBOL = '🧛';
 
 	/* -------------------------------- fonctions ------------------------------- */
 
