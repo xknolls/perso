@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>webStorage</title>
+    <meta name="description" content="Le stockage local du navigateur">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        .is-hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="banner">
+        <a class="site-logo" href="./">webStorage</a>
+        <p class="site-description">Le stockage local du navigateur</p>
+        <nav class="banner-nav">
+            <a href="https://jquery.com/">Site officiel de jQuery</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>jQuery</h1>
+        <h2>Méthode de sélection et manipulation d'attributs</h2>
+        <div id="box1">
+            Cette boite est à la fois ciblée et manipulée avec jQuery et javascript pour voir la différece.
+        </div>
+
+        <h2>Liste manipulée avec jQuery</h2>
+
+        <ul id="menu1">
+            <li><a href="#">Liens1</a></li>
+            <li><a href="#">Liens2</a></li>
+            <li><a href="#">Liens3</a></li>
+            <li><a href="#">Liens4</a></li>
+        </ul>
+
+        <h2>Evénement au click et fonctions d'effets</h2>
+
+        <ul id="menu2">
+            <li><a href="#">Liens1</a></li>
+            <li class="has-submenu">
+                <a href="#">Sous-menu</a>
+                <ul class="submenu">
+                    <li><a href="#">Liens1</a></li>
+                    <li><a href="#">Liens2</a></li>
+                    <li><a href="#">Liens3</a></li>
+                    <li><a href="#">Liens4</a></li>
+                </ul>
+            </li>
+            <li class="has-submenu">
+                <a href="#">Sous-menu</a>
+                <ul class="submenu">
+                    <li><a href="#">Liens1</a></li>
+                    <li><a href="#">Liens2</a></li>
+                    <li><a href="#">Liens3</a></li>
+                    <li><a href="#">Liens4</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>jQuery.data() vs attribut data-</h2>
+
+        <p id="p1" data-html="toto">Un paragraphe stockant des paramètres</p>
+
+        <script src="js/vendor/jquery-3.6.0.min.js"></script>
+        <script src="./js/9-jquery-TP.js"></script>
+
+    </main>
+
+    <footer class="footer">
+        <p><a href="https://gretaprovence-extranet.fr/accueil.php" title="En savoir plus sur la formation">Formation
+                Développeur WEB - GRETA</a></p>
+        <p>Eleve : Quentin POGGI &copy; - Module HTML /CSS</p>
+        <p>Photos empruntées à <a href=""></a></p>
+        <a id="goTop" href="#" title="Haut de page">&UpArrow;</a>
+    </footer>
+</body>
+
+</html>
