@@ -140,22 +140,15 @@ body {
 }
 
 .gallery-container {
-<<<<<<< HEAD
-    display: flex;
-=======
     width: 100%;
     height: min-content;
     display: flex;
     margin-bottom: 2em;
->>>>>>> 87ddcd19e222ad8a26edff41f18a7e666c3d4199
 }
 
 .gallery {
     max-width: 50%;
-<<<<<<< HEAD
-=======
     height: min-content;
->>>>>>> 87ddcd19e222ad8a26edff41f18a7e666c3d4199
     display: flex;
     align-content:flex-start;
     flex-wrap: wrap;
@@ -193,20 +186,11 @@ body {
     height: min-content;
 }
 
-<<<<<<< HEAD
-.selected {
-=======
 .is_active {
->>>>>>> 87ddcd19e222ad8a26edff41f18a7e666c3d4199
     transform: scale(0.9);
     transition: 0.5s;
 }
 
-<<<<<<< HEAD
-.title {
-    text-align: center;
-    margin: 0 0 0.5em 0;
-=======
 /*.figure-picture {
     position: fixed;
 }*/
@@ -214,5 +198,4 @@ body {
 .title {
     text-align: center;
     margin: 1rem;
->>>>>>> 87ddcd19e222ad8a26edff41f18a7e666c3d4199
 }

@@ -5,10 +5,7 @@ require_once('./inc/medias-lazy.php');
 /* --------------------------------- Galerie -------------------------------- */
 
 $galleries = listDirectory(PATH_MEDIAS);
-<<<<<<< HEAD
-=======
 
->>>>>>> 87ddcd19e222ad8a26edff41f18a7e666c3d4199
 $lazy_galleries = [];
 
 foreach($galleries as $gallery) {

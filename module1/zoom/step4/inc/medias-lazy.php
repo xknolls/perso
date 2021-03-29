@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
-require_once( __DIR__ . './medias-functions.php');
-=======
 require_once( 'inc/medias-functions.php');
->>>>>>> 87ddcd19e222ad8a26edff41f18a7e666c3d4199
 
 /*
     Si on arrive à ouvrir le dossier :

@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
-<<<<<<< HEAD
-
-=======
->>>>>>> 87ddcd19e222ad8a26edff41f18a7e666c3d4199
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,19 +8,10 @@
     <link rel="stylesheet" href="themes/dark/css/normalize.css">
     <link rel="stylesheet" href="themes/dark/css/styles.css">
     <link rel="stylesheet" href="themes/dark/css/animate.css">
-<<<<<<< HEAD
-
-</head>
-
-<body>
-    <header class="banner">
-        <a class="site-logo" href="./index.php">ZooM</a>
-=======
 </head>
 <body>
     <header class="banner">
         <a class="site-logo" href="./index.html">ZooM</a>
->>>>>>> 87ddcd19e222ad8a26edff41f18a7e666c3d4199
         <p class="site-description">Miniatures et effet de Zoom</p>
         <nav class="banner-nav">
             <a class="is-active" href="index.php">Une seule galerie</a>
@@ -33,27 +20,6 @@
     </header>
     <main>
         <nav class="choice-gallery-nav">
-<<<<<<< HEAD
-            <?php foreach ($galleries as $gallerie) : ?>
-                <a class="choice-gallery-a" data-galerie="<?= htmlspecialchars($gallerie) ?>" href="?galerie=<?= htmlspecialchars($gallerie) ?>"><?= htmlspecialchars($gallerie) ?></a>
-            <?php endforeach; ?>
-        </nav>
-
-        <h1 class="title"><?= $gallery ?></h1>
-        <section id="<?= $gallery ?>" class="gallery-container zoom ajax">
-            <ul class="gallery" id="gallery">
-                <?php foreach ($list_gallery as $image) : ?>
-                    <li class="imglist"><img src="<?= $image['src_thumbnails'] ?>" data-src="<?= $image['src'] ?>" class="thumb-img" alt="<?= $image['alt'] ?>"></li>
-                <?php endforeach; ?>
-            </ul>
-            <div class="preview" id="preview">
-            </div>
-        </section>
-    </main>
-    <script src="js/ajax-lazy.js"></script>
-</body>
-
-=======
             <?php foreach($galleries as $gallerie) :?>
                 <a data-gallery="<?= htmlspecialchars($gallerie) ?>" class="choice-gallery-a" href="?galerie=<?= htmlspecialchars($gallerie) ?>"><?= htmlspecialchars($gallerie) ?></a>
             <?php endforeach;?>
@@ -64,7 +30,7 @@
     <section class="gallery-container zoom ajax">
         <ul class="gallery" id="gallery">
         <?php foreach($gallery as $image) : ?>
-            <li class="imglist"><img src="<?= $image['src_thumbnails'] ?>" data-src="<?= $image['src'] ?>" class="thumb-img" alt="<?= $image['alt'] ?>"></li>
+            <li class="imglist"><img tabindex="0" src="<?= $image['src_thumbnails'] ?>" data-src="<?= $image['src'] ?>" class="thumb-img" alt="<?= $image['alt'] ?>"></li>
         <?php endforeach; ?>
         </ul>
 
@@ -75,5 +41,4 @@
     </main>
     <script src="js/ajax-lazy.js"></script>
 </body>
->>>>>>> 87ddcd19e222ad8a26edff41f18a7e666c3d4199
 </html>

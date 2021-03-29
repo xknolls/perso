@@ -3,6 +3,7 @@
 
 	function zoom() {
 
+<<<<<<< HEAD
 		let sectionZoom;
 		sectionZoom = document.querySelectorAll('.zoom');
 
@@ -16,6 +17,18 @@
 
 			thumb = sectionZoom[i].querySelector('.thumb-img');
 			thumb.classList.add('selected');
+=======
+		let sections = document.querySelectorAll('.zoom');
+
+		for (let i = 0; i < sections.length; i++) {
+			let picture;
+			let figure;
+			let thumb;
+			let div;
+
+			thumb = sections[i].querySelector('.thumb-img');
+			thumb.classList.add('is_active');
+>>>>>>> 87ddcd19e222ad8a26edff41f18a7e666c3d4199
 
 			//creation d'une image
 			picture = document.createElement('img');
@@ -23,21 +36,28 @@
 			picture.classList.add('picture');
 			picture.classList.add('animate__animated', 'animate__fadeInRightBig');
 			picture.src = thumb.dataset.src;
+<<<<<<< HEAD
 			picture.alt = thumb.alt;
+=======
+>>>>>>> 87ddcd19e222ad8a26edff41f18a7e666c3d4199
 
 			figure = document.createElement('figure');
 			figure.classList.add('figure-picture');
 
+<<<<<<< HEAD
 			//créatio de l'élément figcaption + la class + la description + le contenue
 			figcaption = document.createElement('figcaption');
 			figcaption.classList.add('description');
 			figcaption.textContent = thumb.alt;
 
+=======
+>>>>>>> 87ddcd19e222ad8a26edff41f18a7e666c3d4199
 			//recuperation de la div
 			div = document.querySelectorAll('#preview');
 
 			//ajout de img dans la div
 			figure.append(picture);
+<<<<<<< HEAD
 			figure.append(figcaption);
 			div[i].append(figure);
 
@@ -78,6 +98,36 @@
 				event.target.classList.add('selected');
 
 				//clickedimg.setAttribute('alt', );
+=======
+			div[i].append(figure);
+
+			//installation de l'evenement sur la section
+			sections[i].addEventListener('click', function (event) {
+
+				//si on ne clique pas sur une image alors rien ne ce passe
+				if (event.target.nodeName !== 'IMG' || event.target.classList.contains('is_active')) {
+					return;
+				}
+
+				let clickedimg;
+
+				//on recupere l'image affiché en grand
+				clickedimg = sections[i].querySelector('.picture');
+				clickedimg.src = event.target.dataset.src;
+
+				clickedimg.classList.remove('animate__fadeInRightBig');
+				clickedimg.classList.add('animate__fadeOutRightBig');
+
+				setTimeout(function () {
+					clickedimg.classList.remove('animate__fadeOutRightBig');
+					clickedimg.classList.add('animate__fadeInRightBig');
+				}, 500);
+
+				//si la classe existe on l'enleve
+				sections[i].querySelector('.is_active').classList.remove('is_active');
+				//on ajoute la classe sur l'image cliqué
+				event.target.classList.add('is_active');
+>>>>>>> 87ddcd19e222ad8a26edff41f18a7e666c3d4199
 			});
 		}
 	}
